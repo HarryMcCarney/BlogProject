@@ -1,0 +1,18 @@
+{
+  "version": 2,
+  "dgSpecHash": "UWT8rmBJ7hrYLoSquBgsUcVomsj9JRCFTZavN9liO0wTXxq9YllNkvt02UR82Z+qfzE/DyEtoG32yJt7FoHwNg==",
+  "success": true,
+  "projectFilePath": "C:\\Projects\\BlogProject\\BlogProject.fsproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\harry\\.nuget\\packages\\feliz.viewengine\\0.24.0\\feliz.viewengine.0.24.0.nupkg.sha512",
+    "C:\\Users\\harry\\.nuget\\packages\\fsharp.core\\7.0.300\\fsharp.core.7.0.300.nupkg.sha512",
+    "C:\\Users\\harry\\.nuget\\packages\\giraffe\\6.4.0\\giraffe.6.4.0.nupkg.sha512",
+    "C:\\Users\\harry\\.nuget\\packages\\giraffe.viewengine\\1.4.0\\giraffe.viewengine.1.4.0.nupkg.sha512",
+    "C:\\Users\\harry\\.nuget\\packages\\microsoft.io.recyclablememorystream\\3.0.0\\microsoft.io.recyclablememorystream.3.0.0.nupkg.sha512",
+    "C:\\Users\\harry\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512",
+    "C:\\Users\\harry\\.nuget\\packages\\suave\\2.6.2\\suave.2.6.2.nupkg.sha512",
+    "C:\\Users\\harry\\.nuget\\packages\\system.text.encodings.web\\8.0.0\\system.text.encodings.web.8.0.0.nupkg.sha512",
+    "C:\\Users\\harry\\.nuget\\packages\\system.text.json\\8.0.3\\system.text.json.8.0.3.nupkg.sha512"
+  ],
+  "logs": []
+}

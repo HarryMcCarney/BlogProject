@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<Project ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
+    <RestoreSuccess Condition=" '$(RestoreSuccess)' == '' ">True</RestoreSuccess>
+    <RestoreTool Condition=" '$(RestoreTool)' == '' ">NuGet</RestoreTool>
+    <ProjectAssetsFile Condition=" '$(ProjectAssetsFile)' == '' ">$(MSBuildThisFileDirectory)project.assets.json</ProjectAssetsFile>
+    <NuGetPackageRoot Condition=" '$(NuGetPackageRoot)' == '' ">$(UserProfile)\.nuget\packages\</NuGetPackageRoot>
+    <NuGetPackageFolders Condition=" '$(NuGetPackageFolders)' == '' ">C:\Users\harry\.nuget\packages\</NuGetPackageFolders>
+    <NuGetProjectStyle Condition=" '$(NuGetProjectStyle)' == '' ">PackageReference</NuGetProjectStyle>
+    <NuGetToolVersion Condition=" '$(NuGetToolVersion)' == '' ">6.6.0</NuGetToolVersion>
+  </PropertyGroup>
+  <ItemGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
+    <SourceRoot Include="C:\Users\harry\.nuget\packages\" />
+  </ItemGroup>
+  <PropertyGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
+    <PkgFSharp_Core Condition=" '$(PkgFSharp_Core)' == '' ">C:\Users\harry\.nuget\packages\fsharp.core\7.0.300</PkgFSharp_Core>
+    <PkgSuave Condition=" '$(PkgSuave)' == '' ">C:\Users\harry\.nuget\packages\suave\2.6.2</PkgSuave>
+    <PkgGiraffe_ViewEngine Condition=" '$(PkgGiraffe_ViewEngine)' == '' ">C:\Users\harry\.nuget\packages\giraffe.viewengine\1.4.0</PkgGiraffe_ViewEngine>
+    <PkgGiraffe Condition=" '$(PkgGiraffe)' == '' ">C:\Users\harry\.nuget\packages\giraffe\6.4.0</PkgGiraffe>
+    <PkgFeliz_ViewEngine Condition=" '$(PkgFeliz_ViewEngine)' == '' ">C:\Users\harry\.nuget\packages\feliz.viewengine\0.24.0</PkgFeliz_ViewEngine>
+  </PropertyGroup>
+</Project>
