@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "UWT8rmBJ7hrYLoSquBgsUcVomsj9JRCFTZavN9liO0wTXxq9YllNkvt02UR82Z+qfzE/DyEtoG32yJt7FoHwNg==",
+  "dgSpecHash": "QkwjT0khR7ArW73zeMF3282fyoshdhdAtVx/tnMgMdDFVggVjboMq+zudPDXwVoUPzAFd2pSVLeiBN9LXUnC+w==",
   "success": true,
-  "projectFilePath": "C:\\Projects\\BlogProject\\BlogProject.fsproj",
+  "projectFilePath": "C:\\Projects\\BlogProject\\BlogProject\\BlogProject.fsproj",
   "expectedPackageFiles": [
     "C:\\Users\\harry\\.nuget\\packages\\feliz.viewengine\\0.24.0\\feliz.viewengine.0.24.0.nupkg.sha512",
     "C:\\Users\\harry\\.nuget\\packages\\fsharp.core\\7.0.300\\fsharp.core.7.0.300.nupkg.sha512",

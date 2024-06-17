@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Projects\\BlogProject\\BlogProject.fsproj": {}
+    "C:\\Projects\\BlogProject\\BlogProject\\BlogProject.fsproj": {}
   },
   "projects": {
-    "C:\\Projects\\BlogProject\\BlogProject.fsproj": {
+    "C:\\Projects\\BlogProject\\BlogProject\\BlogProject.fsproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Projects\\BlogProject\\BlogProject.fsproj",
+        "projectUniqueName": "C:\\Projects\\BlogProject\\BlogProject\\BlogProject.fsproj",
         "projectName": "BlogProject",
-        "projectPath": "C:\\Projects\\BlogProject\\BlogProject.fsproj",
+        "projectPath": "C:\\Projects\\BlogProject\\BlogProject\\BlogProject.fsproj",
         "packagesPath": "C:\\Users\\harry\\.nuget\\packages\\",
-        "outputPath": "C:\\Projects\\BlogProject\\obj\\",
+        "outputPath": "C:\\Projects\\BlogProject\\BlogProject\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\harry\\AppData\\Roaming\\NuGet\\NuGet.Config"
