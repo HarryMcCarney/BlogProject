@@ -2,8 +2,16 @@ namespace blog
 
 open Feliz.ViewEngine 
 open RulesForDistributedAgile
+open System.IO
+open FSharp.Formatting.Markdown
+
 
 module Master =
+
+        let article = File.ReadAllText "testing.md"
+        let parsed = Markdown.Parse(article)
+        let html = Markdown.ToHtml(parsed)
+
         let twoColumns = 
                 Html.div [ 
                     prop.classes ["container"; "is-primary"; "is-widescreen"]
@@ -16,7 +24,8 @@ module Master =
                                 ]
                                 Html.div [
                                     prop.classes ["column"; "is-three-quarters"; "has-background-info"]
-                                    prop.children RulesForDistributedAgile.content
+
+                                    prop.dangerouslySetInnerHTML html
                                 ]
                             ]     
                         ]
@@ -30,6 +39,10 @@ module Master =
                     Html.link [
                         prop.rel "stylesheet"
                         prop.href "https://cdn.jsdelivr.net/npm/bulma@1.0.0/css/bulma.min.css"
+                    ]
+                    Html.link [
+                        prop.rel "stylesheet"
+                        prop.href "styles.css"
                     ]
                 ]  
                 Html.div [ 

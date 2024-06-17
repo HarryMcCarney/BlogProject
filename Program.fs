@@ -24,6 +24,6 @@ module builder =
         let config =
             {defaultConfig with homeFolder = Some (Path.GetFullPath "public") }
             
-        startWebServer defaultConfig app
+        startWebServer config app
         0
 

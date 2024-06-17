@@ -8,7 +8,8 @@
     ".NETCoreApp,Version=v7.0": {
       "BlogProject/1.0.0": {
         "dependencies": {
-          "FSharp.Core": "7.0.300",
+          "FSharp.Core": "7.0.0",
+          "FSharp.Formatting": "18.1.0",
           "Giraffe.ViewEngine": "1.4.0",
           "Suave": "2.6.2",
           "Feliz.ViewEngine": "0.24.0",
@@ -20,7 +21,7 @@
       },
       "Feliz.ViewEngine/0.24.0": {
         "dependencies": {
-          "FSharp.Core": "7.0.300"
+          "FSharp.Core": "7.0.0"
         },
         "runtime": {
           "lib/netstandard2.0/Feliz.ViewEngine.dll": {
@@ -29,11 +30,113 @@
           }
         }
       },
-      "FSharp.Core/7.0.300": {
+      "FSharp.Compiler.Service/43.7.200": {
+        "dependencies": {
+          "FSharp.Core": "7.0.0",
+          "System.Buffers": "4.5.1",
+          "System.Collections.Immutable": "6.0.0",
+          "System.Diagnostics.DiagnosticSource": "6.0.0",
+          "System.Memory": "4.5.5",
+          "System.Reflection.Emit": "4.7.0",
+          "System.Reflection.Metadata": "6.0.0",
+          "System.Runtime.CompilerServices.Unsafe": "6.0.0"
+        },
+        "runtime": {
+          "lib/netstandard2.0/FSharp.Compiler.Service.dll": {
+            "assemblyVersion": "43.7.200.0",
+            "fileVersion": "43.702.23.6902"
+          },
+          "lib/netstandard2.0/FSharp.DependencyManager.Nuget.dll": {
+            "assemblyVersion": "7.0.200.0",
+            "fileVersion": "7.2.23.6902"
+          }
+        },
+        "resources": {
+          "lib/netstandard2.0/cs/FSharp.Compiler.Service.resources.dll": {
+            "locale": "cs"
+          },
+          "lib/netstandard2.0/cs/FSharp.DependencyManager.Nuget.resources.dll": {
+            "locale": "cs"
+          },
+          "lib/netstandard2.0/de/FSharp.Compiler.Service.resources.dll": {
+            "locale": "de"
+          },
+          "lib/netstandard2.0/de/FSharp.DependencyManager.Nuget.resources.dll": {
+            "locale": "de"
+          },
+          "lib/netstandard2.0/es/FSharp.Compiler.Service.resources.dll": {
+            "locale": "es"
+          },
+          "lib/netstandard2.0/es/FSharp.DependencyManager.Nuget.resources.dll": {
+            "locale": "es"
+          },
+          "lib/netstandard2.0/fr/FSharp.Compiler.Service.resources.dll": {
+            "locale": "fr"
+          },
+          "lib/netstandard2.0/fr/FSharp.DependencyManager.Nuget.resources.dll": {
+            "locale": "fr"
+          },
+          "lib/netstandard2.0/it/FSharp.Compiler.Service.resources.dll": {
+            "locale": "it"
+          },
+          "lib/netstandard2.0/it/FSharp.DependencyManager.Nuget.resources.dll": {
+            "locale": "it"
+          },
+          "lib/netstandard2.0/ja/FSharp.Compiler.Service.resources.dll": {
+            "locale": "ja"
+          },
+          "lib/netstandard2.0/ja/FSharp.DependencyManager.Nuget.resources.dll": {
+            "locale": "ja"
+          },
+          "lib/netstandard2.0/ko/FSharp.Compiler.Service.resources.dll": {
+            "locale": "ko"
+          },
+          "lib/netstandard2.0/ko/FSharp.DependencyManager.Nuget.resources.dll": {
+            "locale": "ko"
+          },
+          "lib/netstandard2.0/pl/FSharp.Compiler.Service.resources.dll": {
+            "locale": "pl"
+          },
+          "lib/netstandard2.0/pl/FSharp.DependencyManager.Nuget.resources.dll": {
+            "locale": "pl"
+          },
+          "lib/netstandard2.0/pt-BR/FSharp.Compiler.Service.resources.dll": {
+            "locale": "pt-BR"
+          },
+          "lib/netstandard2.0/pt-BR/FSharp.DependencyManager.Nuget.resources.dll": {
+            "locale": "pt-BR"
+          },
+          "lib/netstandard2.0/ru/FSharp.Compiler.Service.resources.dll": {
+            "locale": "ru"
+          },
+          "lib/netstandard2.0/ru/FSharp.DependencyManager.Nuget.resources.dll": {
+            "locale": "ru"
+          },
+          "lib/netstandard2.0/tr/FSharp.Compiler.Service.resources.dll": {
+            "locale": "tr"
+          },
+          "lib/netstandard2.0/tr/FSharp.DependencyManager.Nuget.resources.dll": {
+            "locale": "tr"
+          },
+          "lib/netstandard2.0/zh-Hans/FSharp.Compiler.Service.resources.dll": {
+            "locale": "zh-Hans"
+          },
+          "lib/netstandard2.0/zh-Hans/FSharp.DependencyManager.Nuget.resources.dll": {
+            "locale": "zh-Hans"
+          },
+          "lib/netstandard2.0/zh-Hant/FSharp.Compiler.Service.resources.dll": {
+            "locale": "zh-Hant"
+          },
+          "lib/netstandard2.0/zh-Hant/FSharp.DependencyManager.Nuget.resources.dll": {
+            "locale": "zh-Hant"
+          }
+        }
+      },
+      "FSharp.Core/7.0.0": {
         "runtime": {
           "lib/netstandard2.1/FSharp.Core.dll": {
             "assemblyVersion": "7.0.0.0",
-            "fileVersion": "7.3.23.20307"
+            "fileVersion": "7.0.22.51310"
           }
         },
         "resources": {
@@ -78,9 +181,44 @@
           }
         }
       },
+      "FSharp.Formatting/18.1.0": {
+        "dependencies": {
+          "FSharp.Compiler.Service": "43.7.200"
+        },
+        "runtime": {
+          "lib/netstandard2.1/FSharp.Formatting.ApiDocs.dll": {
+            "assemblyVersion": "18.1.0.0",
+            "fileVersion": "18.1.0.0"
+          },
+          "lib/netstandard2.1/FSharp.Formatting.CSharpFormat.dll": {
+            "assemblyVersion": "18.1.0.0",
+            "fileVersion": "18.1.0.0"
+          },
+          "lib/netstandard2.1/FSharp.Formatting.CodeFormat.dll": {
+            "assemblyVersion": "18.1.0.0",
+            "fileVersion": "18.1.0.0"
+          },
+          "lib/netstandard2.1/FSharp.Formatting.Common.dll": {
+            "assemblyVersion": "18.1.0.0",
+            "fileVersion": "18.1.0.0"
+          },
+          "lib/netstandard2.1/FSharp.Formatting.Literate.dll": {
+            "assemblyVersion": "18.1.0.0",
+            "fileVersion": "18.1.0.0"
+          },
+          "lib/netstandard2.1/FSharp.Formatting.Markdown.dll": {
+            "assemblyVersion": "18.1.0.0",
+            "fileVersion": "18.1.0.0"
+          },
+          "lib/netstandard2.1/FSharp.Formatting.dll": {
+            "assemblyVersion": "18.1.0.0",
+            "fileVersion": "18.1.0.0"
+          }
+        }
+      },
       "Giraffe/6.4.0": {
         "dependencies": {
-          "FSharp.Core": "7.0.300",
+          "FSharp.Core": "7.0.0",
           "Giraffe.ViewEngine": "1.4.0",
           "Microsoft.IO.RecyclableMemoryStream": "3.0.0",
           "Newtonsoft.Json": "13.0.3",
@@ -95,7 +233,7 @@
       },
       "Giraffe.ViewEngine/1.4.0": {
         "dependencies": {
-          "FSharp.Core": "7.0.300"
+          "FSharp.Core": "7.0.0"
         },
         "runtime": {
           "lib/net5.0/Giraffe.ViewEngine.dll": {
@@ -122,7 +260,7 @@
       },
       "Suave/2.6.2": {
         "dependencies": {
-          "FSharp.Core": "7.0.300"
+          "FSharp.Core": "7.0.0"
         },
         "runtime": {
           "lib/netstandard2.1/Suave.dll": {
@@ -131,6 +269,25 @@
           }
         }
       },
+      "System.Buffers/4.5.1": {},
+      "System.Collections.Immutable/6.0.0": {
+        "dependencies": {
+          "System.Runtime.CompilerServices.Unsafe": "6.0.0"
+        }
+      },
+      "System.Diagnostics.DiagnosticSource/6.0.0": {
+        "dependencies": {
+          "System.Runtime.CompilerServices.Unsafe": "6.0.0"
+        }
+      },
+      "System.Memory/4.5.5": {},
+      "System.Reflection.Emit/4.7.0": {},
+      "System.Reflection.Metadata/6.0.0": {
+        "dependencies": {
+          "System.Collections.Immutable": "6.0.0"
+        }
+      },
+      "System.Runtime.CompilerServices.Unsafe/6.0.0": {},
       "System.Text.Encodings.Web/8.0.0": {
         "runtime": {
           "lib/net7.0/System.Text.Encodings.Web.dll": {
@@ -173,12 +330,26 @@
       "path": "feliz.viewengine/0.24.0",
       "hashPath": "feliz.viewengine.0.24.0.nupkg.sha512"
     },
-    "FSharp.Core/7.0.300": {
+    "FSharp.Compiler.Service/43.7.200": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-8vvItREJ1l5lcp3vBCSJ1mFevVAhR48I34DuF/EoUa7o1KlFpQpagyuZkVYMAsHPIjdp47ZxM9sI4eqeXaeWkA==",
-      "path": "fsharp.core/7.0.300",
-      "hashPath": "fsharp.core.7.0.300.nupkg.sha512"
+      "sha512": "sha512-RpO8Ly7mTRGnZANzjKMDsxsrkpVyyPP3d211+95TBVrDh5XU8LS+F/tPsJ9y+10kphzOmplZ9xaEc44OtveWzw==",
+      "path": "fsharp.compiler.service/43.7.200",
+      "hashPath": "fsharp.compiler.service.43.7.200.nupkg.sha512"
+    },
+    "FSharp.Core/7.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-xPww0dhsH7o373ZNFY1Y08WRsJJUUzqGk0AIUxxUxSJkWqul0UwCBXg6UmqJX76VdiSvvEXn4SYwX8lYQaZzuQ==",
+      "path": "fsharp.core/7.0.0",
+      "hashPath": "fsharp.core.7.0.0.nupkg.sha512"
+    },
+    "FSharp.Formatting/18.1.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-ojWEDxqqb6hCOlluLF5S9e1+CUpdcQXyh2efUBLHlSk1LZTZYFJZfHdsrjie0limW52zMw8qbgmjmZj6OPs7cg==",
+      "path": "fsharp.formatting/18.1.0",
+      "hashPath": "fsharp.formatting.18.1.0.nupkg.sha512"
     },
     "Giraffe/6.4.0": {
       "type": "package",
@@ -214,6 +385,55 @@
       "sha512": "sha512-JNTsgb3FrFnvsp7G93Y9XLIGVa47fG4GZ8un/+/iMMVBTRWl8l6Rlnqjo/PsQP6NojtkrLEM4SLz9AhfQIPNag==",
       "path": "suave/2.6.2",
       "hashPath": "suave.2.6.2.nupkg.sha512"
+    },
+    "System.Buffers/4.5.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-Rw7ijyl1qqRS0YQD/WycNst8hUUMgrMH4FCn1nNm27M4VxchZ1js3fVjQaANHO5f3sN4isvP4a+Met9Y4YomAg==",
+      "path": "system.buffers/4.5.1",
+      "hashPath": "system.buffers.4.5.1.nupkg.sha512"
+    },
+    "System.Collections.Immutable/6.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-l4zZJ1WU2hqpQQHXz1rvC3etVZN+2DLmQMO79FhOTZHMn8tDRr+WU287sbomD0BETlmKDn0ygUgVy9k5xkkJdA==",
+      "path": "system.collections.immutable/6.0.0",
+      "hashPath": "system.collections.immutable.6.0.0.nupkg.sha512"
+    },
+    "System.Diagnostics.DiagnosticSource/6.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-frQDfv0rl209cKm1lnwTgFPzNigy2EKk1BS3uAvHvlBVKe5cymGyHO+Sj+NLv5VF/AhHsqPIUUwya5oV4CHMUw==",
+      "path": "system.diagnostics.diagnosticsource/6.0.0",
+      "hashPath": "system.diagnostics.diagnosticsource.6.0.0.nupkg.sha512"
+    },
+    "System.Memory/4.5.5": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-XIWiDvKPXaTveaB7HVganDlOCRoj03l+jrwNvcge/t8vhGYKvqV+dMv6G4SAX2NoNmN0wZfVPTAlFwZcZvVOUw==",
+      "path": "system.memory/4.5.5",
+      "hashPath": "system.memory.4.5.5.nupkg.sha512"
+    },
+    "System.Reflection.Emit/4.7.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-VR4kk8XLKebQ4MZuKuIni/7oh+QGFmZW3qORd1GvBq/8026OpW501SzT/oypwiQl4TvT8ErnReh/NzY9u+C6wQ==",
+      "path": "system.reflection.emit/4.7.0",
+      "hashPath": "system.reflection.emit.4.7.0.nupkg.sha512"
+    },
+    "System.Reflection.Metadata/6.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-sffDOcex1C3HO5kDolOYcWXTwRpZY/LvJujM6SMjn63fWMJWchYAAmkoAJXlbpZ5yf4d+KMgxd+LeETa4gD9sQ==",
+      "path": "system.reflection.metadata/6.0.0",
+      "hashPath": "system.reflection.metadata.6.0.0.nupkg.sha512"
+    },
+    "System.Runtime.CompilerServices.Unsafe/6.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-/iUeP3tq1S0XdNNoMz5C9twLSrM/TH+qElHkXWaPvuNOt+99G75NrV0OS2EqHx5wMN7popYjpc8oTjC1y16DLg==",
+      "path": "system.runtime.compilerservices.unsafe/6.0.0",
+      "hashPath": "system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512"
     },
     "System.Text.Encodings.Web/8.0.0": {
       "type": "package",
