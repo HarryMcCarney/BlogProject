@@ -1,16 +1,8 @@
-+++
-author = "Harry McCarney"
-title = "10 rules for Distributed Agile — How H&C gets stuff done."
-date = "2020-04-09"
-description = "not sure where this goes"
-
-tags = [
-    "Remote Working",
-    "Agile",
-    "Coronavirus",
-    "Distributed Teams",
-]
-+++
+---
+category: Documentation
+categoryindex: 1
+index: 2
+---
 
 H&C has been working from home since before it became synonymous with flattening the curve. 
 <!--more-->

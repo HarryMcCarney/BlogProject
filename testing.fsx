@@ -11,6 +11,8 @@ let parsed = Markdown.Parse(doc)
 
 printfn "%A" parsed.Paragraphs 
 
+MarkdownParagraph.
+
 for par in parsed.Paragraphs do
 
     match par with

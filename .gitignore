@@ -1,6 +1,7 @@
 [Dd]ebug/
 [Bb]in/
 [Oo]bj/
-bin
+**/bin/
+/bin/
 obj
 
