@@ -1,18 +1,38 @@
 {
   "version": 2,
-  "dgSpecHash": "QkwjT0khR7ArW73zeMF3282fyoshdhdAtVx/tnMgMdDFVggVjboMq+zudPDXwVoUPzAFd2pSVLeiBN9LXUnC+w==",
+  "dgSpecHash": "t0b5Z/0hNx/POFkPzsV/klifGPoOHvbJso/r0slLJilnZAtE/rePOSub1FL4heXKlXd2NKLw3F0kua9qOEmAdA==",
   "success": true,
   "projectFilePath": "C:\\Projects\\BlogProject\\BlogProject\\BlogProject.fsproj",
   "expectedPackageFiles": [
     "C:\\Users\\harry\\.nuget\\packages\\feliz.viewengine\\0.24.0\\feliz.viewengine.0.24.0.nupkg.sha512",
+    "C:\\Users\\harry\\.nuget\\packages\\fsharp.compiler.service\\43.7.200\\fsharp.compiler.service.43.7.200.nupkg.sha512",
     "C:\\Users\\harry\\.nuget\\packages\\fsharp.core\\7.0.300\\fsharp.core.7.0.300.nupkg.sha512",
+    "C:\\Users\\harry\\.nuget\\packages\\fsharp.formatting\\18.1.0\\fsharp.formatting.18.1.0.nupkg.sha512",
     "C:\\Users\\harry\\.nuget\\packages\\giraffe\\6.4.0\\giraffe.6.4.0.nupkg.sha512",
     "C:\\Users\\harry\\.nuget\\packages\\giraffe.viewengine\\1.4.0\\giraffe.viewengine.1.4.0.nupkg.sha512",
     "C:\\Users\\harry\\.nuget\\packages\\microsoft.io.recyclablememorystream\\3.0.0\\microsoft.io.recyclablememorystream.3.0.0.nupkg.sha512",
     "C:\\Users\\harry\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512",
     "C:\\Users\\harry\\.nuget\\packages\\suave\\2.6.2\\suave.2.6.2.nupkg.sha512",
+    "C:\\Users\\harry\\.nuget\\packages\\system.buffers\\4.5.1\\system.buffers.4.5.1.nupkg.sha512",
+    "C:\\Users\\harry\\.nuget\\packages\\system.collections.immutable\\6.0.0\\system.collections.immutable.6.0.0.nupkg.sha512",
+    "C:\\Users\\harry\\.nuget\\packages\\system.diagnostics.diagnosticsource\\6.0.0\\system.diagnostics.diagnosticsource.6.0.0.nupkg.sha512",
+    "C:\\Users\\harry\\.nuget\\packages\\system.memory\\4.5.5\\system.memory.4.5.5.nupkg.sha512",
+    "C:\\Users\\harry\\.nuget\\packages\\system.reflection.emit\\4.7.0\\system.reflection.emit.4.7.0.nupkg.sha512",
+    "C:\\Users\\harry\\.nuget\\packages\\system.reflection.metadata\\6.0.0\\system.reflection.metadata.6.0.0.nupkg.sha512",
+    "C:\\Users\\harry\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\6.0.0\\system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512",
     "C:\\Users\\harry\\.nuget\\packages\\system.text.encodings.web\\8.0.0\\system.text.encodings.web.8.0.0.nupkg.sha512",
     "C:\\Users\\harry\\.nuget\\packages\\system.text.json\\8.0.3\\system.text.json.8.0.3.nupkg.sha512"
   ],
-  "logs": []
+  "logs": [
+    {
+      "code": "NU1608",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Detected package version outside of dependency constraint: FSharp.Compiler.Service 43.7.200 requires FSharp.Core (= 7.0.200) but version FSharp.Core 7.0.300 was resolved.",
+      "libraryId": "FSharp.Core",
+      "targetGraphs": [
+        "net7.0"
+      ]
+    }
+  ]
 }

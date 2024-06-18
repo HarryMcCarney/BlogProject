@@ -41,6 +41,11 @@
               "version": "[7.0.300, )",
               "generatePathProperty": true
             },
+            "FSharp.Formatting": {
+              "target": "Package",
+              "version": "[18.1.0, )",
+              "generatePathProperty": true
+            },
             "Giraffe.ViewEngine": {
               "target": "Package",
               "version": "[1.4.0, )",

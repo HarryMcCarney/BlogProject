@@ -17,6 +17,7 @@
     <PkgSuave Condition=" '$(PkgSuave)' == '' ">C:\Users\harry\.nuget\packages\suave\2.6.2</PkgSuave>
     <PkgGiraffe_ViewEngine Condition=" '$(PkgGiraffe_ViewEngine)' == '' ">C:\Users\harry\.nuget\packages\giraffe.viewengine\1.4.0</PkgGiraffe_ViewEngine>
     <PkgGiraffe Condition=" '$(PkgGiraffe)' == '' ">C:\Users\harry\.nuget\packages\giraffe\6.4.0</PkgGiraffe>
+    <PkgFSharp_Formatting Condition=" '$(PkgFSharp_Formatting)' == '' ">C:\Users\harry\.nuget\packages\fsharp.formatting\18.1.0</PkgFSharp_Formatting>
     <PkgFeliz_ViewEngine Condition=" '$(PkgFeliz_ViewEngine)' == '' ">C:\Users\harry\.nuget\packages\feliz.viewengine\0.24.0</PkgFeliz_ViewEngine>
   </PropertyGroup>
 </Project>

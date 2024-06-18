@@ -3,8 +3,7 @@ namespace blog
 open Feliz.ViewEngine 
 
 module RulesForDistributedAgile =
-    let title = "10 rules for Distributed Agile — How H&C gets stuff done."
-    let mainImage = "images/berlin.png"
+ 
 
     let content = 
         [
@@ -14,7 +13,7 @@ module RulesForDistributedAgile =
             ]
 
             Html.img [
-                prop.href "Images\\berlin.png"
+                prop.src "berlin.png"
             ]
 
             Html.div [
