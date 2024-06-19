@@ -1,19 +1,14 @@
 namespace blog
 
 open Feliz.ViewEngine 
-open RulesForDistributedAgile
 open System.IO
 open FSharp.Formatting.Markdown
 open FSharp.Formatting.Literate
-open FSharp.Formatting.Markdown
-open FSharp.Formatting.Templating
-open FSharp.Formatting
-
+open Layout
 
 module Master =
 
     let doc =  File.ReadAllText "testing.md" 
-
     let md = Literate.ParseMarkdownString(doc)
 
     let getMetaData doc = 
@@ -46,10 +41,9 @@ module Master =
     let html = getArticleHtml parsed
     let title = (getMetaData parsed)["title"]
 
-
     let twoColumns = 
             Html.div [ 
-                prop.classes ["container"; "is-primary"; "is-widescreen"]
+                prop.classes ["container"; "is-primary"; "is-fluid"]
                 prop.children [
                     Html.div [
                         prop.className "columns" 
@@ -58,7 +52,7 @@ module Master =
                                 prop.classes ["column"; "is-one-quarter"; "has-background-primary"]
                             ]
                             Html.div [
-                                prop.classes ["column"; "is-three-quarters"; "has-background-info"]
+                                prop.classes ["column"; "is-three-quarters"; "has-background-info"; "content"; "is-medium"]
                                 prop.children [
                                     Html.div [
                                         prop.classes ["title";"is-2"]
@@ -77,20 +71,12 @@ module Master =
     let render =
         [
             Html.header [
-                Html.title "Harrys Blog "
                 Html.link [
                     prop.rel "stylesheet"
                     prop.href "https://cdn.jsdelivr.net/npm/bulma@1.0.0/css/bulma.min.css"
                 ]
-                Html.link [
-                    prop.rel "stylesheet"
-                    prop.href "styles.css"
-                ]
             ]  
-            Html.div [ 
-                prop.className "title" 
-                prop.text "This is my very simple blog" 
-            ]
+            navbar
             twoColumns
         ]
         |> Render.htmlView

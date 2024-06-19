@@ -4,6 +4,7 @@
     <TargetFramework>net7.0</TargetFramework>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Layout.fs" />
     <Compile Include="RulesForDistributedAgile.fs" />
     <Compile Include="Master.fs" />
     <Compile Include="Program.fs" />

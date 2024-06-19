@@ -10,5 +10,5 @@ H&C has been working from home since before it became synonymous with flattening
 ![Berlin and London](/berlin.png)
 
 
-## 10 rules for effective Distributed Agile working
+# 10 rules for effective Distributed Agile working
  [slack](https://slack.com/intl/en-gb/?eu_nc=1)
