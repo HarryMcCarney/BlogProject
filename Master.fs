@@ -50,6 +50,9 @@ module Master =
                         prop.children [
                             Html.div [
                                 prop.classes ["column"; "is-one-quarter"; "has-background-primary"]
+                                prop.children [
+                                    menu
+                                ]
                             ]
                             Html.div [
                                 prop.classes ["column"; "is-three-quarters"; "has-background-info"; "content"; "is-medium"]
@@ -78,5 +81,6 @@ module Master =
             ]  
             navbar
             twoColumns
+            footer
         ]
         |> Render.htmlView
