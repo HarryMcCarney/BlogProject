@@ -4,51 +4,93 @@ open Feliz.ViewEngine
 open RulesForDistributedAgile
 open System.IO
 open FSharp.Formatting.Markdown
+open FSharp.Formatting.Literate
+open FSharp.Formatting.Markdown
+open FSharp.Formatting.Templating
+open FSharp.Formatting
 
 
 module Master =
 
-        let article = File.ReadAllText "testing.md"
-        let parsed = Markdown.Parse(article)
-        let html = Markdown.ToHtml(parsed)
+    let doc =  File.ReadAllText "testing.md" 
 
-        let twoColumns = 
-                Html.div [ 
-                    prop.classes ["container"; "is-primary"; "is-widescreen"]
-                    prop.children [
-                        Html.div [
-                            prop.className "columns" 
-                            prop.children [
-                                Html.div [
-                                    prop.classes ["column"; "is-one-quarter"; "has-background-primary"]
-                                ]
-                                Html.div [
-                                    prop.classes ["column"; "is-three-quarters"; "has-background-info"]
+    let md = Literate.ParseMarkdownString(doc)
 
-                                    prop.dangerouslySetInnerHTML html
+    let getMetaData doc = 
+        md.Paragraphs
+        |> Seq.map(fun p -> 
+            match p with 
+            | YamlFrontmatter (meta,_) -> 
+                meta
+                |> List.map(fun md ->  md.Split ':' |> fun x -> x[0].Trim(), x[1].Trim())
+                |> Some
+            | _ -> None)
+        |> Seq.choose id
+        |> Seq.concat
+        |> Map
+
+    let getArticleHtml doc = 
+        md.Paragraphs
+        |> Seq.filter(fun p -> 
+            match p with 
+            | YamlFrontmatter (_,_) -> false
+            | _ -> true
+            )
+        |> Seq.toList
+        |> fun paras -> MarkdownDocument(paras, dict [] )
+        |> Markdown.ToHtml
+
+    let article = File.ReadAllText "testing.md"
+    let parsed = Literate.ParseMarkdownString(article)
+
+    let html = getArticleHtml parsed
+    let title = (getMetaData parsed)["title"]
+
+
+    let twoColumns = 
+            Html.div [ 
+                prop.classes ["container"; "is-primary"; "is-widescreen"]
+                prop.children [
+                    Html.div [
+                        prop.className "columns" 
+                        prop.children [
+                            Html.div [
+                                prop.classes ["column"; "is-one-quarter"; "has-background-primary"]
+                            ]
+                            Html.div [
+                                prop.classes ["column"; "is-three-quarters"; "has-background-info"]
+                                prop.children [
+                                    Html.div [
+                                        prop.classes ["title";"is-2"]
+                                        prop.text title
+                                    ]
+                                    Html.div [
+                                        prop.dangerouslySetInnerHTML html
+                                    ]
                                 ]
-                            ]     
-                        ]
+                            ]
+                        ]     
                     ]
                 ]
-
-        let render =
-            [
-                Html.header [
-                    Html.title "Harrys Blog "
-                    Html.link [
-                        prop.rel "stylesheet"
-                        prop.href "https://cdn.jsdelivr.net/npm/bulma@1.0.0/css/bulma.min.css"
-                    ]
-                    Html.link [
-                        prop.rel "stylesheet"
-                        prop.href "styles.css"
-                    ]
-                ]  
-                Html.div [ 
-                    prop.className "title" 
-                    prop.text "This is my very simple blog" 
-                ]
-                twoColumns
             ]
-            |> Render.htmlView
+
+    let render =
+        [
+            Html.header [
+                Html.title "Harrys Blog "
+                Html.link [
+                    prop.rel "stylesheet"
+                    prop.href "https://cdn.jsdelivr.net/npm/bulma@1.0.0/css/bulma.min.css"
+                ]
+                Html.link [
+                    prop.rel "stylesheet"
+                    prop.href "styles.css"
+                ]
+            ]  
+            Html.div [ 
+                prop.className "title" 
+                prop.text "This is my very simple blog" 
+            ]
+            twoColumns
+        ]
+        |> Render.htmlView
