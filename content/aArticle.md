@@ -1,8 +1,8 @@
 ---
-category: Documentation
-categoryindex: 1
-index: 2
-title: Some Big Title
+category: Article
+tags: testTag, anotherTag
+updated: 20240620
+title: Some Big Article
 ---
 
 H&C has been working from home since before it became synonymous with flattening the curve. 

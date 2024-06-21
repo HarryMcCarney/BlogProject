@@ -17,8 +17,7 @@ module builder =
     [<EntryPoint>]
     let main args =
 
-        Master.render
-        |> fun x -> System.IO.File.WriteAllText("public/index.html", x)
+        Render.build()
         |> ignore
 
         let config =

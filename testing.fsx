@@ -17,6 +17,7 @@ Markdig.Markdown.ToHtml parsed
 parsed.
 
 
+Directory.EnumerateFiles "content"
 
 (doc)
 
