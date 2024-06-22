@@ -94,28 +94,63 @@ module Home =
             buildPostCard p
         )
 
+    let getColumnPosts posts colNo totCols = 
+        posts
+        |> Seq.mapi(fun i p -> i,p)
+        |> Seq.filter(fun (i, _ ) -> 
+            [colNo..totCols..1000] |> Seq.contains  (i + 1)
+            )
+        |> Seq.map snd
 
-    let renderHomePage posts = 
-        let postSummaries = getPostSummaries posts
-        Html.div [ 
-            prop.classes ["container"; "is-primary"; "is-fluid"]
+    let homeHeader = 
+        Html.section [
+            prop.className "section"
+            prop.children [
+                Html.h1 [
+                    prop.className "title"
+                    prop.text "The Garden"
+                ]
+                Html.h2 [
+                    prop.className "subtitle"
+                    prop.text "A collection of essays, notes, and half-baked explorations I'm always tending to."
+                ]
+            ]
+        ]
+        
+    let renderGrid (posts : Post seq) = 
+        let renderedPosts = getPostSummaries posts
+
+        Html.div [
+            prop.className "container"
             prop.children [
                 Html.div [
-                    prop.className "columns" 
+                    prop.className "columns is-multiline"
                     prop.children [
                         Html.div [
-                            prop.classes ["column"; "is-one-quarter"; "has-background-primary"]
-                            prop.children [
-                                menu
-                            ]
+                            prop.className "column is-one-third"
+                            prop.children (getColumnPosts renderedPosts 1 3)
                         ]
                         Html.div [
-                            prop.classes ["column"; "is-three-quarters"; "has-background-info"; "content"; "is-medium"]
-                            prop.children 
-                                postSummaries
+                            prop.className "column is-one-third"
+                            prop.children (getColumnPosts renderedPosts 2 3)
                         ]
+                        Html.div [
+                            prop.className "column is-one-third"
+                            prop.children (getColumnPosts renderedPosts 3 3)
+                        ]
+                               
                     ]
-                ]     
+                ]
+                        // Add more card columns here based on the structure
+            ]
+        ]
+               
+    let renderHomePage posts = 
+        Html.div [
+            prop.className "container"
+            prop.children [
+                homeHeader
+                renderGrid posts
             ]
         ]
         

@@ -8,6 +8,34 @@ let d = "20240620"
 
 (("tag1, tag2, tag3").Split ",") |> Array.map(fun t -> t.Trim())
 
+
+
+let vals = ["tag1"; "tag2"; "tag3"; "tag4"; "tag5"; "tag6"; "tag7"; "tag8";  "tag9"]
+
+
+let getColumnPosts posts colNo totCols = 
+    posts
+    |> Seq.mapi(fun i p -> i,p)
+    |> Seq.filter(fun (i, _ ) -> 
+        [colNo..totCols..1000] |> Seq.contains  (i + 1)
+        )
+    |> Seq.map snd
+
+getColumnPosts vals 1 3
+getColumnPosts vals 2 3
+getColumnPosts vals 3 3
+
+vals
+|> Seq.mapi(fun i p -> i,p)
+|> Seq.filter(fun (i, _ ) -> (i + 1) % 2 = 0)
+|> Seq.map snd
+
+
+
+
+
+
+
 DateTime.ParseExact(d, "yyyyMMdd", CultureInfo.InvariantCulture)
 
 open System.IO
