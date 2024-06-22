@@ -2,6 +2,7 @@
 category: Article
 tags: testTag, anotherTag
 updated: 20240620
+created: 20240620
 title: Some Big Article
 ---
 

@@ -1,12 +1,17 @@
 namespace blog
 
 module Render = 
+    open System
     open System.IO
+    open System.Globalization
     open FSharp.Formatting.Markdown
     open FSharp.Formatting.Literate 
     open Article    
     open Feliz.ViewEngine
     open Layout
+    open Model
+    open Home
+    
 
     let getMetaData (doc: LiterateDocument) = 
         doc.Paragraphs
@@ -48,24 +53,72 @@ module Render =
         ]
         |> Render.htmlView
   
-    let build() = 
+    let deserialisePosts files =
         Directory.EnumerateFiles "content"
-        |> Seq.iter(fun f -> 
-            let fileName = sprintf "public/%s.html" (Path.GetFileNameWithoutExtension f)
-            let article = File.ReadAllText f
-            let parsed = Literate.ParseMarkdownString(article)
-            let html = getArticleHtml parsed
-            let title = (getMetaData parsed)["title"]
-            let category = (getMetaData parsed)["category"]
+        |> Seq.map(fun f -> 
 
-            printfn "%s" category
+            let rawPost = File.ReadAllText f |> Literate.ParseMarkdownString
 
-            match category with 
-            | "Article" -> renderArticle title html 
-            | "Note" -> renderArticle title html 
-            | _ -> failwith "unknown category"
+            let updated = 
+                let d = (getMetaData rawPost)["updated"]
+                DateTime.ParseExact(d , "yyyyMMdd", CultureInfo.InvariantCulture) 
+            
+            let created = 
+                let d = (getMetaData rawPost)["created"]
+                DateTime.ParseExact(d , "yyyyMMdd", CultureInfo.InvariantCulture) 
+
+            let category = 
+                match (getMetaData rawPost)["category"] with 
+                | "Article" -> Article
+                | "Draft" -> Draft 
+                | "Note" -> Note
+                | _ -> failwith "Unknown category in markdown file"
+            
+            let tags = 
+                (((getMetaData rawPost)["tags"]).Split ",")
+                |> Array.map(fun t -> t.Trim())
+                
+            {
+                FileName = Path.GetFileNameWithoutExtension f
+                Title = (getMetaData rawPost)["title"]
+                Content = getArticleHtml rawPost
+                Category = category
+                Tags = tags
+                Updated = updated 
+                Created = created
+            }
+        )
+
+    let build() = 
+        
+        let posts = 
+            Directory.EnumerateFiles "content" 
+            |> deserialisePosts
+        
+        posts
+        |> Seq.iter(fun post -> 
+            match post.Category with
+            | Article ->  renderArticle post
+            | Note ->  renderArticle post
+            | Draft ->  renderArticle post
             |> render
-            |> fun x -> System.IO.File.WriteAllText(fileName, x)
+            |> fun x -> 
+                let renderedFileName = sprintf "public/%s.html" post.FileName
+                System.IO.File.WriteAllText(renderedFileName, x)
+            |> ignore
+        )
+
+        // build home page
+        renderHomePage posts
+        |> render
+        |> fun x -> 
+            System.IO.File.WriteAllText("public/index.html", x)
+        |> ignore
+
+
+
+
+
         
 
 
@@ -75,4 +128,3 @@ module Render =
 
     
     
-    )

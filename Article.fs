@@ -3,9 +3,10 @@ namespace blog
 module Article = 
     open Feliz.ViewEngine
     open Layout
+    open Model
 
-    let renderArticle (title: string) (htmlBody: string) = 
-    
+    let renderArticle (post: Post) = 
+
             Html.div [ 
                 prop.classes ["container"; "is-primary"; "is-fluid"]
                 prop.children [
@@ -23,10 +24,10 @@ module Article =
                                 prop.children [
                                     Html.div [
                                         prop.classes ["title";"is-2"]
-                                        prop.text title
+                                        prop.text post.Title
                                     ]
                                     Html.div [
-                                        prop.dangerouslySetInnerHTML htmlBody
+                                        prop.dangerouslySetInnerHTML post.Content
                                     ]
                                 ]
                             ]

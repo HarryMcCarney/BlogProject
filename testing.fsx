@@ -2,6 +2,14 @@
 #r "nuget: Markdig, 0.37.0"
 
 
+open System 
+open System.Globalization
+let d = "20240620"
+
+(("tag1, tag2, tag3").Split ",") |> Array.map(fun t -> t.Trim())
+
+DateTime.ParseExact(d, "yyyyMMdd", CultureInfo.InvariantCulture)
+
 open System.IO
 open Markdig
 open Markdig.Parsers
