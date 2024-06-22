@@ -47,9 +47,17 @@ module Render =
                     prop.href "https://cdn.jsdelivr.net/npm/bulma@1.0.0/css/bulma.min.css"
                 ]
             ]  
-            navbar
-            content
-            footer
+            Html.body [
+                prop.style [
+                style.backgroundColor "#F3F3F3"
+                ]
+                prop.children [
+                    navbar
+                    content
+                    footer
+                ]
+            ]
+
         ]
         |> Render.htmlView
   

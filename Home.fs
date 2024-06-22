@@ -10,83 +10,32 @@ module Home =
         Html.div [
             prop.className "card"
             prop.children [
-                Html.header [
-                    prop.className "card-header"
-                    prop.children [
-                        Html.p [
-                            prop.className "card-header-title"
-                            prop.text post.Title
-                        ]
-                        Html.button [
-                            prop.className "card-header-icon"
-                            prop.ariaLabel "more options"
-                            prop.children [
-                                Html.span [
-                                    prop.className "icon"
-                                    prop.children [
-                                        Html.i [
-                                            prop.className "fas fa-angle-down"
-                                            prop.ariaHidden true
-                                        ]
-                                    ]
-                                ]
-                            ]
-                        ]
-                    ]
-                ]
                 Html.div [
-                    prop.className "card-content"
+                    prop.classes ["card-content"]
                     prop.children [
-                        Html.div [
-                            prop.className "content"
-                            prop.children [
-                                Html.text "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec iaculis mauris."
-                                Html.a [
-                                    prop.href "#"
-                                    prop.text "@bulmaio"
-                                ]
-                                Html.text ". "
-                                Html.a [
-                                    prop.href "#"
-                                    prop.text "#css"
-                                ]
-                                Html.text " "
-                                Html.a [
-                                    prop.href "#"
-                                    prop.text "#responsive"
-                                ]
-                                Html.br []
-                                Html.time [
-                                    prop.dateTime "2016-1-1"
-                                    prop.text "11:09 PM - 1 Jan 2016"
-                                ]
-                            ]
+                        Html.a [
+                            prop.className "subtitle"
+                            prop.href (sprintf "/%s.html" post.FileName)
+                            prop.text post.Title
                         ]
                     ]
                 ]
                 Html.footer [
                     prop.className "card-footer"
                     prop.children [
-                        Html.a [
-                            prop.href "#"
+                        Html.p [
                             prop.className "card-footer-item"
-                            prop.text "Save"
+                            prop.text (post.Category |> string)
                         ]
-                        Html.a [
-                            prop.href "#"
+                        Html.p [
                             prop.className "card-footer-item"
-                            prop.text "Edit"
+                            prop.text (string post.Updated)
                         ]
-                        Html.a [
-                            prop.href "#"
-                            prop.className "card-footer-item"
-                            prop.text "Delete"
-                        ]
+                      
                     ]
                 ]
             ]
         ]
-
 
     let getPostSummaries posts =
         posts 

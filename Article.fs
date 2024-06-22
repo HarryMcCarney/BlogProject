@@ -7,31 +7,20 @@ module Article =
 
     let renderArticle (post: Post) = 
 
-            Html.div [ 
-                prop.classes ["container"; "is-primary"; "is-fluid"]
-                prop.children [
-                    Html.div [
-                        prop.className "columns" 
-                        prop.children [
-                            Html.div [
-                                prop.classes ["column"; "is-one-quarter"; "has-background-primary"]
-                                prop.children [
-                                    menu
-                                ]
-                            ]
-                            Html.div [
-                                prop.classes ["column"; "is-three-quarters"; "has-background-info"; "content"; "is-medium"]
-                                prop.children [
-                                    Html.div [
-                                        prop.classes ["title";"is-2"]
-                                        prop.text post.Title
-                                    ]
-                                    Html.div [
-                                        prop.dangerouslySetInnerHTML post.Content
-                                    ]
-                                ]
-                            ]
-                        ]     
-                    ]
+        Html.div [ 
+            prop.classes ["container"; "is-family-sans-serif"; "is-fluid";"content"; "is-medium"]
+            prop.style [
+                style.backgroundColor "#F3F3F3"
+            ]
+            prop.children [
+                Html.div [
+                    prop.classes ["title";"is-2"]
+                    prop.text post.Title
+                ]
+                Html.div [
+                    prop.dangerouslySetInnerHTML post.Content
                 ]
             ]
+        ]
+            
+    

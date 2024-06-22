@@ -1,80 +1,93 @@
 namespace blog
 
 open Feliz.ViewEngine 
+open System
 
 module Layout = 
     let navbar =
         Html.nav [
-            prop.classes ["navbar"; "is-fluid"; "is-primary"]
+            prop.classes ["navbar";]
             prop.role "navigation"
             prop.ariaLabel "main navigation"
-            prop.children [
-                Html.a [
-                prop.classes ["navbar-start"]
-                prop.text "Home"
-                prop.children [
-                    Html.a [
-                        prop.classes ["navbar-item"]
-                        prop.text "Notes"
-                    ]
-                    Html.a [
-                        prop.classes ["navbar-item"]
-                        prop.text "Articles"
-                    ]
-                    Html.a [
-                        prop.classes ["navbar-item";"navbar-end"]
-                        prop.text "About"
-                    ]
-
-                ]
-                ]
-
-            ]
-        ]
-(*
-    let footer =
-
-        Html.div [
-            prop.classes ["footer"]
             prop.style [
-                style.display.flex
-                style.alignItems.center
-                style.justifyContent.spaceBetween
-            ]
+                style.backgroundColor "#F3F3F3"
+                ]
             prop.children [
                 Html.div [
-                    prop.classes ["content has-text-centered"]
+                    prop.className "navbar-brand"
                     prop.children [
-                        Html.p [
-                            prop.text "Some blog" 
-                            prop.style [
-                                style.fontWeight.bold
-                            ]
-                            Html.a [
-                                prop.text "© Hack and Craft 2023"
-                                prop.href "https://hackandcraft.com/"
-                                prop.target "_blank"
+                        Html.a [
+                            prop.className "navbar-burger"
+                            prop.role "button"
+                            prop.ariaLabel "menu"
+                            prop.ariaExpanded false
+                            prop.custom ("data-target", "navbarBasicExample")
+                            prop.children [
+                                Html.span [ prop.ariaHidden true ]
+                                Html.span [ prop.ariaHidden true ]
+                                Html.span [ prop.ariaHidden true ]
+                                Html.span [ prop.ariaHidden true ]
                             ]
                         ]
-                        
+                    ]
+                ]
+                Html.div [
+                    prop.id "navbarBasicExample"
+                    prop.classes ["navbar-menu"; "navbar-start"]
+                    prop.children [
+                        Html.a [
+                            prop.classes ["navbar-item"; "navbar-start"]
+                            prop.text "Home"
+                        ]
+                        Html.a [
+                            prop.classes ["navbar-item";"navbar-end"]
+                            prop.text "Notes"
+                        ]
+                        Html.a [
+                            prop.classes ["navbar-item";"navbar-end"]
+                            prop.text "Articles"
+                        ]
+                        Html.a [
+                            prop.classes ["navbar-item";"navbar-end"]
+                            prop.text "About"
+                        ]
+
                     ]
                 ]
             ]
         ]
-*)
+
+    let customLinkStyle = [
+        style.color "#363636"
+        style.textDecoration.underline
+        style.fontWeight.bold
+        style.transitionDuration (TimeSpan.FromSeconds(0.3))
+        style.transitionProperty "color"
+        style.transitionTimingFunction.ease
+        
+    ]
+
+    let customLinkHoverStyle = [
+            style.color "#363636"
+        ]
+        
     let footer = 
         Html.footer [
             prop.className "footer"
+            prop.style [
+                style.backgroundColor "#F3F3F3"
+                ]
             prop.children [
                 Html.div [
                     prop.className "content has-text-centered"
                     prop.children [
                         Html.p [
-                            Html.strong "Bulma"
+                            Html.strong "Content"
                             Html.text " by "
                             Html.a [
-                                prop.href "https://jgthms.com"
-                                prop.text "Jeremy Thomas"
+                                prop.style customLinkStyle
+                                prop.href "https://mastodon.sdf.org/@HarryMcCarnney"
+                                prop.text "Harry McCarney"
                             ]
                             Html.text ". The source code is licensed "
                             Html.a [

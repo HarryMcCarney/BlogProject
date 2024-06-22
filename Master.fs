@@ -73,12 +73,14 @@ module Master =
 
     let render =
         [
+            
             Html.header [
                 Html.link [
                     prop.rel "stylesheet"
                     prop.href "https://cdn.jsdelivr.net/npm/bulma@1.0.0/css/bulma.min.css"
                 ]
-            ]  
+            ]
+
             navbar
             twoColumns
             footer
