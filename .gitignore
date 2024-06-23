@@ -4,4 +4,9 @@
 **/bin/
 /bin/
 obj
+**/fable_modules/** 
+#Ignore Fable files
+.fable/
 
+#Ignore script files
+*.fsx

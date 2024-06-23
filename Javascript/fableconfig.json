@@ -1,0 +1,6 @@
+{
+    "compiler": "fable-splitter",
+   
+    "outDir": "../BlogProject/public",
+    "babelPlugins": ["@babel/plugin-transform-modules-commonjs"]
+}
