@@ -4,6 +4,33 @@ module Home =
     open Feliz.ViewEngine
     open Layout
     open Model
+    open System
+
+    let summarizeDate (inputDate: DateTime) =
+        let now = DateTime.UtcNow
+        let span = now - inputDate
+        
+        if span.TotalHours < 24.0 then
+            sprintf "%.0f hours ago" span.TotalHours
+        elif span.TotalDays < 30.0 then
+            sprintf "%.0f days ago" span.TotalDays
+        elif span.TotalDays < 365.0 then
+            let months = Math.Round(span.TotalDays / 30.0)
+            sprintf "about %.0f months ago" months
+        else
+            let years = Math.Round(span.TotalDays / 365.0)
+            sprintf "about %.0f years ago" years
+
+
+    let icon = 
+        Html.span [
+            prop.classes ["icon"; "is-small"; "has-text-danger"]
+            prop.children [
+                Html.i [
+                    prop.classes ["fas"; "fa-music"; "fa-fw"]
+                ]
+            ]
+        ]
 
     let buildPostCard post = 
 
@@ -29,7 +56,10 @@ module Home =
                         ]
                         Html.p [
                             prop.className "card-footer-item"
-                            prop.text (string post.Updated)
+                            prop.text (summarizeDate post.Updated)
+                            prop.children [
+                                icon
+                            ]
                         ]
                       
                     ]
@@ -58,6 +88,7 @@ module Home =
                 Html.h1 [
                     prop.className "title"
                     prop.text "The Garden"
+                    prop.children [icon]
                 ]
                 Html.h2 [
                     prop.className "subtitle"
@@ -86,8 +117,7 @@ module Home =
                         Html.div [
                             prop.className "column is-one-third"
                             prop.children (getColumnPosts renderedPosts 3 3)
-                        ]
-                               
+                        ]       
                     ]
                 ]
                         // Add more card columns here based on the structure

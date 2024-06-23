@@ -10,3 +10,4 @@ obj
 
 #Ignore script files
 *.fsx
+.fake

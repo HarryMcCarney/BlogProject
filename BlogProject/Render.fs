@@ -45,12 +45,17 @@ module Render =
                     prop.rel "stylesheet"
                     prop.href "https://cdn.jsdelivr.net/npm/bulma@1.0.0/css/bulma.min.css"
                 ]
+                Html.link [
+                    prop.rel "stylesheet"
+                    prop.href "https://use.fontawesome.com/releases/v5.15.4/css/all.css"
+                ]
                 Html.script [
                     prop.src "script.js"
                     prop.type' "module"
                     
                 ]
             ]  
+
             Html.body [
                 prop.custom("onLoad", "execScripts()")                                  
                 prop.style [
