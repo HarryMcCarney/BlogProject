@@ -22,15 +22,37 @@ module Home =
             sprintf "about %.0f years ago" years
 
 
-    let icon = 
+    let noteIcon = 
         Html.span [
-            prop.classes ["icon"; "is-small"; "has-text-danger"]
+            prop.classes ["icon"; "is-medium"; "has-text-info"; "m-2"]
             prop.children [
                 Html.i [
-                    prop.classes ["fas"; "fa-music"; "fa-fw"]
+                    prop.classes ["far fa"; "fa-sticky-note"; "m-2"]
                 ]
             ]
         ]
+    
+    let articleIcon = 
+        Html.span [
+            prop.classes ["icon"; "is-medium"; "has-text-info" ; "m-2"]
+            prop.children [
+                Html.i [
+                    prop.classes ["far"; "fa-newspaper"; "m-2"]
+                    
+                ]
+            ]
+        ]
+
+    let bulletIcon = 
+        Html.span [
+            prop.classes ["icon"; "is-medium"; "has-text-danger"; "m-2"]
+            prop.children [
+                Html.i [
+                    prop.classes ["fa-regular"; "fa-circle-dot";"m-2"]
+                ]
+            ]
+        ]
+
 
     let buildPostCard post = 
 
@@ -40,6 +62,10 @@ module Home =
                 Html.div [
                     prop.classes ["card-content"]
                     prop.children [
+                        match post.Category with 
+                                | Article ->  articleIcon
+                                | Note -> noteIcon
+                                | _ -> noteIcon
                         Html.a [
                             prop.className "subtitle"
                             prop.href (sprintf "/%s.html" post.FileName)
@@ -54,18 +80,34 @@ module Home =
                             prop.className "card-footer-item"
                             prop.text (post.Category |> string)
                         ]
+                        bulletIcon
                         Html.p [
                             prop.className "card-footer-item"
-                            prop.text (summarizeDate post.Updated)
-                            prop.children [
-                                icon
-                            ]
+                            prop.text 
+                                (
+                                match post.Category with 
+                                | Article -> sprintf "Published %s" (summarizeDate post.Updated)
+                                | Note -> sprintf "Updated %s" (summarizeDate post.Updated)
+                                | _ -> sprintf "Updated %s" (summarizeDate post.Updated)
+                                )
                         ]
-                      
                     ]
                 ]
             ]
         ]
+        
+
+    let buildTagList (posts : Post seq) = 
+        posts
+        |> Seq.map(fun p -> p.Tags)
+        |> Seq.concat
+        |> Set.ofSeq
+        |> Set.toSeq
+        |> Seq.map(fun t ->
+            Html.a [
+                prop.text t
+            ]
+        )
 
     let getPostSummaries posts =
         posts 
@@ -88,8 +130,9 @@ module Home =
                 Html.h1 [
                     prop.className "title"
                     prop.text "The Garden"
-                    prop.children [icon]
+                    
                 ]
+                
                 Html.h2 [
                     prop.className "subtitle"
                     prop.text "A collection of essays, notes, and half-baked explorations I'm always tending to."
@@ -103,6 +146,11 @@ module Home =
         Html.div [
             prop.className "container"
             prop.children [
+
+                Html.div [
+                    prop.children  (buildTagList posts)
+
+                ]
                 Html.div [
                     prop.className "columns is-multiline"
                     prop.children [
