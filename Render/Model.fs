@@ -9,6 +9,7 @@ module Model =
         | Draft
         | Note
         | Article 
+        
 
     type Post = {
         FileName : string

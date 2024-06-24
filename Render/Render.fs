@@ -12,6 +12,7 @@ module Render =
     open Model
     open Home
     open About
+    open SearchIndex
     
     let getMetaData (doc: LiterateDocument) = 
         doc.Paragraphs
@@ -129,6 +130,8 @@ module Render =
                 System.IO.File.WriteAllText(renderedFileName, x)
             |> ignore
         )
+
+        buildSearchIndex posts
 
         renderAboutPage() 
         |> render 

@@ -21,7 +21,6 @@ module Home =
             let years = Math.Round(span.TotalDays / 365.0)
             sprintf "about %.0f years ago" years
 
-
     let noteIcon = 
         Html.span [
             prop.classes ["icon"; "is-medium"; "has-text-info"; "m-2"]
@@ -53,11 +52,11 @@ module Home =
             ]
         ]
 
-
     let buildPostCard post = 
 
         Html.div [
-            prop.className "card"
+            prop.id post.FileName
+            prop.classes ["card" ; "post-card"]
             prop.children [
                 Html.div [
                     prop.classes ["card-content"]
@@ -103,7 +102,9 @@ module Home =
         |> Set.ofSeq
         |> Set.toSeq
         |> Seq.map(fun t ->
-            Html.a [
+            Html.span [
+                prop.id t
+                prop.classes ["tag"; "is-hoverable"; "is-medium"]
                 prop.text t
             ]
         )
@@ -145,10 +146,8 @@ module Home =
         Html.div [
             prop.className "container"
             prop.children [
-
                 Html.div [
                     prop.children  (buildTagList posts)
-
                 ]
                 Html.div [
                     prop.className "columns is-multiline"
@@ -166,8 +165,7 @@ module Home =
                             prop.children (getColumnPosts renderedPosts 3 3)
                         ]       
                     ]
-                ]
-                        // Add more card columns here based on the structure
+                ]     // Add more card columns here based on the structure
             ]
         ]
                
