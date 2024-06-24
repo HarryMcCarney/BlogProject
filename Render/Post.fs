@@ -1,11 +1,10 @@
 namespace blog
 
-module Article = 
+module Post = 
     open Feliz.ViewEngine
-    open Layout
     open Model
 
-    let renderArticle (post: Post) = 
+    let renderPost (post: Post) = 
 
         Html.div [ 
             prop.classes ["container"; "content"; "is-medium"]

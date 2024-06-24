@@ -6,7 +6,7 @@ module Render =
     open System.Globalization
     open FSharp.Formatting.Markdown
     open FSharp.Formatting.Literate 
-    open Article    
+    open Post    
     open Feliz.ViewEngine
     open Layout
     open Model
@@ -116,9 +116,9 @@ module Render =
         posts
         |> Seq.iter(fun post -> 
             match post.Category with
-            | Article ->  renderArticle post
-            | Note ->  renderArticle post
-            | Draft ->  renderArticle post
+            | Article ->  renderPost post
+            | Note ->  renderPost post
+            | Draft ->  renderPost post
             |> render
             |> fun x -> 
                 let renderedFileName = sprintf "public/%s.html" post.FileName
