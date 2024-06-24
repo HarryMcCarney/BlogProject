@@ -109,7 +109,8 @@ module Render =
 
     let build() = 
         let posts = 
-            Directory.EnumerateFiles "content" 
+            let contentPath = sprintf "%s/content" (Directory.GetCurrentDirectory())
+            Directory.EnumerateFiles contentPath 
             |> deserialisePosts
         
         posts
