@@ -9,5 +9,5 @@ obj
 .fable/
 
 #Ignore script files
-*.fsx
+
 .fake
