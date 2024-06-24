@@ -96,7 +96,6 @@ module Home =
             ]
         ]
         
-
     let buildTagList (posts : Post seq) = 
         posts
         |> Seq.map(fun p -> p.Tags)

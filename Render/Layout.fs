@@ -34,23 +34,12 @@ module Layout =
                 ]
                 Html.div [
                     prop.id "navbarBasicExample"
-                    prop.classes ["navbar-menu"; "navbar-start"]
+                    prop.classes ["navbar-menu"; "navbar-end"]
                     prop.children [
                         Html.a [
-                            prop.classes ["navbar-item"; "navbar-start"]
-                            prop.text "Home"
-                        ]
-                        Html.a [
-                            prop.classes ["navbar-item";"navbar-end"]
-                            prop.text "Notes"
-                        ]
-                        Html.a [
-                            prop.classes ["navbar-item";"navbar-end"]
-                            prop.text "Articles"
-                        ]
-                        Html.a [
-                            prop.classes ["navbar-item";"navbar-end"]
+                            prop.classes ["navbar-item";]
                             prop.text "About"
+                            prop.href "about.html"
                         ]
 
                     ]

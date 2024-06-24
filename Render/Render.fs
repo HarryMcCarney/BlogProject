@@ -11,6 +11,7 @@ module Render =
     open Layout
     open Model
     open Home
+    open About
     
     let getMetaData (doc: LiterateDocument) = 
         doc.Paragraphs
@@ -37,7 +38,7 @@ module Render =
         |> fun paras -> MarkdownDocument(paras, dict [] )
         |> Markdown.ToHtml
 
-    
+
     let render content =
         [
             Html.header [
@@ -73,7 +74,9 @@ module Render =
   
     let deserialisePosts files =
         Directory.EnumerateFiles "content"
+        |> Seq.filter(fun f -> f <> "content\\About.md")
         |> Seq.map(fun f -> 
+            printfn "%s" f
 
             let rawPost = File.ReadAllText f |> Literate.ParseMarkdownString
 
@@ -111,6 +114,7 @@ module Render =
         let posts = 
             let contentPath = sprintf "%s/content" (Directory.GetCurrentDirectory())
             Directory.EnumerateFiles contentPath 
+            |> Seq.filter(fun f -> f <> "About.md")
             |> deserialisePosts
         
         posts
@@ -125,6 +129,12 @@ module Render =
                 System.IO.File.WriteAllText(renderedFileName, x)
             |> ignore
         )
+
+        renderAboutPage() 
+        |> render 
+        |> fun x -> 
+            System.IO.File.WriteAllText("public/about.html", x)
+        |> ignore
 
         // build home page
         renderHomePage posts
