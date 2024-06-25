@@ -5,8 +5,7 @@
       "Title": "Some Big Article",
       "Content": "<p>H&amp;C has been working from home since before it became synonymous with flattening the curve.</p>\r\n<p><img src=\"/berlin.png\" alt=\"Berlin and London\" /></p>\r\n<h1>10 rules for effective Distributed Agile working</h1>\r\n<p><a href=\"https://slack.com/intl/en-gb/?eu_nc=1\">slack</a></p>\r\n",
       "Tags": [
-        "testTag",
-        "anotherTag"
+        "testTag"
       ],
       "Category": "Article",
       "Updated": "2024-06-20T00:00:00.0000000",
@@ -18,7 +17,8 @@
       "Content": "<p>H&amp;C has been working from home since before it became synonymous with flattening the curve.</p>\r\n<p><img src=\"/berlin.png\" alt=\"Berlin and London\" /></p>\r\n<h1>10 rules for effective Distributed Agile working</h1>\r\n<p><a href=\"https://slack.com/intl/en-gb/?eu_nc=1\">slack</a></p>\r\n",
       "Tags": [
         "testTag",
-        "anotherTag"
+        "anotherTag",
+        "newTag"
       ],
       "Category": "Article",
       "Updated": "2024-06-20T00:00:00.0000000",

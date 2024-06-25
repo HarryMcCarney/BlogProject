@@ -1,6 +1,6 @@
 ---
 category: Article
-tags: testTag, anotherTag
+tags: testTag, anotherTag, newTag
 updated: 20240620
 created: 20240620
 title: Some Big Article

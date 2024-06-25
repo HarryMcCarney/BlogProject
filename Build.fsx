@@ -25,6 +25,12 @@ Target.create "Clean" (fun _ ->
         Shell.cleanDir "./Render/public" |> ignore
 )
 
+Target.create "BuildModel" (fun _ ->
+        Shell.cd "Model" |> ignore
+        DotNet.exec id "build" "./Model.fsproj" |> ignore 
+        Shell.cd ".."
+)
+
 Target.create "Render" (fun _ ->
         Shell.cd "Render" |> ignore
         Shell.copyDir "public" "images" (fun _ -> true) |> ignore
@@ -56,6 +62,6 @@ Target.create "Run" (fun _ ->
        
 )
 
-"Clean" ==> "Render" ==> "CompileJS" ==> "Run"
+"Clean" ==> "BuildModel" ==> "Render" ==> "CompileJS" ==> "Run"
 
 Target.runOrDefaultWithArguments (args.[1])

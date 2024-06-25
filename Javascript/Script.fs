@@ -1,50 +1,134 @@
 ﻿
+namespace blog
 
+module Scripts = 
 
+    open Browser.Dom
+    open Fable.Core
+    open Model 
+    open Thoth.Json
+    open System
+    open Fable.SimpleHttp
 
-open Browser.Dom
-open Fable.Core
-open Fable.Core.JsInterop
+    // Decoder for Category
+    let categoryDecoder : Decoder<Category> =
+        Decode.string
+        |> Decode.andThen (function
+            | "Draft" -> Decode.succeed Draft
+            | "Note" -> Decode.succeed Note
+            | "Article" -> Decode.succeed Article
+            | other -> Decode.fail $"Unknown category: {other}")
 
-let expandHamburger() =
-    let burger = document.getElementById("navbar-burger")
-    let menu = document.getElementById("navbarBasicExample")
+    // Decoder for DateTime
+    let dateTimeDecoder : Decoder<DateTime> =
+        Decode.string
+        |> Decode.andThen (fun dateString ->
+            match DateTime.TryParse(dateString) with
+            | (true, date) -> Decode.succeed date
+            | _ -> Decode.fail $"Invalid date: {dateString}")
 
-    burger.addEventListener("click", fun _ ->
-        burger.classList.toggle("is-active") 
-        |> ignore
-        menu.classList.toggle("is-active") 
-        |> ignore 
-    )
-
-(*
-let addTagFilters() =
-
-    let nodes = document.getElementsByClassName("tag")
-    let tags = seq { for i in 0 .. nodes.length - 1 -> nodes.[i] }
-    let postNodes = document.getElementsByClassName("post-card")
-    let posts = seq { for i in 0 .. postNodes.length - 1 -> postNodes.[i] }
-
-    tags
-    |> Seq.iter(fun t -> 
-        t.addEventListener("click", fun _ ->
-
-
-
-            t.classList.toggle("is-active") 
-            |> ignore
+    // Decoder for Post
+    let postDecoder : Decoder<Post> =
+        Decode.object (fun get ->
+            {
+                FileName = get.Required.Field "FileName" Decode.string
+                Title = get.Required.Field "Title" Decode.string
+                Content = get.Required.Field "Content" Decode.string
+                Tags = get.Required.Field "Tags" (Decode.array Decode.string)
+                Category = get.Required.Field "Category" categoryDecoder
+                Updated = get.Required.Field "Updated" dateTimeDecoder
+                Created = get.Required.Field "Created" dateTimeDecoder
+            }
         )
-    )
+
+    // Decoder for JsonContainer
+    let jsonContainerDecoder : Decoder<JsonContainer> =
+        Decode.object (fun get ->
+            {
+                Posts = get.Required.Field "Posts" (Decode.seq postDecoder)
+            }
+        )
+
+    // Function to fetch and parse the JSON file
+    let fetchJson (url: string) =
+        async {
+            let! response =
+                Http.request (url)
+                |> Http.method GET
+                |> Http.overrideMimeType "application/json"
+                |> Http.send
+            
+            
+            match Decode.fromString jsonContainerDecoder response.responseText with
+            | Ok data ->
+                printfn "%A" data
+                return Some data
+            | Error error ->
+                printfn "Failed to decode JSON: %s" error
+                return None
+        }
+
+    let addTagFilters() =
+        async{
+            let! searchIndex = (fetchJson "SearchIndex.json")
+
+            match searchIndex with 
+            | Some si -> 
+                let nodes = document.getElementsByClassName("tag")
+                let tags = seq { for i in 0 .. nodes.length - 1 -> nodes.[i] }
+                let postNodes = document.getElementsByClassName("post-card")
+                let posts = seq { for i in 0 .. postNodes.length - 1 -> postNodes.[i] }
+
+                tags
+                |> Seq.iter(fun t -> 
+                    t.addEventListener("click", fun _ ->
+
+                        printfn "adding event listeners to %s" t.id
+
+                        let postsToHide = 
+                            si.Posts
+                            |> Seq.filter(fun p -> not (p.Tags |> Array.contains t.id))
+                            |> Seq.map(fun p -> p.FileName)
+
+
+                        posts
+                        |> Seq.filter(fun p -> postsToHide |> Seq.contains p.id)
+                        |> Seq.iter(fun p -> 
+                            p.classList.toggle("is-hidden") 
+                            |> ignore
+                        )
+                    )
+                )
+            | None -> failwith "cannot access search index"
+        } |> Async.StartImmediate
     
-  *)  
-      
+    let expandHamburger() =
+        
+            let burger = document.getElementById("navbar-burger")
+            let menu = document.getElementById("navbarBasicExample")
 
-[<Emit("window.execScripts = $0")>]
-let exportexecScripts (greet: obj) = jsNative
+            burger.addEventListener("click", fun _ ->
+                burger.classList.toggle("is-active") 
+                |> ignore
+                menu.classList.toggle("is-active") 
+                |> ignore 
+            )
+        
 
-let execScripts() =
-    expandHamburger()
 
-exportexecScripts execScripts
+
+    let execScripts() =
+        async{
+            expandHamburger() |> ignore
+            addTagFilters() |> ignore
+        } |> Async.StartImmediate
+
+
+    [<Emit("window.execScripts = $0")>]
+    let exportexecScripts (greet: obj) = jsNative
+  
+    exportexecScripts execScripts
+
+
 
 
