@@ -4,6 +4,53 @@ open Feliz.ViewEngine
 open System
 
 module Layout = 
+
+    let summarizeDate (inputDate: DateTime) =
+        let now = DateTime.UtcNow
+        let span = now - inputDate
+        
+        if span.TotalHours < 24.0 then
+            sprintf "%.0f hours ago" span.TotalHours
+        elif span.TotalDays < 30.0 then
+            sprintf "%.0f days ago" span.TotalDays
+        elif span.TotalDays < 365.0 then
+            let months = Math.Round(span.TotalDays / 30.0)
+            sprintf "about %.0f months ago" months
+        else
+            let years = Math.Round(span.TotalDays / 365.0)
+            sprintf "about %.0f years ago" years
+
+    let noteIcon = 
+        Html.span [
+            prop.classes ["icon"; "is-medium"; "has-text-info"; "m-2"]
+            prop.children [
+                Html.i [
+                    prop.classes ["far fa"; "fa-sticky-note"; "m-2"]
+                ]
+            ]
+        ]
+    
+    let articleIcon = 
+        Html.span [
+            prop.classes ["icon"; "is-medium"; "has-text-info" ; "m-2"]
+            prop.children [
+                Html.i [
+                    prop.classes ["far"; "fa-newspaper"; "m-2"]
+                    
+                ]
+            ]
+        ]
+
+    let bulletIcon = 
+        Html.span [
+            prop.classes ["icon"; "is-medium"; "has-text-danger"; "m-2"]
+            prop.children [
+                Html.i [
+                    prop.classes ["fa-regular"; "fa-circle-dot";"m-2"]
+                ]
+            ]
+        ]
+
     let navbar =
         Html.nav [
             prop.classes ["navbar";]

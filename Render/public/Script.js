@@ -39,10 +39,10 @@ export const dateTimeDecoder = (path_2) => ((value_1) => andThen(uncurry3((dateS
     }
 }), string, path_2, value_1));
 
-export const postDecoder = (path_5) => ((v) => object((get$) => {
-    let objectArg, objectArg_1, objectArg_2, objectArg_3, objectArg_4, objectArg_5, objectArg_6;
-    return new Post((objectArg = get$.Required, objectArg.Field("FileName", string)), (objectArg_1 = get$.Required, objectArg_1.Field("Title", string)), (objectArg_2 = get$.Required, objectArg_2.Field("Content", string)), (objectArg_3 = get$.Required, objectArg_3.Field("Tags", (path_4, value_4) => array_1(string, path_4, value_4))), (objectArg_4 = get$.Required, objectArg_4.Field("Category", uncurry2(categoryDecoder))), (objectArg_5 = get$.Required, objectArg_5.Field("Updated", uncurry2(dateTimeDecoder))), (objectArg_6 = get$.Required, objectArg_6.Field("Created", uncurry2(dateTimeDecoder))));
-}, path_5, v));
+export const postDecoder = (path_6) => ((v) => object((get$) => {
+    let objectArg, objectArg_1, objectArg_2, objectArg_3, objectArg_4, objectArg_5, objectArg_6, objectArg_7;
+    return new Post((objectArg = get$.Required, objectArg.Field("FileName", string)), (objectArg_1 = get$.Required, objectArg_1.Field("Title", string)), (objectArg_2 = get$.Required, objectArg_2.Field("Summary", string)), (objectArg_3 = get$.Required, objectArg_3.Field("Content", string)), (objectArg_4 = get$.Required, objectArg_4.Field("Tags", (path_5, value_5) => array_1(string, path_5, value_5))), (objectArg_5 = get$.Required, objectArg_5.Field("Category", uncurry2(categoryDecoder))), (objectArg_6 = get$.Required, objectArg_6.Field("Updated", uncurry2(dateTimeDecoder))), (objectArg_7 = get$.Required, objectArg_7.Field("Created", uncurry2(dateTimeDecoder))));
+}, path_6, v));
 
 export const jsonContainerDecoder = (path_1) => ((v) => object((get$) => {
     let objectArg;
@@ -79,8 +79,6 @@ export function addTagFilters() {
             const posts = delay(() => map((i_1) => (postNodes[i_1]), rangeDouble(0, 1, postNodes.length - 1)));
             iterate((t) => {
                 t.addEventListener("click", (_arg_1) => {
-                    const arg = t.id;
-                    toConsole(printf("adding event listeners to %s"))(arg);
                     const postsToHide = map((p_1) => p_1.FileName, filter((p) => !contains(t.id, p.Tags, {
                         Equals: (x, y) => (x === y),
                         GetHashCode: stringHash,

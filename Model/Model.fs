@@ -12,6 +12,7 @@ module Model =
     type Post = {
         FileName : string
         Title : string
+        Summary : string
         Content : string 
         Tags : string array
         Category : Category

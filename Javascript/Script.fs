@@ -10,7 +10,6 @@ module Scripts =
     open System
     open Fable.SimpleHttp
 
-    // Decoder for Category
     let categoryDecoder : Decoder<Category> =
         Decode.string
         |> Decode.andThen (function
@@ -19,7 +18,6 @@ module Scripts =
             | "Article" -> Decode.succeed Article
             | other -> Decode.fail $"Unknown category: {other}")
 
-    // Decoder for DateTime
     let dateTimeDecoder : Decoder<DateTime> =
         Decode.string
         |> Decode.andThen (fun dateString ->
@@ -27,12 +25,12 @@ module Scripts =
             | (true, date) -> Decode.succeed date
             | _ -> Decode.fail $"Invalid date: {dateString}")
 
-    // Decoder for Post
     let postDecoder : Decoder<Post> =
         Decode.object (fun get ->
             {
                 FileName = get.Required.Field "FileName" Decode.string
                 Title = get.Required.Field "Title" Decode.string
+                Summary = get.Required.Field "Summary" Decode.string
                 Content = get.Required.Field "Content" Decode.string
                 Tags = get.Required.Field "Tags" (Decode.array Decode.string)
                 Category = get.Required.Field "Category" categoryDecoder
@@ -41,7 +39,6 @@ module Scripts =
             }
         )
 
-    // Decoder for JsonContainer
     let jsonContainerDecoder : Decoder<JsonContainer> =
         Decode.object (fun get ->
             {
@@ -49,7 +46,6 @@ module Scripts =
             }
         )
 
-    // Function to fetch and parse the JSON file
     let fetchJson (url: string) =
         async {
             let! response =
@@ -57,7 +53,6 @@ module Scripts =
                 |> Http.method GET
                 |> Http.overrideMimeType "application/json"
                 |> Http.send
-            
             
             match Decode.fromString jsonContainerDecoder response.responseText with
             | Ok data ->
@@ -70,6 +65,7 @@ module Scripts =
 
     let addTagFilters() =
         async{
+            
             let! searchIndex = (fetchJson "SearchIndex.json")
 
             match searchIndex with 
@@ -83,13 +79,10 @@ module Scripts =
                 |> Seq.iter(fun t -> 
                     t.addEventListener("click", fun _ ->
 
-                        printfn "adding event listeners to %s" t.id
-
                         let postsToHide = 
                             si.Posts
                             |> Seq.filter(fun p -> not (p.Tags |> Array.contains t.id))
                             |> Seq.map(fun p -> p.FileName)
-
 
                         posts
                         |> Seq.filter(fun p -> postsToHide |> Seq.contains p.id)
@@ -113,16 +106,12 @@ module Scripts =
                 menu.classList.toggle("is-active") 
                 |> ignore 
             )
-        
-
-
 
     let execScripts() =
         async{
             expandHamburger() |> ignore
             addTagFilters() |> ignore
         } |> Async.StartImmediate
-
 
     [<Emit("window.execScripts = $0")>]
     let exportexecScripts (greet: obj) = jsNative

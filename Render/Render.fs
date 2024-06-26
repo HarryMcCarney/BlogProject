@@ -103,6 +103,7 @@ module Render =
             {
                 FileName = Path.GetFileNameWithoutExtension f
                 Title = (getMetaData rawPost)["title"]
+                Summary = (getMetaData rawPost)["summary"]
                 Content = getArticleHtml rawPost
                 Category = category
                 Tags = tags

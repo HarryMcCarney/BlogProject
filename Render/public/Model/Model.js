@@ -17,10 +17,11 @@ export function Category_$reflection() {
 }
 
 export class Post extends Record {
-    constructor(FileName, Title, Content, Tags, Category, Updated, Created) {
+    constructor(FileName, Title, Summary, Content, Tags, Category, Updated, Created) {
         super();
         this.FileName = FileName;
         this.Title = Title;
+        this.Summary = Summary;
         this.Content = Content;
         this.Tags = Tags;
         this.Category = Category;
@@ -30,7 +31,7 @@ export class Post extends Record {
 }
 
 export function Post_$reflection() {
-    return record_type("blog.Model.Post", [], Post, () => [["FileName", string_type], ["Title", string_type], ["Content", string_type], ["Tags", array_type(string_type)], ["Category", Category_$reflection()], ["Updated", class_type("System.DateTime")], ["Created", class_type("System.DateTime")]]);
+    return record_type("blog.Model.Post", [], Post, () => [["FileName", string_type], ["Title", string_type], ["Summary", string_type], ["Content", string_type], ["Tags", array_type(string_type)], ["Category", Category_$reflection()], ["Updated", class_type("System.DateTime")], ["Created", class_type("System.DateTime")]]);
 }
 
 export class JsonContainer extends Record {

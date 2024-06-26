@@ -4,6 +4,7 @@ tags: testTag, anotherTag
 updated: 20240620
 created: 20240620
 title: Some Big Note
+summary: The emerging golden age of home-cooked software, barefoot developers, and why the local-first community should help build it
 ---
 
 H&C has been working from home since before it became synonymous with flattening the curve. 
