@@ -22,45 +22,63 @@ module Post =
                 style.backgroundColor "#F3F3F3"
             ]
             prop.children [
-                Html.section [
-                    prop.className "section"
+                Html.p [
+                    prop.text 
+                        (
+                        match post.Category with 
+                        | Article -> "Article"
+                        | Note -> "Note"
+                        | _ -> ""
+                        )
+                ]
+
+                Html.div [
+                    prop.classes ["title";"is-2"]
+                    prop.text post.Title
+                ]
+                Html.div [
+                    prop.classes ["subtitle"]
+                    prop.text post.Summary
+                ]
+                
+                Html.div [
+                    prop.classes ["columns"]
                     prop.children [
-
-                        Html.p [
-                            prop.text 
-                                (
-                                match post.Category with 
-                                | Article -> "Article"
-                                | Note -> "Note"
-                                | _ -> ""
-                                )
-                        ]
-
                         Html.div [
-                            prop.classes ["title";"is-2"]
-                            prop.text post.Title
+                            prop.classes ["column"; "is-one-half"]
+                            prop.children articleTags
                         ]
                         Html.div [
-                            prop.classes ["subtitle"]
-                            prop.text post.Summary
+                            prop.classes ["column"; "is-one-half"; "is-right"]
+                            prop.children [
+                                Html.p [
+                                    prop.text 
+                                        (
+                                        match post.Category with 
+                                        | Article -> sprintf "Created %s" (summarizeDate post.Created)
+                                        | Note -> sprintf "Created %s" (summarizeDate post.Created)
+                                        | _ -> sprintf "Created %s" (summarizeDate post.Created)
+                                        )
+                                ]
+                                if post.Created <> post.Updated then 
+                                    Html.p [
+                                        prop.text 
+                                            (
+                                            match post.Category with 
+                                            | Article -> sprintf "Updated %s" (summarizeDate post.Updated)
+                                            | Note -> sprintf "Updated %s" (summarizeDate post.Updated)
+                                            | _ -> sprintf "Updated %s" (summarizeDate post.Updated)
+                                            )
+                                    ]
+                            ]
                         ]
-                        Html.div articleTags
-
-                        Html.p [
-                            prop.text 
-                                (
-                                match post.Category with 
-                                | Article -> sprintf "Published %s" (summarizeDate post.Updated)
-                                | Note -> sprintf "Updated %s" (summarizeDate post.Updated)
-                                | _ -> sprintf "Updated %s" (summarizeDate post.Updated)
-                                )
-                        ]
-
                     ]
                 ]
+
                 Html.div [
                     prop.dangerouslySetInnerHTML post.Content
                 ]
             ]
         ]
+        
             
