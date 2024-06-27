@@ -23,6 +23,7 @@ module Post =
             ]
             prop.children [
                 Html.p [
+                    prop.classes ["mt-6"]
                     prop.text 
                         (
                         match post.Category with 
@@ -31,13 +32,14 @@ module Post =
                         | _ -> ""
                         )
                 ]
+                articleIconLarge
 
                 Html.div [
                     prop.classes ["title"; "is-size-1"; "mb-5"]
                     prop.text post.Title
                 ]
                 Html.div [
-                    prop.classes ["subtitle"; "is-size-4"; "is-family-secondary"; "mb-6"]
+                    prop.classes ["subtitle"; "is-size-3"; "is-family-secondary"; "mb-6"]
                     prop.style [
                         style.fontWeight 350
                     ]

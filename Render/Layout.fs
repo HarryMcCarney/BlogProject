@@ -41,6 +41,17 @@ module Layout =
             ]
         ]
 
+    let articleIconLarge = 
+        Html.span [
+            prop.classes ["icon"; "is-large"; "has-text-info" ; "m-2"]
+            prop.children [
+                Html.i [
+                    prop.classes ["far"; "fa-newspaper"; "m-2"]
+                    
+                ]
+            ]
+        ]
+
     let bulletIcon = 
         Html.span [
             prop.classes ["icon"; "is-medium"; "has-text-danger"; "m-2"]
@@ -112,7 +123,7 @@ module Layout =
         Html.footer [
             prop.className "footer"
             prop.style [
-                style.backgroundColor "#F3F3F3"
+                style.backgroundColor "#F6F5F1"
                 ]
             prop.children [
                 Html.div [
