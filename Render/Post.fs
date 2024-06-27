@@ -33,23 +33,29 @@ module Post =
                 ]
 
                 Html.div [
-                    prop.classes ["title"; "is-size-1"]
+                    prop.classes ["title"; "is-size-1"; "mb-5"]
                     prop.text post.Title
                 ]
                 Html.div [
-                    prop.classes ["subtitle"; "is-size-4"]
+                    prop.classes ["subtitle"; "is-size-4"; "is-family-secondary"; "mb-6"]
+                    prop.style [
+                        style.fontWeight 350
+                    ]
                     prop.text post.Summary
                 ]
                 
                 Html.div [
-                    prop.classes ["columns"]
+                    prop.classes ["columns";"mb-6"]
                     prop.children [
                         Html.div [
                             prop.classes ["column"; "is-one-half"]
                             prop.children articleTags
                         ]
                         Html.div [
-                            prop.classes ["column"; "is-one-half"; "has-text-right"]
+                            prop.classes ["column"; "is-one-half"; "has-text-right"; "is-size-6"]
+                            prop.style [
+                                style.fontWeight 350
+                            ]
                             prop.children [
                                 Html.p [
                                     prop.text 

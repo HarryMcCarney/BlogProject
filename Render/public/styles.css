@@ -2,6 +2,7 @@
     color: #960462; /* Custom link color */
     text-decoration: none; /* Remove underline */
     position: relative;
+    line-height: 150%;
 }
 
 .content a:hover {
@@ -29,7 +30,7 @@
     opacity: 1; /* Show tooltip on hover */
 }
 
-.h1, h2 {
-    --font-serif: 'Yrsa', serif;
-}
 
+.is-size-1 {
+    font-size: 4rem !important;
+}

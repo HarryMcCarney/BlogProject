@@ -20,7 +20,7 @@ module Render =
         |> Seq.map(fun p -> 
             match p with 
             | YamlFrontmatter (meta,_) -> 
-                printfn "%A" meta
+                
                 meta
                 |> List.map(fun md ->  md.Split ':' |> fun x -> x[0].Trim(), x[1].Trim())
                 |> Some
@@ -73,19 +73,29 @@ module Render =
                     prop.href "https://fonts.googleapis.com/css2?family=Yrsa:ital,wght@0,300..700;1,300..700&display=swap"
                 ]
 
+                Html.link [
+                    prop.rel "stylesheet"
+                    prop.href "https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap"
+                ]
+
                 Html.script [
                     prop.src "script.js"
                     prop.type' "module"
                 ]
             ]  
 
+
+
             Html.body [
                 prop.custom("onLoad", "execScripts()")                                  
                 prop.style [
                     style.backgroundColor "#F6F5F1"
                     style.custom ("--family-serif", "'Yrsa', serif")
+                    style.custom ("--family-secondary-serif", "'Merriweather', serif")
                     style.custom ("--family-primary", "var(--family-serif)")
+                    style.custom ("--family-secondary", "var(--family-secondary-serif)")
                     style.fontFamily "var(--family-primary)"
+                    style.fontFamily "var(--family-secondary)"
                 ]
                 prop.children [
                     navbar
@@ -126,10 +136,7 @@ module Render =
                 
             {
                 FileName = Path.GetFileNameWithoutExtension f
-                Title = 
-                    let t = (getMetaData rawPost)["title"]
-                    printfn "%s" t
-                    t
+                Title = (getMetaData rawPost)["title"]
                 Summary = (getMetaData rawPost)["summary"]
                 Content = getArticleHtml rawPost
                 Category = category
