@@ -57,7 +57,7 @@ module Layout =
             prop.role "navigation"
             prop.ariaLabel "main navigation"
             prop.style [
-                style.backgroundColor "#F3F3F3"
+                style.backgroundColor "#F6F5F1"
                 ]
             prop.children [
                 Html.div [

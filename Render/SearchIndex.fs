@@ -19,6 +19,7 @@ module SearchIndex =
         Encode.object [
             "FileName", Encode.string post.FileName
             "Title", Encode.string post.Title
+            "Summary", Encode.string post.Summary
             "Content", Encode.string post.Content
             "Tags", 
                 post.Tags 

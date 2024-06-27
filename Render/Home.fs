@@ -7,7 +7,6 @@ module Home =
     open System
 
 
-
     let buildPostCard post = 
 
         Html.div [
@@ -52,18 +51,24 @@ module Home =
         ]
         
     let buildTagList (posts : Post seq) = 
-        posts
-        |> Seq.map(fun p -> p.Tags)
-        |> Seq.concat
-        |> Set.ofSeq
-        |> Set.toSeq
-        |> Seq.map(fun t ->
-            Html.span [
-                prop.id t
-                prop.classes ["tag"; "is-hoverable"; "is-medium"]
-                prop.text t
-            ]
-        )
+        
+        Html.div [
+            prop.text "Topics"
+            prop.children
+                (posts
+                |> Seq.map(fun p -> p.Tags)
+                |> Seq.concat
+                |> Set.ofSeq
+                |> Set.toSeq
+                |> Seq.map(fun t ->
+                    Html.span [
+                        prop.id t
+                        prop.classes ["tag"; "is-hoverable"; "is-medium"]
+                        prop.text t
+                    ]
+                )
+                )
+        ]
 
     let getPostSummaries posts =
         posts 

@@ -19,7 +19,7 @@ module Post =
         Html.div [ 
             prop.classes ["container"; "content"; "is-medium"]
             prop.style [
-                style.backgroundColor "#F3F3F3"
+                style.backgroundColor "#F6F5F1"
             ]
             prop.children [
                 Html.p [
@@ -33,11 +33,11 @@ module Post =
                 ]
 
                 Html.div [
-                    prop.classes ["title";"is-2"]
+                    prop.classes ["title"; "is-size-1"]
                     prop.text post.Title
                 ]
                 Html.div [
-                    prop.classes ["subtitle"]
+                    prop.classes ["subtitle"; "is-size-4"]
                     prop.text post.Summary
                 ]
                 
@@ -49,7 +49,7 @@ module Post =
                             prop.children articleTags
                         ]
                         Html.div [
-                            prop.classes ["column"; "is-one-half"; "is-right"]
+                            prop.classes ["column"; "is-one-half"; "has-text-right"]
                             prop.children [
                                 Html.p [
                                     prop.text 

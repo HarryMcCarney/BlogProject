@@ -1,0 +1,35 @@
+.content a {
+    color: #960462; /* Custom link color */
+    text-decoration: none; /* Remove underline */
+    position: relative;
+}
+
+.content a:hover {
+    text-decoration: underline; /* Underline on hover */
+}
+
+.content a::after {
+    content: attr(href); /* Display the URL */
+    position: absolute;
+    bottom: 100%; /* Position below the link */
+    left: 0;
+    background: #f0f0f0;
+    color: #232223;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    white-space: nowrap;
+    opacity: 0; /* Start invisible */
+    pointer-events: none; /* Avoid blocking other interactions */
+    transition: opacity 0.3s; /* Smooth fade in */
+    z-index: 10; /* Ensure it’s above other elements */
+}
+
+.content a:hover::after {
+    opacity: 1; /* Show tooltip on hover */
+}
+
+.h1, h2 {
+    --font-serif: 'Yrsa', serif;
+}
+

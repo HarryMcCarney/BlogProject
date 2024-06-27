@@ -25,6 +25,7 @@ Target.create "Clean" (fun _ ->
         Shell.cleanDir "./Render/public" |> ignore
 )
 
+
 Target.create "BuildModel" (fun _ ->
         Shell.cd "Model" |> ignore
         DotNet.exec id "build" "./Model.fsproj" |> ignore 
@@ -34,6 +35,7 @@ Target.create "BuildModel" (fun _ ->
 Target.create "Render" (fun _ ->
         Shell.cd "Render" |> ignore
         Shell.copyDir "public" "images" (fun _ -> true) |> ignore
+        Shell.copyFile "public" "styles.css" |> ignore
         DotNet.exec id "run" "--project ./BlogProject.fsproj" |> ignore 
         Shell.cd ".."
 )

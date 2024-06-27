@@ -51,17 +51,45 @@ module Render =
                     prop.rel "stylesheet"
                     prop.href "https://use.fontawesome.com/releases/v5.15.4/css/all.css"
                 ]
+                Html.link [
+                    prop.rel "stylesheet"
+                    prop.href "styles.css"
+                ]
+
+                Html.link [
+                    prop.rel "preconnect"
+                    prop.href "https://fonts.googleapis.com"
+                ]
+
+                Html.link [
+                    prop.rel "preconnect"
+                    prop.href "https://fonts.gstatic.com"
+                    
+                ]
+
+                Html.link [
+                    prop.rel "stylesheet"
+                    prop.href "https://fonts.googleapis.com/css2?family=Yrsa:ital,wght@0,300..700;1,300..700&display=swap"
+                   
+                ]
+
                 Html.script [
                     prop.src "script.js"
                     prop.type' "module"
                     
                 ]
+
+
+
             ]  
 
             Html.body [
                 prop.custom("onLoad", "execScripts()")                                  
                 prop.style [
-                style.backgroundColor "#F3F3F3"
+                    style.backgroundColor "#F6F5F1"
+                    style.custom ("--family-serif", "'Yrsa', serif")
+                    style.custom ("--family-primary", "var(--family-serif)")
+                    style.fontFamily "var(--family-primary)"
                 ]
                 prop.children [
                     navbar
