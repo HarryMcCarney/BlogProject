@@ -6,6 +6,7 @@ module About =
     open System.IO
     open FSharp.Formatting.Markdown
     open FSharp.Formatting.Literate
+    open System.Text
 
     let getAboutHtml (doc: LiterateDocument) = 
         doc.Paragraphs
@@ -22,7 +23,7 @@ module About =
     let renderAboutPage() = 
 
         let content = 
-            File.ReadAllText "content/About.md" 
+            File.ReadAllText("content/About.md", Encoding.UTF8)
             |> Literate.ParseMarkdownString
             |> getAboutHtml
 

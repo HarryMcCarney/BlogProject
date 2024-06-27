@@ -13,12 +13,14 @@ module Render =
     open Home
     open About
     open SearchIndex
+    open System.Text
     
     let getMetaData (doc: LiterateDocument) = 
         doc.Paragraphs
         |> Seq.map(fun p -> 
             match p with 
             | YamlFrontmatter (meta,_) -> 
+                printfn "%A" meta
                 meta
                 |> List.map(fun md ->  md.Split ':' |> fun x -> x[0].Trim(), x[1].Trim())
                 |> Some
@@ -64,23 +66,17 @@ module Render =
                 Html.link [
                     prop.rel "preconnect"
                     prop.href "https://fonts.gstatic.com"
-                    
                 ]
 
                 Html.link [
                     prop.rel "stylesheet"
                     prop.href "https://fonts.googleapis.com/css2?family=Yrsa:ital,wght@0,300..700;1,300..700&display=swap"
-                   
                 ]
 
                 Html.script [
                     prop.src "script.js"
                     prop.type' "module"
-                    
                 ]
-
-
-
             ]  
 
             Html.body [
@@ -107,7 +103,7 @@ module Render =
         |> Seq.map(fun f -> 
             printfn "%s" f
 
-            let rawPost = File.ReadAllText f |> Literate.ParseMarkdownString
+            let rawPost = File.ReadAllText(f, Encoding.UTF8) |> Literate.ParseMarkdownString
 
             let updated = 
                 let d = (getMetaData rawPost)["updated"]
@@ -130,7 +126,10 @@ module Render =
                 
             {
                 FileName = Path.GetFileNameWithoutExtension f
-                Title = (getMetaData rawPost)["title"]
+                Title = 
+                    let t = (getMetaData rawPost)["title"]
+                    printfn "%s" t
+                    t
                 Summary = (getMetaData rawPost)["summary"]
                 Content = getArticleHtml rawPost
                 Category = category
@@ -156,7 +155,7 @@ module Render =
             |> render
             |> fun x -> 
                 let renderedFileName = sprintf "public/%s.html" post.FileName
-                System.IO.File.WriteAllText(renderedFileName, x)
+                System.IO.File.WriteAllText(renderedFileName, x, Encoding.UTF8)
             |> ignore
         )
 
