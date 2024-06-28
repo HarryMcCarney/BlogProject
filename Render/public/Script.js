@@ -105,10 +105,18 @@ export function expandHamburger() {
     });
 }
 
+export function hideFsiOutput() {
+    const outputs = document.getElementsByClassName("fsdocs-tip");
+    iterate((e) => {
+        e.classList.add("is-hidden");
+    }, delay(() => map((i) => (outputs[i]), rangeDouble(0, 1, outputs.length - 1))));
+}
+
 export function execScripts() {
     startImmediate(singleton.Delay(() => {
         const value = expandHamburger();
-        const value_1 = addTagFilters();
+        const value_1 = hideFsiOutput();
+        const value_2 = addTagFilters();
         return singleton.Zero();
     }));
 }

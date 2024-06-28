@@ -107,9 +107,17 @@ module Scripts =
                 |> ignore 
             )
 
+    let hideFsiOutput() = 
+        let outputs = document.getElementsByClassName("fsdocs-tip")
+        let elements = seq { for i in 0 .. outputs.length - 1 -> outputs.[i] }
+        elements
+        |> Seq.iter(fun e -> e.classList.add("is-hidden"))
+
+
     let execScripts() =
         async{
             expandHamburger() |> ignore
+            hideFsiOutput() |> ignore
             addTagFilters() |> ignore
         } |> Async.StartImmediate
 

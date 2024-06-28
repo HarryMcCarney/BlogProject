@@ -3,14 +3,65 @@ category: Article
 tags: testTag
 updated: 20240620
 created: 20240620
-title: Some Big Article
+title: Some Code Article
 summary: The emerging golden age of home-cooked software, barefoot developers, and why the local-first community should help build it
 ---
 
-H&C has been working from home since before it became synonymous with flattening the curve. 
-
-![Berlin and London](/berlin.png)
 
 
-# 10 rules for effective Distributed Agile working
- [slack](https://slack.com/intl/en-gb/?eu_nc=1)
+# Example: Using Markdown Content
+
+This file demonstrates how to write Markdown document with 
+embedded F# snippets that can be transformed into nice HTML 
+using the `literate.fsx` script from the [F# Formatting
+package](http://fsprojects.github.io/FSharp.Formatting).
+
+In this case, the document itself is a valid Markdown and 
+you can use standard Markdown features to format the text:
+
+ - Here is an example of unordered list and...
+ - Text formatting including **bold** and _emphasis_
+
+For more information, see the [Markdown][md] reference.
+
+ [md]: http://daringfireball.net/projects/markdown
+
+
+## Writing F# code
+
+In standard Markdown, you can include code snippets by 
+writing a block indented by four spaces and the code 
+snippet will be turned into a `<pre>` element. If you do 
+the same using Literate F# tool, the code is turned into
+a nicely formatted F# snippet:
+
+    /// The Hello World of functional languages!
+    let rec factorial x = 
+      if x = 0 then 1 
+      else x * (factorial (x - 1))
+
+    let f10 = factorial 10
+
+
+## Hiding code
+
+If you want to include some code in the source code, 
+but omit it from the output, you can use the `hide` 
+command. You can also use `module=...` to specify that 
+the snippet should be placed in a separate module 
+(e.g. to avoid duplicate definitions).
+
+
+The value will be deffined in the F# code that is 
+processed and so you can use it from other (visible) 
+code and get correct tool tips:
+   
+
+
+## Including other snippets
+
+When writing literate programs as Markdown documents, 
+you can also include snippets in other languages. 
+These will not be colorized and processed as F# 
+code samples:
+

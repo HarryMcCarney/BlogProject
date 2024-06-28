@@ -31,15 +31,7 @@ module Render =
 
 
     let getArticleHtml (doc: LiterateDocument) = 
-        doc.Paragraphs
-        |> Seq.filter(fun p -> 
-            match p with 
-            | YamlFrontmatter (_,_) -> false
-            | _ -> true
-            )
-        |> Seq.toList
-        |> fun paras -> MarkdownDocument(paras, dict [] )
-        |> Markdown.ToHtml
+            Literate.ToHtml(doc, "", false, false)
 
 
     let render content =
@@ -113,31 +105,36 @@ module Render =
         |> Seq.map(fun f -> 
             printfn "%s" f
 
-            let rawPost = File.ReadAllText(f, Encoding.UTF8) |> Literate.ParseMarkdownString
+    
+            let rawPost =  Literate.ParseMarkdownFile(f)
+            let metaData = getMetaData rawPost
+  
+            
+            printfn "%A" rawPost
 
             let updated = 
-                let d = (getMetaData rawPost)["updated"]
+                let d = metaData["updated"]
                 DateTime.ParseExact(d , "yyyyMMdd", CultureInfo.InvariantCulture) 
             
             let created = 
-                let d = (getMetaData rawPost)["created"]
+                let d = metaData["created"]
                 DateTime.ParseExact(d , "yyyyMMdd", CultureInfo.InvariantCulture) 
 
             let category = 
-                match (getMetaData rawPost)["category"] with 
+                match metaData["category"] with 
                 | "Article" -> Article
                 | "Draft" -> Draft 
                 | "Note" -> Note
                 | _ -> failwith "Unknown category in markdown file"
             
             let tags = 
-                (((getMetaData rawPost)["tags"]).Split ",")
+                ((metaData["tags"]).Split ",")
                 |> Array.map(fun t -> t.Trim())
                 
             {
                 FileName = Path.GetFileNameWithoutExtension f
-                Title = (getMetaData rawPost)["title"]
-                Summary = (getMetaData rawPost)["summary"]
+                Title = metaData["title"]
+                Summary = metaData["summary"]
                 Content = getArticleHtml rawPost
                 Category = category
                 Tags = tags
