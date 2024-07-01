@@ -5,45 +5,15 @@ module Home =
     open Layout
     open Model
     open Feliz.ViewEngine.style
-    open System
-    open Feliz.ViewEngine.Styles
-    open Feliz.ViewEngine.prop
-    open Feliz
-    
-  
-
-
-    let hoverStyle =
-        prop.style [
-            style.transform.scale 1.05
-            style.transitionProperty "tramsform"
-            style.transitionTimingFunction.easeInOut
-            style.transitionDuration  (TimeSpan.FromSeconds(0.2))
-        ]
-      
-      
-      (*  
-      
-        style [
-            css.hover [
-                css.transform.scale(1.05)
-                css.transitionProperty "transform"
-                css.transitionDuration (TimeSpan.FromSeconds(0.2))
-                css.transitionTimingFunction.easeInOut
-            ]
-        ]
-    *)
-
-
-
 
     let buildPostCard post = 
 
         Html.div [
             prop.id post.FileName
-            prop.classes ["card" ; "post-card"]
-            hoverStyle 
-            
+            prop.classes ["card" ; "post-card"; "my-card"]
+            prop.style [
+                style.backgroundColor "#F6F5F1"
+            ]
             prop.children [
                 Html.div [
                     prop.classes ["card-content"]
@@ -53,18 +23,20 @@ module Home =
                                 | Note -> noteIcon
                                 | _ -> noteIcon
                         Html.a [
-                            prop.classes  [ "is-family-secondary"; "is-size-4"]
+                            prop.classes  [ "title"; "is-family-secondary"; "is-size-4"]
                             prop.href (sprintf "/%s.html" post.FileName)
                             prop.text post.Title
                             prop.style [
                                 style.fontWeight 400
-                                style.color "black"
                             ]
                         ]
                     ]
                 ]
                 Html.footer [
                     prop.className "card-footer"
+                    prop.style [
+                        style.color "Black"
+                    ]
                     prop.children [
                         Html.p [
                             prop.classes [ "card-footer-item"; "is-size-7"]

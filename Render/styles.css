@@ -173,6 +173,13 @@
     }
 }
 
-.right-border {
-    border-right: 3px solid blue;
+.my-card {
+    transition: transform 0.2s ease-in-out;
+  
+}
+
+.my-card:hover {
+    transform: scale(1.03);
+    background-color: #ccc;
+    color: #960462;
 }
