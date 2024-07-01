@@ -62,6 +62,7 @@ module Layout =
             ]
         ]
 
+
     let navbar =
         Html.nav [
             prop.classes ["navbar";]

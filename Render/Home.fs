@@ -5,6 +5,8 @@ module Home =
     open Layout
     open Model
     open System
+    open Feliz.ViewEngine.style
+    open Feliz.ViewEngine.Styles
 
 
     let buildPostCard post = 
@@ -49,25 +51,42 @@ module Home =
                 ]
             ]
         ]
-        
+
+
     let buildTagList (posts : Post seq) = 
-        
+
+        let tagList = 
+            posts
+            |> Seq.map(fun p -> p.Tags)
+            |> Seq.concat
+            |> Set.ofSeq
+            |> Set.toSeq
+            |> Seq.map(fun t ->
+                Html.span [
+                    prop.id t
+                    prop.classes ["tag"; "is-hoverable"; "is-rounded"; "is-size-6"]
+                    prop.text t
+                ]
+                )
+
+        let topicLabel = 
+            Html.span [
+                prop.text "TOPICS"
+                prop.style [
+                    borderStyle.solid
+                    style.borderRightWidth 2 
+                    style.borderBottomWidth 0
+                    style.borderTopWidth 0
+                    style.borderLeftWidth 0
+                    style.borderRightColor "#00d1b2"
+                    style.paddingRight 8
+                    style.marginRight 10
+                ]
+            ]
+
         Html.div [
-            prop.text "Topics"
-            prop.children
-                (posts
-                |> Seq.map(fun p -> p.Tags)
-                |> Seq.concat
-                |> Set.ofSeq
-                |> Set.toSeq
-                |> Seq.map(fun t ->
-                    Html.span [
-                        prop.id t
-                        prop.classes ["tag"; "is-hoverable"; "is-medium"]
-                        prop.text t
-                    ]
-                )
-                )
+            prop.classes ["mb-6"]
+            prop.children  (tagList |> Seq.append [topicLabel])
         ]
 
     let getPostSummaries posts =
@@ -85,18 +104,24 @@ module Home =
         |> Seq.map snd
 
     let homeHeader = 
-        Html.section [
-            prop.className "section"
+        Html.div [
+            prop.className "container"
             prop.children [
-                Html.h1 [
-                    prop.className "title"
+                Html.div [
+                    prop.classes ["title"; "is-size-1"; "mb-5"; "mt-6"]
                     prop.text "The Garden"
+                    prop.style [
+                        style.fontWeight 550
+                    ]
                     
                 ]
                 
-                Html.h2 [
-                    prop.className "subtitle"
+                Html.div [
+                    prop.classes ["subtitle"; "is-size-2"; "is-family-secondary"; "mb-6"]
                     prop.text "A collection of essays, notes, and half-baked explorations I'm always tending to."
+                    prop.style [
+                        style.fontWeight 300
+                    ]
                 ]
             ]
         ]

@@ -79,16 +79,31 @@ export function addTagFilters() {
             const posts = delay(() => map((i_1) => (postNodes[i_1]), rangeDouble(0, 1, postNodes.length - 1)));
             iterate((t) => {
                 t.addEventListener("click", (_arg_1) => {
-                    const postsToHide = map((p_1) => p_1.FileName, filter((p) => !contains(t.id, p.Tags, {
-                        Equals: (x, y) => (x === y),
-                        GetHashCode: stringHash,
-                    }), si.Posts));
-                    iterate((p_3) => {
-                        p_3.classList.toggle("is-hidden");
-                    }, filter((p_2) => contains_1(p_2.id, postsToHide, {
-                        Equals: (x_1, y_1) => (x_1 === y_1),
-                        GetHashCode: stringHash,
-                    }), posts));
+                    if (t.classList.contains("is-primary")) {
+                        const value = t.classList.remove("is-primary");
+                        iterate((p) => {
+                            p.classList.remove("is-hidden");
+                        }, posts);
+                    }
+                    else {
+                        iterate((x) => {
+                            const value_1 = x.classList.remove("is-primary");
+                        }, tags);
+                        iterate((p_1) => {
+                            p_1.classList.remove("is-hidden");
+                        }, posts);
+                        const value_2 = t.classList.add("is-primary");
+                        const postsToHide = map((p_3) => p_3.FileName, filter((p_2) => !contains(t.id, p_2.Tags, {
+                            Equals: (x_1, y) => (x_1 === y),
+                            GetHashCode: stringHash,
+                        }), si.Posts));
+                        iterate((p_5) => {
+                            p_5.classList.toggle("is-hidden");
+                        }, filter((p_4) => contains_1(p_4.id, postsToHide, {
+                            Equals: (x_2, y_1) => (x_2 === y_1),
+                            GetHashCode: stringHash,
+                        }), posts));
+                    }
                 });
             }, tags);
             return singleton.Zero();

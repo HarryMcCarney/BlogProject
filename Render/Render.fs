@@ -175,7 +175,7 @@ module Render =
         renderHomePage posts
         |> render
         |> fun x -> 
-            System.IO.File.WriteAllText("public/index.html", x)
+            System.IO.File.WriteAllText("public/index.html", x, Encoding.UTF8)
         |> ignore
 
 

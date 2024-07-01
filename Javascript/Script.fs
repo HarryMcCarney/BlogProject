@@ -79,16 +79,34 @@ module Scripts =
                 |> Seq.iter(fun t -> 
                     t.addEventListener("click", fun _ ->
 
-                        let postsToHide = 
-                            si.Posts
-                            |> Seq.filter(fun p -> not (p.Tags |> Array.contains t.id))
-                            |> Seq.map(fun p -> p.FileName)
+                        //same tag already selected 
+                        if t.classList.contains "is-primary" then 
+                            t.classList.remove("is-primary") |> ignore
+                            posts
+                            |> Seq.iter(fun p ->   p.classList.remove("is-hidden") )
 
-                        posts
-                        |> Seq.filter(fun p -> postsToHide |> Seq.contains p.id)
-                        |> Seq.iter(fun p -> 
-                            p.classList.toggle("is-hidden") 
-                            |> ignore
+                           
+                        else  // new tag selected
+                            tags
+                            |> Seq.iter(fun x -> 
+                                x.classList.remove("is-primary") |> ignore)
+                            
+                            posts
+                            |> Seq.iter(fun p ->   p.classList.remove("is-hidden") )
+
+                            t.classList.add("is-primary") |> ignore
+
+                            let postsToHide = 
+                                si.Posts
+                                |> Seq.filter(fun p -> not (p.Tags |> Array.contains t.id))
+                                |> Seq.map(fun p -> p.FileName)
+
+                            posts
+                            |> Seq.filter(fun p -> postsToHide |> Seq.contains p.id)
+                            |> Seq.iter(fun p -> 
+                                p.classList.toggle("is-hidden") 
+                                |> ignore
+
                         )
                     )
                 )

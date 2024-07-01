@@ -172,3 +172,7 @@
         color: #000000;
     }
 }
+
+.right-border {
+    border-right: 3px solid blue;
+}
