@@ -4,9 +4,37 @@ module Home =
     open Feliz.ViewEngine
     open Layout
     open Model
-    open System
     open Feliz.ViewEngine.style
+    open System
     open Feliz.ViewEngine.Styles
+    open Feliz.ViewEngine.prop
+    open Feliz
+    
+  
+
+
+    let hoverStyle =
+        prop.style [
+            style.transform.scale 1.05
+            style.transitionProperty "tramsform"
+            style.transitionTimingFunction.easeInOut
+            style.transitionDuration  (TimeSpan.FromSeconds(0.2))
+        ]
+      
+      
+      (*  
+      
+        style [
+            css.hover [
+                css.transform.scale(1.05)
+                css.transitionProperty "transform"
+                css.transitionDuration (TimeSpan.FromSeconds(0.2))
+                css.transitionTimingFunction.easeInOut
+            ]
+        ]
+    *)
+
+
 
 
     let buildPostCard post = 
@@ -14,6 +42,8 @@ module Home =
         Html.div [
             prop.id post.FileName
             prop.classes ["card" ; "post-card"]
+            hoverStyle 
+            
             prop.children [
                 Html.div [
                     prop.classes ["card-content"]
@@ -23,9 +53,13 @@ module Home =
                                 | Note -> noteIcon
                                 | _ -> noteIcon
                         Html.a [
-                            prop.className "subtitle"
+                            prop.classes  [ "is-family-secondary"; "is-size-4"]
                             prop.href (sprintf "/%s.html" post.FileName)
                             prop.text post.Title
+                            prop.style [
+                                style.fontWeight 400
+                                style.color "black"
+                            ]
                         ]
                     ]
                 ]
@@ -33,18 +67,19 @@ module Home =
                     prop.className "card-footer"
                     prop.children [
                         Html.p [
-                            prop.className "card-footer-item"
-                            prop.text (post.Category |> string)
+                            prop.classes [ "card-footer-item"; "is-size-7"]
+
+                            prop.text ((post.Category |> string).ToUpper())
                         ]
                         bulletIcon
                         Html.p [
-                            prop.className "card-footer-item"
+                            prop.classes [ "card-footer-item"; "is-size-7"]
                             prop.text 
                                 (
                                 match post.Category with 
-                                | Article -> sprintf "Published %s" (summarizeDate post.Updated)
-                                | Note -> sprintf "Updated %s" (summarizeDate post.Updated)
-                                | _ -> sprintf "Updated %s" (summarizeDate post.Updated)
+                                | Article -> sprintf "PUBLISHED %s" (summarizeDate post.Updated)
+                                | Note -> sprintf "UPDATED %s" (summarizeDate post.Updated)
+                                | _ -> sprintf "UPDATED %s" (summarizeDate post.Updated)
                                 )
                         ]
                     ]

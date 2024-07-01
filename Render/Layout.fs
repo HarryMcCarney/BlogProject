@@ -10,15 +10,15 @@ module Layout =
         let span = now - inputDate
         
         if span.TotalHours < 24.0 then
-            sprintf "%.0f hours ago" span.TotalHours
+            sprintf "%.0f HOURS AGP" span.TotalHours
         elif span.TotalDays < 30.0 then
-            sprintf "%.0f days ago" span.TotalDays
+            sprintf "%.0f DAYS AGO" span.TotalDays
         elif span.TotalDays < 365.0 then
             let months = Math.Round(span.TotalDays / 30.0)
-            sprintf "about %.0f months ago" months
+            sprintf "ABOUT %.0f MONTHS AGO" months
         else
             let years = Math.Round(span.TotalDays / 365.0)
-            sprintf "about %.0f years ago" years
+            sprintf "ABOUT %.0f YEARS AGO" years
 
     let noteIcon = 
         Html.span [
