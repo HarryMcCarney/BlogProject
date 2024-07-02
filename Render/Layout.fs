@@ -22,20 +22,20 @@ module Layout =
 
     let noteIcon = 
         Html.span [
-            prop.classes ["icon"; "is-medium"; "has-text-info"; "m-2"]
+            prop.classes ["icon"; "is-small"; "is-primary" ; "m-0"]
             prop.children [
                 Html.i [
-                    prop.classes ["far fa"; "fa-sticky-note"; "m-2"]
+                    prop.classes ["far fa"; "fa-sticky-note"; "m-0"]
                 ]
             ]
         ]
     
     let articleIcon = 
         Html.span [
-            prop.classes ["icon"; "is-medium"; "has-text-info" ; "m-2"]
+            prop.classes ["icon"; "is-small"; "is-primary" ; "m-0"]
             prop.children [
                 Html.i [
-                    prop.classes ["far"; "fa-newspaper"; "m-2"]
+                    prop.classes ["far"; "fa-newspaper"; "m-0"]
                     
                 ]
             ]
@@ -43,21 +43,20 @@ module Layout =
 
     let articleIconLarge = 
         Html.span [
-            prop.classes ["icon"; "is-large"; "has-text-info" ; "m-2"]
+            prop.classes ["icon"; "is-small"; "is-primary" ; "m-0"]
             prop.children [
                 Html.i [
-                    prop.classes ["far"; "fa-newspaper"; "m-2"]
-                    
+                    prop.classes ["far"; "fa-newspaper"; "m-0"]
                 ]
             ]
         ]
 
     let bulletIcon = 
         Html.span [
-            prop.classes ["icon"; "is-medium"; "has-text-danger"; "m-2"]
+            prop.classes ["icon"; "is-small"; "is-primary" ; "m-0"]
             prop.children [
                 Html.i [
-                    prop.classes ["fa-regular"; "fa-circle-dot";"m-2"]
+                    prop.classes ["fa-regular"; "fa-circle-dot";"m-0"]
                 ]
             ]
         ]

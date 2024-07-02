@@ -10,20 +10,20 @@ module Home =
 
         Html.div [
             prop.id post.FileName
-            prop.classes ["card" ; "post-card"; "my-card"]
+            prop.classes ["card" ;  "post-card"; "my-card"]
             prop.style [
                 style.backgroundColor "#F6F5F1"
             ]
             prop.children [
                 Html.div [
-                    prop.classes ["card-content"]
+                    prop.classes ["card-content"; "p-2"]
                     prop.children [
                         match post.Category with 
                                 | Article ->  articleIcon
                                 | Note -> noteIcon
                                 | _ -> noteIcon
                         Html.a [
-                            prop.classes  [ "title"; "is-family-secondary"; "is-size-4"]
+                            prop.classes  ["is-family-secondary"; "is-size-5"; "ml-3"]
                             prop.href (sprintf "/%s.html" post.FileName)
                             prop.text post.Title
                             prop.style [
@@ -39,13 +39,13 @@ module Home =
                     ]
                     prop.children [
                         Html.p [
-                            prop.classes [ "card-footer-item"; "is-size-7"]
+                            prop.classes ["p-1"; "card-footer-item"; "is-size-7"; "has-text-right"]
 
                             prop.text ((post.Category |> string).ToUpper())
                         ]
                         bulletIcon
                         Html.p [
-                            prop.classes [ "card-footer-item"; "is-size-7"]
+                            prop.classes ["p-1"; "card-footer-item"; "is-size-7"; "has-text-left"]
                             prop.text 
                                 (
                                 match post.Category with 
@@ -86,7 +86,7 @@ module Home =
                     style.borderTopWidth 0
                     style.borderLeftWidth 0
                     style.borderRightColor "#00d1b2"
-                    style.paddingRight 8
+                    style.paddingRight 20
                     style.marginRight 10
                 ]
             ]

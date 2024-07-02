@@ -175,11 +175,20 @@
 
 .my-card {
     transition: transform 0.2s ease-in-out;
-    color: #000000;
+    box-shadow: none;
+  
 }
 
 .my-card:hover {
     transform: scale(1.03);
-    background-color: #ccc;
-    color: #960462;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
+
+.my-card a:hover {
+    color: #960462
+}
+
+.card-content a {
+    color: black; /* Custom link color */
+}
+
