@@ -7,10 +7,10 @@ module Home =
     open Feliz.ViewEngine.style
 
     let buildPostCard post = 
-
         Html.div [
             prop.id post.FileName
-            prop.classes ["card" ;  "post-card"; "my-card"]
+            prop.onClick (fun _ -> Browser.Dom.window.location.href <- sprintf "/%s.html" post.FileName)
+            prop.classes ["card" ;  "post-card"; "my-card"; "is-clickable"]
             prop.style [
                 style.backgroundColor "#F6F5F1"
             ]
@@ -18,12 +18,9 @@ module Home =
                 Html.div [
                     prop.classes ["card-content"; "p-2"]
                     prop.children [
-                        match post.Category with 
-                                | Article ->  articleIcon
-                                | Note -> noteIcon
-                                | _ -> noteIcon
+
                         Html.a [
-                            prop.classes  ["is-family-secondary"; "is-size-5"; "ml-3"]
+                            prop.classes  ["is-family-secondary"; "is-size-6"; "ml-3"]
                             prop.href (sprintf "/%s.html" post.FileName)
                             prop.text post.Title
                             prop.style [
@@ -58,6 +55,7 @@ module Home =
                 ]
             ]
         ]
+
 
 
     let buildTagList (posts : Post seq) = 
