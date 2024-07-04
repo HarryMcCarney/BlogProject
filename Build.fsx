@@ -66,7 +66,10 @@ Target.create "Run" (fun _ ->
 )
 
 Target.create "Commit" (fun _ ->
-        
+        let filePath = "./docs/CNAME"
+        let content = "harrymccarney.com"
+        // Write the content to the file
+        File.writeString false filePath content
         Shell.Exec("git", "add .") |> ignore
         Shell.Exec("git",  "commit -a -m \"deploying to github pages\"") |> ignore
 )
