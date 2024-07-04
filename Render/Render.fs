@@ -163,7 +163,7 @@ module Render =
             | Draft ->  renderPost post
             |> render
             |> fun x -> 
-                let renderedFileName = sprintf "public/%s.html" post.FileName
+                let renderedFileName = sprintf "../docs/%s.html" post.FileName
                 System.IO.File.WriteAllText(renderedFileName, x, Encoding.UTF8)
             |> ignore
         )
@@ -173,14 +173,14 @@ module Render =
         renderAboutPage() 
         |> render 
         |> fun x -> 
-            System.IO.File.WriteAllText("public/about.html", x)
+            System.IO.File.WriteAllText("../docs/about.html", x)
         |> ignore
 
         // build home page
         renderHomePage posts
         |> render
         |> fun x -> 
-            System.IO.File.WriteAllText("public/index.html", x, Encoding.UTF8)
+            System.IO.File.WriteAllText("../docs/index.html", x, Encoding.UTF8)
         |> ignore
 
 

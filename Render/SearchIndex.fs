@@ -45,7 +45,7 @@ module SearchIndex =
     let buildSearchIndex (posts: Post seq) = 
         let container = {Posts = posts}
         (postsEncoder container).ToString()
-        |> fun j -> System.IO.File.WriteAllText("public/SearchIndex.json", j)
+        |> fun j -> System.IO.File.WriteAllText("../docs/SearchIndex.json", j)
         
 
 
