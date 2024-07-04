@@ -40,7 +40,7 @@ Target.create "Render" (fun _ ->
         Shell.copyDir "../docs" "images" (fun _ -> true) |> ignore
         Shell.copyFile "../docs" "styles.css" |> ignore
         DotNet.exec id "run" "--project ./BlogProject.fsproj" |> ignore 
-        Shell.cd ".."
+        Shell.cd ".." 
 )
 
 Target.create "CompileJS" (fun _ ->
