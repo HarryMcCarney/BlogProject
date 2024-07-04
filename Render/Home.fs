@@ -113,7 +113,7 @@ module Home =
 
     let homeHeader = 
         Html.div [
-            prop.className "container"
+            prop.classes [ "container";]
             prop.children [
                 Html.div [
                     prop.classes ["title"; "is-size-1"; "mb-5"; "mt-6"]
@@ -138,7 +138,7 @@ module Home =
         let renderedPosts = getPostSummaries posts
 
         Html.div [
-            prop.className "container"
+            prop.classes [ "container";]
             prop.children [
                 Html.div [
                     prop.children  (buildTagList posts)
@@ -165,7 +165,7 @@ module Home =
                
     let renderHomePage posts = 
         Html.div [
-            prop.className "container is-fluid"
+            prop.classes [ "container";]
             prop.children [
                 homeHeader
                 renderGrid posts

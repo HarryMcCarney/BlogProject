@@ -84,7 +84,7 @@ module Render =
 
 
             Html.body [
-                prop.custom("onLoad", "execScripts()")                                  
+                prop.custom("onLoad", "execScripts()") 
                 prop.style [
                     style.backgroundColor "#F6F5F1"
                     style.custom ("--family-serif", "'Yrsa', serif")
@@ -95,9 +95,15 @@ module Render =
                     style.fontFamily "var(--family-secondary)"
                 ]
                 prop.children [
-                    navbar
-                    content
-                    footer
+                    Html.section [
+                        prop.children [
+                            navbar
+                            content
+                            footer
+
+                        ]
+                    ]
+
                 ]
             ]
 

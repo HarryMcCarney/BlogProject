@@ -56,8 +56,8 @@ module Post =
             ]
 
     let renderPost (post: Post) =
-        Html.div [
-            prop.classes ["container"; "content"; "is-medium"]
+        Html.section [
+            prop.classes ["container"; "content"; "is-medium";]
             prop.style [
                 style.backgroundColor "#F6F5F1"
                 style.maxWidth 800;
