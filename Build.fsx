@@ -55,7 +55,7 @@ Target.create "Run" (fun _ ->
                 choose [
                 GET >=> path "/" >=> Files.file "docs/index.html"
                 GET >=> Files.browseHome            
-                RequestErrors.NOT_FOUND "Page not found." 
+                RequestErrors.NOT_FOUND "Page not found."  
                 ]
        
         let config =
