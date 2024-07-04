@@ -21,7 +21,7 @@ module Home =
                         | Note -> noteIcon
                         | Article -> articleIcon
                         | _ -> failwith "unknown post category"
-                        
+
                         Html.a [
                             prop.classes  ["is-family-secondary"; "is-size-4"; "ml-3"]
                             prop.href (sprintf "/%s.html" post.FileName)
@@ -117,7 +117,7 @@ module Home =
             prop.children [
                 Html.div [
                     prop.classes ["title"; "is-size-1"; "mb-5"; "mt-6"]
-                    prop.text "The Garden"
+                    prop.text "What is Lorem Ipsum?"
                     prop.style [
                         style.fontWeight 550
                     ]
@@ -126,7 +126,7 @@ module Home =
                 
                 Html.div [
                     prop.classes ["subtitle"; "is-size-2"; "is-family-secondary"; "mb-6"]
-                    prop.text "A collection of essays, notes, and half-baked explorations I'm always tending to."
+                    prop.text "Lorem Ipsum is simply dummy text of the printing and typesetting industry."
                     prop.style [
                         style.fontWeight 300
                     ]
