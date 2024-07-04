@@ -76,7 +76,7 @@ module Render =
                 ]
 
                 Html.script [
-                    prop.src "script.js"
+                    prop.src "Script.js"
                     prop.type' "module"
                 ]
             ]  
