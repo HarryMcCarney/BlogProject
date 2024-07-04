@@ -1,9 +1,0 @@
-[Dd]ebug/
-[Bb]in/
-[Oo]bj/
-**/bin/
-/bin/
-obj
-
-#Ignore script files
-.fake

@@ -1,0 +1,7 @@
+C:\Projects\BlogProject\Javascript\bin\Release\net7.0\Javascript.fable-temp.deps.json
+C:\Projects\BlogProject\Javascript\bin\Release\net7.0\Javascript.fable-temp.runtimeconfig.json
+C:\Projects\BlogProject\Javascript\obj\Release\net7.0\Javascript.fable-temp.GeneratedMSBuildEditorConfig.editorconfig
+C:\Projects\BlogProject\Javascript\obj\Release\net7.0\Javascript.fable-temp.AssemblyInfoInputs.cache
+C:\Projects\BlogProject\Javascript\obj\Release\net7.0\Javascript.fable-temp.AssemblyInfo.cs
+C:\Projects\BlogProject\Javascript\obj\Release\net7.0\Javascri.B8A0A9C5.Up2Date
+C:\Projects\BlogProject\Javascript\obj\Release\net7.0\Javascript.fable-temp.genruntimeconfig.cache
