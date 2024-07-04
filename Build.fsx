@@ -46,7 +46,7 @@ Target.create "Render" (fun _ ->
 Target.create "CompileJS" (fun _ ->
         Shell.cd "Javascript"
         DotNet.exec id "fable" "--outDir ../docs" |> ignore 
-        Shell.rm "../.gitignore"
+        Shell.rm "../docs/.gitignore"
         Shell.cd ".."
 )
 
