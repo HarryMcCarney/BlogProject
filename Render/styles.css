@@ -182,13 +182,7 @@
 .my-card:hover {
     transform: scale(1.03);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-    text-decoration: underline; /* Add underline on hover */
-    text-decoration-color: #00d1b2; 
-}
 
-.my-card a:hover {
-    text-decoration: underline; /* Add underline on hover */
-    text-decoration-color: #00d1b2; 
 }
 
 .card-content a {

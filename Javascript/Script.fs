@@ -132,11 +132,23 @@ module Scripts =
         |> Seq.iter(fun e -> e.classList.add("is-hidden"))
 
 
+    let addCardClickEvents() = 
+        let postNodes = document.getElementsByClassName("post-card")
+        let posts = seq { for i in 0 .. postNodes.length - 1 -> postNodes.[i] }
+        posts
+        |> Seq.iter(fun p -> 
+            p.addEventListener("click", fun _ ->
+                Browser.Dom.window.location.href <- (sprintf "%s.html" p.id)
+
+            )
+        )
+
     let execScripts() =
         async{
             expandHamburger() |> ignore
             hideFsiOutput() |> ignore
             addTagFilters() |> ignore
+            addCardClickEvents()  |> ignore
         } |> Async.StartImmediate
 
     [<Emit("window.execScripts = $0")>]

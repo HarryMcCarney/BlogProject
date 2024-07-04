@@ -1,5 +1,5 @@
 ---
-category: Article
+category: Note
 tags: testTag
 updated: 20240620
 created: 20240620

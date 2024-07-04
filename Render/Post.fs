@@ -71,9 +71,13 @@ module Post =
                             prop.children [
                                 Html.div [
                                     prop.classes ["level-item"]
-                                    prop.children [              
+                                    prop.children [   
+                                        match post.Category with 
+                                        | Note -> noteIcon
+                                        | Article -> articleIcon
+                                        | _ -> failwith "unknown post category"           
                                         Html.p [
-                                            prop.classes []
+                                            prop.classes ["ml-2"]
                                             prop.text 
                                                 (
                                                 match post.Category with 
@@ -84,12 +88,7 @@ module Post =
                                         ]
                                     ]
                                 ]
-                                Html.div [
-                                    prop.classes ["level-item"]
-                                    prop.children [              
-                                        articleIconLarge
-                                    ]
-                                ]
+                   
                             ]
                         ]
                     ]

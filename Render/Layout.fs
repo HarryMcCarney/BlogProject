@@ -20,26 +20,33 @@ module Layout =
             let years = Math.Round(span.TotalDays / 365.0)
             sprintf "ABOUT %.0f YEARS AGO" years
 
+    
     let noteIcon = 
         Html.span [
-            prop.classes ["icon"; "is-small"; "is-primary" ; "m-0"]
-            prop.children [
-                Html.i [
-                    prop.classes ["far fa"; "fa-sticky-note"; "m-0"]
+                prop.classes ["icon"; "is-medium"]
+                prop.children [
+                    Html.i [
+                        prop.classes ["fa-regular"; "fa-circle";]
+                        prop.style [
+                            style.color "#00d1b2"
+                        ]
+                    ]
                 ]
             ]
-        ]
     
     let articleIcon = 
         Html.span [
-            prop.classes ["icon"; "is-small"; "is-primary" ; "m-0"]
-            prop.children [
-                Html.i [
-                    prop.classes ["far"; "fa-newspaper"; "m-0"]
-                    
+                prop.classes ["icon"; "is-medium"]
+                prop.children [
+                    Html.i [
+                        prop.classes ["fa-solid"; "fa-circle";]
+                        prop.style [
+                            style.color "#00d1b2"
+                        ]
+                    ]
                 ]
             ]
-        ]
+
 
     let articleIconLarge = 
         Html.span [
@@ -51,15 +58,6 @@ module Layout =
             ]
         ]
 
-    let bulletIcon = 
-        Html.span [
-            prop.classes ["icon"; "is-small"; "is-primary" ; "m-0"]
-            prop.children [
-                Html.i [
-                    prop.classes ["fa-regular"; "fa-circle-dot";"m-0"]
-                ]
-            ]
-        ]
 
 
     let navbar =
@@ -76,7 +74,10 @@ module Layout =
                     prop.children [
                         Html.a [
                             prop.id "navbar-burger"
-                            prop.className "navbar-burger"
+                            prop.classes ["navbar-burger"; "is-text"]
+                            prop.style [
+                                style.color.black
+                            ]
                             prop.role "button"
                             prop.ariaLabel "menu"
                             prop.ariaExpanded false

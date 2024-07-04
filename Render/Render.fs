@@ -41,10 +41,15 @@ module Render =
                     prop.rel "stylesheet"
                     prop.href "https://cdn.jsdelivr.net/npm/bulma@1.0.0/css/bulma.min.css"
                 ]
-                Html.link [
-                    prop.rel "stylesheet"
-                    prop.href "https://use.fontawesome.com/releases/v5.15.4/css/all.css"
+                Html.script [
+                    prop.src "https://kit.fontawesome.com/fd17b6d7c8.js"
+                    prop.crossOrigin.anonymous
                 ]
+
+              //  Html.link [
+                 //   prop.rel "stylesheet"
+                 //   prop.href "https://use.fontawesome.com/releases/v5.15.4/css/all.css"
+              //  ]
                 Html.link [
                     prop.rel "stylesheet"
                     prop.href "styles.css"

@@ -6,7 +6,7 @@ import { FSharpRef } from "./fable_modules/fable-library-js.4.19.3/Types.js";
 import { singleton } from "./fable_modules/fable-library-js.4.19.3/AsyncBuilder.js";
 import { Http_request, Http_method, Http_overrideMimeType, Http_send } from "./fable_modules/Fable.SimpleHttp.3.6.0/Http.fs.js";
 import { HttpMethod } from "./fable_modules/Fable.SimpleHttp.3.6.0/Types.fs.js";
-import { printf, toConsole } from "./fable_modules/fable-library-js.4.19.3/String.js";
+import { toText, printf, toConsole } from "./fable_modules/fable-library-js.4.19.3/String.js";
 import { startImmediate } from "./fable_modules/fable-library-js.4.19.3/Async.js";
 import { contains as contains_1, filter, iterate, map, delay } from "./fable_modules/fable-library-js.4.19.3/Seq.js";
 import { rangeDouble } from "./fable_modules/fable-library-js.4.19.3/Range.js";
@@ -127,11 +127,22 @@ export function hideFsiOutput() {
     }, delay(() => map((i) => (outputs[i]), rangeDouble(0, 1, outputs.length - 1))));
 }
 
+export function addCardClickEvents() {
+    const postNodes = document.getElementsByClassName("post-card");
+    iterate((p) => {
+        p.addEventListener("click", (_arg) => {
+            let arg;
+            window.location.href = ((arg = p.id, toText(printf("%s.html"))(arg)));
+        });
+    }, delay(() => map((i) => (postNodes[i]), rangeDouble(0, 1, postNodes.length - 1))));
+}
+
 export function execScripts() {
     startImmediate(singleton.Delay(() => {
         const value = expandHamburger();
         const value_1 = hideFsiOutput();
         const value_2 = addTagFilters();
+        const value_3 = addCardClickEvents();
         return singleton.Zero();
     }));
 }
