@@ -81,6 +81,6 @@ Target.create "Deploy" (fun _ ->
 
 "Clean" ==> "BuildModel" ==> "Render" ==> "CompileJS" ==> "Run" 
 
-"Commit" ==> "Deploy"
+"Clean" ==> "BuildModel" ==> "Render" ==> "CompileJS" ==> "Commit" ==> "Deploy"
 
 Target.runOrDefaultWithArguments (args.[1])

@@ -4,8 +4,7 @@
 **/bin/
 /bin/
 obj
-#Ignore Fable files
-.fable/
+
 
 #Ignore script files
 .fake
