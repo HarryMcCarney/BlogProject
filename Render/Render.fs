@@ -86,6 +86,7 @@ module Render =
             Html.body [
                 prop.custom("onLoad", "execScripts()") 
                 prop.style [
+                    style.width (length.percent 100)
                     style.backgroundColor "#F6F5F1"
                     style.custom ("--family-serif", "'Yrsa', serif")
                     style.custom ("--family-secondary-serif", "'Merriweather', serif")
@@ -96,6 +97,7 @@ module Render =
                 ]
                 prop.children [
                     Html.section [
+                        prop.classes ["container"]
                         prop.children [
                             navbar
                             content

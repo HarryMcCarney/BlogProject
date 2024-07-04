@@ -10,7 +10,7 @@ open System.Reflection
 [<assembly: System.Reflection.AssemblyCompanyAttribute("BlogProject")>]
 [<assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")>]
 [<assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")>]
-[<assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+a0836291ffbd0352b791b157f49cc064e5a1acba")>]
+[<assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+3835b4357d1add081e8a46fb4531ca185be68dac")>]
 [<assembly: System.Reflection.AssemblyProductAttribute("BlogProject")>]
 [<assembly: System.Reflection.AssemblyTitleAttribute("BlogProject")>]
 [<assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")>]

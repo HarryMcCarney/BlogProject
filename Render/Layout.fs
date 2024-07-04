@@ -62,7 +62,7 @@ module Layout =
 
     let navbar =
         Html.nav [
-            prop.classes ["navbar";]
+            prop.classes ["navbar";"is-fluid"]
             prop.role "navigation"
             prop.ariaLabel "main navigation"
             prop.style [
