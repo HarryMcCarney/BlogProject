@@ -5,6 +5,5 @@
 /bin/
 obj
 
-
 #Ignore script files
 .fake
