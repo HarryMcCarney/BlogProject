@@ -6,7 +6,7 @@ open FSharp.Formatting.Literate
 open FSharp.Formatting.Markdown 
 open System.IO
 
-let file =  File.ReadAllText "Render/content/aArticle.md"
+let file =  File.ReadAllText "Render/content/aEssay.md"
 
 let doc = Literate.ParseMarkdownString(file)
 

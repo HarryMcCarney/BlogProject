@@ -7,7 +7,7 @@ module Post =
 
 
 
-    let articleTags (post: Post) =  
+    let EssayTags (post: Post) =  
         post.Tags
         |> Seq.map(fun t ->
             Html.span [
@@ -22,7 +22,7 @@ module Post =
                 prop.children [
                     Html.div [
                         prop.classes ["column"; "is-two-thirds";"pr-2"]
-                        prop.children  (articleTags post) 
+                        prop.children  (EssayTags post) 
                         ]
                     
                     Html.div [
@@ -35,7 +35,7 @@ module Post =
                             prop.text 
                                 (
                                 match post.Category with 
-                                | Article -> sprintf "Created %s" (summarizeDate post.Created)
+                                | Essay -> sprintf "Created %s" (summarizeDate post.Created)
                                 | Note -> sprintf "Created %s" (summarizeDate post.Created)
                                 | _ -> sprintf "Created %s" (summarizeDate post.Created)
                                 )
@@ -45,7 +45,7 @@ module Post =
                                     prop.text 
                                         (
                                         match post.Category with 
-                                        | Article -> sprintf "Updated %s" (summarizeDate post.Updated)
+                                        | Essay -> sprintf "Updated %s" (summarizeDate post.Updated)
                                         | Note -> sprintf "Updated %s" (summarizeDate post.Updated)
                                         | _ -> sprintf "Updated %s" (summarizeDate post.Updated)
                                         )
@@ -74,14 +74,14 @@ module Post =
                                     prop.children [   
                                         match post.Category with 
                                         | Note -> noteIcon
-                                        | Article -> articleIcon
+                                        | Essay -> EssayIcon
                                         | _ -> failwith "unknown post category"           
                                         Html.p [
                                             prop.classes ["ml-2"]
                                             prop.text 
                                                 (
                                                 match post.Category with 
-                                                | Article -> "Article"
+                                                | Essay -> "Essay"
                                                 | Note -> "Note"
                                                 | _ -> ""
                                                 )

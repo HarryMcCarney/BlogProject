@@ -8,7 +8,7 @@ export class Category extends Union {
         this.fields = fields;
     }
     cases() {
-        return ["Draft", "Note", "Article"];
+        return ["Draft", "Note", "Essay"];
     }
 }
 

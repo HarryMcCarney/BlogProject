@@ -15,7 +15,7 @@ module Scripts =
         |> Decode.andThen (function
             | "Draft" -> Decode.succeed Draft
             | "Note" -> Decode.succeed Note
-            | "Article" -> Decode.succeed Article
+            | "Essay" -> Decode.succeed Essay
             | other -> Decode.fail $"Unknown category: {other}")
 
     let dateTimeDecoder : Decoder<DateTime> =

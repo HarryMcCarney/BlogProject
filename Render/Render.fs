@@ -30,7 +30,7 @@ module Render =
         |> Map
 
 
-    let getArticleHtml (doc: LiterateDocument) = 
+    let getEssayHtml (doc: LiterateDocument) = 
             Literate.ToHtml(doc, "", false, false)
 
 
@@ -127,7 +127,7 @@ module Render =
 
             let category = 
                 match metaData["category"] with 
-                | "Article" -> Article
+                | "Essay" -> Essay
                 | "Draft" -> Draft 
                 | "Note" -> Note
                 | _ -> failwith "Unknown category in markdown file"
@@ -140,7 +140,7 @@ module Render =
                 FileName = Path.GetFileNameWithoutExtension f
                 Title = metaData["title"]
                 Summary = metaData["summary"]
-                Content = getArticleHtml rawPost
+                Content = getEssayHtml rawPost
                 Category = category
                 Tags = tags
                 Updated = updated 
@@ -158,7 +158,7 @@ module Render =
         posts
         |> Seq.iter(fun post -> 
             match post.Category with
-            | Article ->  renderPost post
+            | Essay ->  renderPost post
             | Note ->  renderPost post
             | Draft ->  renderPost post
             |> render

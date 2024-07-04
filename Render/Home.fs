@@ -19,7 +19,7 @@ module Home =
                     prop.children [
                         match post.Category with 
                         | Note -> noteIcon
-                        | Article -> articleIcon
+                        | Essay -> EssayIcon
                         | _ -> failwith "unknown post category"
 
                         Html.a [
@@ -49,7 +49,7 @@ module Home =
                             prop.text 
                                 (
                                 match post.Category with 
-                                | Article -> sprintf "PUBLISHED %s" (summarizeDate post.Updated)
+                                | Essay -> sprintf "PUBLISHED %s" (summarizeDate post.Updated)
                                 | Note -> sprintf "UPDATED %s" (summarizeDate post.Updated)
                                 | _ -> sprintf "UPDATED %s" (summarizeDate post.Updated)
                                 )
@@ -165,7 +165,7 @@ module Home =
                
     let renderHomePage posts = 
         Html.div [
-            prop.className "container"
+            prop.className "container is-fluid"
             prop.children [
                 homeHeader
                 renderGrid posts

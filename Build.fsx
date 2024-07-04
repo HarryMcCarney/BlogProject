@@ -14,7 +14,6 @@ open Suave.Operators
 open System.IO
 
 
-
 let args = fsi.CommandLineArgs
 
 System.Environment.GetCommandLineArgs()
@@ -27,7 +26,6 @@ System.Environment.GetCommandLineArgs()
 Target.create "Clean" (fun _ ->
         Shell.cleanDir "./docs" |> ignore
 )
-
 
 Target.create "BuildModel" (fun _ ->
         Shell.cd "Model" |> ignore
@@ -78,7 +76,6 @@ Target.create "Commit" (fun _ ->
 Target.create "Deploy" (fun _ ->
         Shell.Exec("git", "push") |> ignore
 )
-
 
 "Clean" ==> "BuildModel" ==> "Render" ==> "CompileJS" ==> "Run" 
 

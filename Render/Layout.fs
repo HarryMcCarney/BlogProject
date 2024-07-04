@@ -34,7 +34,7 @@ module Layout =
                 ]
             ]
     
-    let articleIcon = 
+    let EssayIcon = 
         Html.span [
                 prop.classes ["icon"; "is-medium"]
                 prop.children [
@@ -48,7 +48,7 @@ module Layout =
             ]
 
 
-    let articleIconLarge = 
+    let EssayIconLarge = 
         Html.span [
             prop.classes ["icon"; "is-small"; "is-primary" ; "m-0"]
             prop.children [

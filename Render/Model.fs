@@ -8,7 +8,7 @@ module Model =
     type Category = 
         | Draft
         | Note
-        | Article 
+        | Essay 
         
 
     type Post = {

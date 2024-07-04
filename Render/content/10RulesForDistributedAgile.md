@@ -1,5 +1,5 @@
 ---
-category: Article
+category: Essay
 tags: Agile, H&C, Software Engineering, Teams
 updated: 20200409
 created: 20200409
@@ -12,7 +12,7 @@ Initially, this way of working was driven by H&C’s need to hire top notch engi
 
 Unfortunately, we quickly realised that crucial communication gets lost in split location product and engineering teams. Subtle but critical decisions were made in the physical coffee meetings and subsequently lost in the sometimes chaotic video conferences between two packed and echoey meeting rooms. We began thinking there must be a better way.
 
-We were also greatly influenced by [this](https://www.joelonsoftware.com/2006/09/07/a-field-guide-to-developers-2/) Joel Spolsky article. He argues that all developers and knowledge workers doing [‘System 2’ thinking](https://suebehaviouraldesign.com/kahneman-fast-slow-thinking/), as defined by Nobel prize winning psychologist Daniel Kahneman, should have their own single person office. We realised we could address this, improve channels of communication, and access a wider pool of talent around the world by transferring everyone to home working.
+We were also greatly influenced by [this](https://www.joelonsoftware.com/2006/09/07/a-field-guide-to-developers-2/) Joel Spolsky Essay. He argues that all developers and knowledge workers doing [‘System 2’ thinking](https://suebehaviouraldesign.com/kahneman-fast-slow-thinking/), as defined by Nobel prize winning psychologist Daniel Kahneman, should have their own single person office. We realised we could address this, improve channels of communication, and access a wider pool of talent around the world by transferring everyone to home working.
 
 
 ![Berlin and London](/berlin.png)

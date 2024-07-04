@@ -13,7 +13,7 @@ module SearchIndex =
         match category with
         | Draft -> Encode.string "Draft"
         | Note -> Encode.string "Note"
-        | Article -> Encode.string "Article"
+        | Essay -> Encode.string "Essay"
   
     let postEncoder (post: Post) =
         Encode.object [
