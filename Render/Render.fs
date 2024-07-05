@@ -95,7 +95,7 @@ module Render =
                 ]
                 prop.children [
                     Html.section [
-                        prop.classes ["container"]
+                        prop.classes ["container"; "is-fluid"]
                         prop.children [
                             navbar
                             content
