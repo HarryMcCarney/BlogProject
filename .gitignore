@@ -7,18 +7,9 @@
 obj
 
 **/local/** 
-**/BlogProject/Dist/** 
-**/Render/bin/** 
-**/Javascript/obj/** 
-**/Model/bin/** 
-**/Model/obj/** 
-**/Render/obj/** 
-
-
-
-Javascript/obj/Javascript.fsproj.nuget.dgspec.json
-
-.fake
-Render/** */
-Render/obj/Debug/net7.0/BlogProject.assets.cache
-Model/obj/Debug/net7.0/Model.assets.cache
+BlogProject/Dist/** 
+Render/bin/** 
+Javascript/obj/** 
+Model/bin/** 
+Model/obj/** 
+Render/obj/** 
