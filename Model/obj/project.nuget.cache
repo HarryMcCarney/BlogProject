@@ -1,13 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "Ai6jreQ76cI=",
+  "dgSpecHash": "nnj8rY3KVM+g/A764XXarlnsC2JPIKydfQtJxEg3gtDVvRnknGihUi+EXVM34vPkZbn8wNAKPXwITKpAh5NWRg==",
   "success": true,
-  "projectFilePath": "C:\\Projects\\BlogProject\\Model\\Model.fsproj",
+  "projectFilePath": "C:\\Projects\\BlogProject\\BlogProject\\Model\\Model.fsproj",
   "expectedPackageFiles": [
-    "C:\\Users\\harry\\.nuget\\packages\\fsharp.core\\8.0.300\\fsharp.core.8.0.300.nupkg.sha512",
-    "C:\\Users\\harry\\.nuget\\packages\\microsoft.netcore.app.ref\\7.0.20\\microsoft.netcore.app.ref.7.0.20.nupkg.sha512",
-    "C:\\Users\\harry\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\7.0.20\\microsoft.windowsdesktop.app.ref.7.0.20.nupkg.sha512",
-    "C:\\Users\\harry\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\7.0.20\\microsoft.aspnetcore.app.ref.7.0.20.nupkg.sha512"
+    "C:\\Users\\harry\\.nuget\\packages\\fsharp.core\\7.0.300\\fsharp.core.7.0.300.nupkg.sha512"
   ],
   "logs": []
 }

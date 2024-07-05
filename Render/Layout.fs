@@ -23,14 +23,15 @@ module Layout =
     
     let noteIcon = 
         Html.span [
-                prop.classes ["icon"; "is-medium"]
+                prop.classes ["icon"; "is-medium";"is-primary"]
                 prop.children [
                     Html.i [
-                        prop.classes ["fa-regular"; "fa-circle";]
+                        prop.classes ["fa-regular"; "fa-circle"; "is-primary"]
                         prop.style [
                             style.color "#00d1b2"
                         ]
                     ]
+                
                 ]
             ]
     
@@ -39,7 +40,7 @@ module Layout =
                 prop.classes ["icon"; "is-medium"]
                 prop.children [
                     Html.i [
-                        prop.classes ["fa-solid"; "fa-circle";]
+                        prop.classes ["fa-solid"; "fa-circle"; "is-primary"]
                         prop.style [
                             style.color "#00d1b2"
                         ]
@@ -47,27 +48,12 @@ module Layout =
                 ]
             ]
 
-
-    let EssayIconLarge = 
-        Html.span [
-            prop.classes ["icon"; "is-small"; "is-primary" ; "m-0"]
-            prop.children [
-                Html.i [
-                    prop.classes ["far"; "fa-newspaper"; "m-0"]
-                ]
-            ]
-        ]
-
-
-
     let navbar =
         Html.nav [
-            prop.classes ["navbar";"is-fluid"]
+            prop.classes ["navbar";"is-fluid"; "has-text-dark"; "has-background-light"]
             prop.role "navigation"
             prop.ariaLabel "main navigation"
-            prop.style [
-                style.backgroundColor "#F6F5F1"
-                ]
+
             prop.children [
                 Html.div [
                     prop.className "navbar-brand"
@@ -75,9 +61,7 @@ module Layout =
                         Html.a [
                             prop.id "navbar-burger"
                             prop.classes ["navbar-burger"; "is-text"]
-                            prop.style [
-                                style.color.black
-                            ]
+
                             prop.role "button"
                             prop.ariaLabel "menu"
                             prop.ariaExpanded false
@@ -122,10 +106,7 @@ module Layout =
         
     let footer = 
         Html.footer [
-            prop.className "footer"
-            prop.style [
-                style.backgroundColor "#F6F5F1"
-                ]
+            prop.classes [ "footer"; "has-text-dark"; "has-background-light"]
             prop.children [
                 Html.div [
                     prop.className "content has-text-centered"

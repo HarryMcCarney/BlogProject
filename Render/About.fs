@@ -28,10 +28,7 @@ module About =
             |> getAboutHtml
 
         Html.div [ 
-            prop.classes ["container"; "content"; "is-medium"]
-            prop.style [
-                style.backgroundColor "#F3F3F3"
-            ]
+            prop.classes ["container"; "content"; "is-medium"; "has-text-dark"; "has-background-light"]
             prop.children [
                 Html.section [
                     prop.className "section"

@@ -1,28 +1,26 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Projects\\BlogProject\\Render\\BlogProject.fsproj": {}
+    "C:\\Projects\\BlogProject\\BlogProject\\Render\\BlogProject.fsproj": {}
   },
   "projects": {
-    "C:\\Projects\\BlogProject\\Model\\Model.fsproj": {
+    "C:\\Projects\\BlogProject\\BlogProject\\Model\\Model.fsproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Projects\\BlogProject\\Model\\Model.fsproj",
+        "projectUniqueName": "C:\\Projects\\BlogProject\\BlogProject\\Model\\Model.fsproj",
         "projectName": "Model",
-        "projectPath": "C:\\Projects\\BlogProject\\Model\\Model.fsproj",
+        "projectPath": "C:\\Projects\\BlogProject\\BlogProject\\Model\\Model.fsproj",
         "packagesPath": "C:\\Users\\harry\\.nuget\\packages\\",
-        "outputPath": "C:\\Projects\\BlogProject\\Model\\obj\\",
+        "outputPath": "C:\\Projects\\BlogProject\\BlogProject\\Model\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\harry\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Users\\harry\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net7.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\sdk\\8.0.302\\FSharp\\library-packs": {},
+          "C:\\Program Files\\dotnet\\sdk\\7.0.304\\FSharp\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -30,11 +28,6 @@
             "targetAlias": "net7.0",
             "projectReferences": {}
           }
-        },
-        "restoreAuditProperties": {
-          "enableAudit": "true",
-          "auditLevel": "low",
-          "auditMode": "direct"
         }
       },
       "frameworks": {
@@ -44,7 +37,7 @@
             "FSharp.Core": {
               "include": "Runtime, Compile, Build, Native, Analyzers, BuildTransitive",
               "target": "Package",
-              "version": "[8.0.300, )",
+              "version": "[7.0.300, )",
               "generatePathProperty": true
             }
           },
@@ -59,64 +52,43 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "downloadDependencies": [
-            {
-              "name": "Microsoft.AspNetCore.App.Ref",
-              "version": "[7.0.20, 7.0.20]"
-            },
-            {
-              "name": "Microsoft.NETCore.App.Ref",
-              "version": "[7.0.20, 7.0.20]"
-            },
-            {
-              "name": "Microsoft.WindowsDesktop.App.Ref",
-              "version": "[7.0.20, 7.0.20]"
-            }
-          ],
           "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.302\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.304\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Projects\\BlogProject\\Render\\BlogProject.fsproj": {
+    "C:\\Projects\\BlogProject\\BlogProject\\Render\\BlogProject.fsproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Projects\\BlogProject\\Render\\BlogProject.fsproj",
+        "projectUniqueName": "C:\\Projects\\BlogProject\\BlogProject\\Render\\BlogProject.fsproj",
         "projectName": "BlogProject",
-        "projectPath": "C:\\Projects\\BlogProject\\Render\\BlogProject.fsproj",
+        "projectPath": "C:\\Projects\\BlogProject\\BlogProject\\Render\\BlogProject.fsproj",
         "packagesPath": "C:\\Users\\harry\\.nuget\\packages\\",
-        "outputPath": "C:\\Projects\\BlogProject\\Render\\obj\\",
+        "outputPath": "C:\\Projects\\BlogProject\\BlogProject\\Render\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\harry\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Users\\harry\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net7.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\sdk\\8.0.302\\FSharp\\library-packs": {},
+          "C:\\Program Files\\dotnet\\sdk\\7.0.304\\FSharp\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net7.0": {
             "targetAlias": "net7.0",
             "projectReferences": {
-              "C:\\Projects\\BlogProject\\Model\\Model.fsproj": {
-                "projectPath": "C:\\Projects\\BlogProject\\Model\\Model.fsproj"
+              "C:\\Projects\\BlogProject\\BlogProject\\Model\\Model.fsproj": {
+                "projectPath": "C:\\Projects\\BlogProject\\BlogProject\\Model\\Model.fsproj"
               }
             }
           }
-        },
-        "restoreAuditProperties": {
-          "enableAudit": "true",
-          "auditLevel": "low",
-          "auditMode": "direct"
         }
       },
       "frameworks": {
@@ -126,7 +98,7 @@
             "FSharp.Core": {
               "include": "Runtime, Compile, Build, Native, Analyzers, BuildTransitive",
               "target": "Package",
-              "version": "[8.0.300, )",
+              "version": "[7.0.300, )",
               "generatePathProperty": true
             },
             "FSharp.Formatting": {
@@ -171,30 +143,12 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "downloadDependencies": [
-            {
-              "name": "Microsoft.AspNetCore.App.Ref",
-              "version": "[7.0.20, 7.0.20]"
-            },
-            {
-              "name": "Microsoft.NETCore.App.Host.win-x64",
-              "version": "[7.0.20, 7.0.20]"
-            },
-            {
-              "name": "Microsoft.NETCore.App.Ref",
-              "version": "[7.0.20, 7.0.20]"
-            },
-            {
-              "name": "Microsoft.WindowsDesktop.App.Ref",
-              "version": "[7.0.20, 7.0.20]"
-            }
-          ],
           "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.302\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.304\\RuntimeIdentifierGraph.json"
         }
       }
     }

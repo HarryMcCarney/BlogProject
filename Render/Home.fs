@@ -9,10 +9,8 @@ module Home =
     let buildPostCard post = 
         Html.div [
             prop.id post.FileName
-            prop.classes ["card" ;  "post-card"; "my-card"; "is-clickable"]
-            prop.style [
-                style.backgroundColor "#F6F5F1"
-            ]
+            prop.classes ["card" ;  "post-card"; "my-card"; "is-clickable"; "has-background-light"]
+  
             prop.children [
                 Html.div [
                     prop.classes ["card-content"; "p-4"]
@@ -113,7 +111,7 @@ module Home =
             prop.classes [ "container";]
             prop.children [
                 Html.div [
-                    prop.classes ["title"; "is-size-1"; "mb-5"; "mt-6"]
+                    prop.classes ["title"; "is-size-1"; "mb-5"; "mt-6"; "has-text-dark"]
                     prop.text "What is Lorem Ipsum?"
                     prop.style [
                         style.fontWeight 550
@@ -122,7 +120,7 @@ module Home =
                 ]
                 
                 Html.div [
-                    prop.classes ["subtitle"; "is-size-2"; "is-family-secondary"; "mb-6"]
+                    prop.classes ["subtitle"; "is-size-2"; "is-family-secondary"; "mb-6"; "has-text-dark"]
                     prop.text "Lorem Ipsum is simply dummy text of the printing and typesetting industry."
                     prop.style [
                         style.fontWeight 300

@@ -21,12 +21,12 @@ module Post =
                 prop.classes ["columns";"mb-6"]
                 prop.children [
                     Html.div [
-                        prop.classes ["column"; "is-two-thirds";"pr-2"]
+                        prop.classes ["column"; "is-two-thirds";"pr-2"; "has-text-dark"]
                         prop.children  (EssayTags post) 
                         ]
                     
                     Html.div [
-                        prop.classes ["column"; "is-one-third"; "is-size-6"; "has-text-right" ]
+                        prop.classes ["column"; "is-one-third"; "is-size-7"; "has-text-right" ; "has-text-dark"]
                         prop.style [
                             style.fontWeight 350
                         ]
@@ -57,7 +57,7 @@ module Post =
 
     let renderPost (post: Post) =
         Html.section [
-            prop.classes ["container"; "content"; "is-medium";]
+            prop.classes ["container"; "content"; "is-medium"; "has-text-dark"]
             prop.style [
                 //style.backgroundColor "#F6F5F1"
                 style.maxWidth 800;
@@ -77,7 +77,7 @@ module Post =
                                         | Essay -> EssayIcon
                                         | _ -> failwith "unknown post category"           
                                         Html.p [
-                                            prop.classes ["ml-2"]
+                                            prop.classes ["ml-2"; "has-text-dark"]
                                             prop.text 
                                                 (
                                                 match post.Category with 
@@ -95,11 +95,11 @@ module Post =
                 ]
 
                 Html.div [
-                    prop.classes ["title"; "is-size-1"; "mb-5"]
+                    prop.classes ["title"; "is-size-1"; "mb-5"; "has-text-dark"]
                     prop.text post.Title
                 ]
                 Html.div [
-                    prop.classes ["subtitle"; "is-size-3"; "is-family-secondary"; "mb-6"]
+                    prop.classes ["subtitle"; "is-size-3"; "is-family-secondary"; "mb-6"; "has-text-dark"]
                     prop.style [
                         style.fontWeight 350
                     ]

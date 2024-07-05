@@ -82,10 +82,10 @@ module Render =
             ]  
 
             Html.body [
+                prop.classes ["has-background-light"; "has-text-dark"]
                 prop.custom("onLoad", "execScripts()") 
                 prop.style [
                     style.width (length.percent 100)
-                    style.backgroundColor "#F6F5F1"
                     style.custom ("--family-serif", "'Yrsa', serif")
                     style.custom ("--family-secondary-serif", "'Merriweather', serif")
                     style.custom ("--family-primary", "var(--family-serif)")
@@ -190,7 +190,7 @@ module Render =
 
 
 
-
+ 
 
         
 
