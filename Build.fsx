@@ -16,6 +16,12 @@ open System.IO
 
 let args = fsi.CommandLineArgs
 
+let runDir = 
+        match args.[1] with 
+        | "Deploy" -> "./docs"
+        | "Run" -> "./local"
+        | _ -> "./local"
+
 System.Environment.GetCommandLineArgs()
 |> Array.skip 2 // 3 if run in interactive window.
 |> Array.toList
@@ -24,7 +30,7 @@ System.Environment.GetCommandLineArgs()
 |> Context.setExecutionContext
 
 Target.create "Clean" (fun _ ->
-        Shell.cleanDir "./docs" |> ignore
+        Shell.cleanDir runDir |> ignore
 )
 
 Target.create "BuildModel" (fun _ ->
@@ -34,17 +40,20 @@ Target.create "BuildModel" (fun _ ->
 )
 
 Target.create "Render" (fun _ ->
-        Shell.cd "Render" |> ignore
-        Shell.copyDir "../docs" "images" (fun _ -> true) |> ignore
-        Shell.copyFile "../docs" "styles.css" |> ignore
-        DotNet.exec id "run" "--project ./BlogProject.fsproj" |> ignore 
-        Shell.cd ".." 
+       
+        Shell.copyDir runDir "Render/images" (fun _ -> true) |> ignore
+        Shell.copyFile runDir "Render/styles.css" |> ignore
+        let arguments = sprintf "--project ./Render/BlogProject.fsproj %s" runDir
+        DotNet.exec id "run" arguments |> ignore 
+       
 )
 
 Target.create "CompileJS" (fun _ ->
+        let outDir = sprintf "--outDir .%s" runDir
         Shell.cd "Javascript"
-        DotNet.exec id "fable" "--outDir ../docs" |> ignore 
-        Shell.rm "../docs/.gitignore"
+        DotNet.exec id "fable" outDir |> ignore
+        let gitIgnore = sprintf ".%s/.gitignore" outDir
+        Shell.rm gitIgnore
         Shell.cd ".."
 )
 
@@ -52,13 +61,13 @@ Target.create "Run" (fun _ ->
         
         let app = 
                 choose [
-                GET >=> path "/" >=> Files.file "docs/index.html"
+                GET >=> path "/" >=> Files.file "local/index.html"
                 GET >=> Files.browseHome            
                 RequestErrors.NOT_FOUND "Page not found."  
                 ]
        
         let config =
-            {defaultConfig with homeFolder = Some (Path.GetFullPath "docs") }
+            {defaultConfig with homeFolder = Some (Path.GetFullPath "local") }
             
         startWebServer config app 
        

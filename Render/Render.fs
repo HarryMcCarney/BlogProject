@@ -20,7 +20,6 @@ module Render =
         |> Seq.map(fun p -> 
             match p with 
             | YamlFrontmatter (meta,_) -> 
-                
                 meta
                 |> List.map(fun md ->  md.Split ':' |> fun x -> x[0].Trim(), x[1].Trim())
                 |> Some
@@ -45,11 +44,6 @@ module Render =
                     prop.src "https://kit.fontawesome.com/fd17b6d7c8.js"
                     prop.crossOrigin.anonymous
                 ]
-
-              //  Html.link [
-                 //   prop.rel "stylesheet"
-                 //   prop.href "https://use.fontawesome.com/releases/v5.15.4/css/all.css"
-              //  ]
                 Html.link [
                     prop.rel "stylesheet"
                     prop.href "styles.css"
@@ -80,8 +74,6 @@ module Render =
                     prop.type' "module"
                 ]
             ]  
-
-
 
             Html.body [
                 prop.custom("onLoad", "execScripts()") 
@@ -118,12 +110,8 @@ module Render =
         |> Seq.map(fun f -> 
             printfn "%s" f
 
-    
             let rawPost =  Literate.ParseMarkdownFile(f)
             let metaData = getMetaData rawPost
-  
-            
-            printfn "%A" rawPost
 
             let updated = 
                 let d = metaData["updated"]
@@ -156,9 +144,9 @@ module Render =
             }
         )
 
-    let build() = 
+    let build outDir = 
         let posts = 
-            let contentPath = sprintf "%s/content" (Directory.GetCurrentDirectory())
+            let contentPath = sprintf "%s/Content" (Directory.GetCurrentDirectory())
             Directory.EnumerateFiles contentPath 
             |> Seq.filter(fun f -> f <> "About.md")
             |> deserialisePosts
@@ -171,24 +159,27 @@ module Render =
             | Draft ->  renderPost post
             |> render
             |> fun x -> 
-                let renderedFileName = sprintf "../docs/%s.html" post.FileName
+                let renderedFileName = sprintf "%s/%s.html" outDir post.FileName
                 System.IO.File.WriteAllText(renderedFileName, x, Encoding.UTF8)
             |> ignore
         )
 
-        buildSearchIndex posts
+        
+        buildSearchIndex posts outDir
 
         renderAboutPage() 
         |> render 
         |> fun x -> 
-            System.IO.File.WriteAllText("../docs/about.html", x)
+            let aboutPath = sprintf "%s/about.html" outDir 
+            System.IO.File.WriteAllText(aboutPath, x)
         |> ignore
 
         // build home page
         renderHomePage posts
         |> render
         |> fun x -> 
-            System.IO.File.WriteAllText("../docs/index.html", x, Encoding.UTF8)
+            let homePath = sprintf "%s/index.html" outDir 
+            System.IO.File.WriteAllText(homePath, x, Encoding.UTF8)
         |> ignore
 
 

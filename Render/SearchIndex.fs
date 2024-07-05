@@ -42,10 +42,11 @@ module SearchIndex =
                     )
         ]
 
-    let buildSearchIndex (posts: Post seq) = 
+    let buildSearchIndex (posts: Post seq) outDir = 
         let container = {Posts = posts}
+        let indexPath = sprintf "%s/SearchIndex.json" outDir
         (postsEncoder container).ToString()
-        |> fun j -> System.IO.File.WriteAllText("../docs/SearchIndex.json", j)
+        |> fun j -> System.IO.File.WriteAllText(indexPath, j)
         
 
 

@@ -2,6 +2,6 @@
 module builder = 
     [<EntryPoint>]
     let main args =
-        Render.build()
+        Render.build (args[0])
         0
 
