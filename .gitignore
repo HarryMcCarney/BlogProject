@@ -11,7 +11,9 @@ obj
 **/Render/bin/** 
 **/Javascript/obj/** 
 **/Model/bin/** 
-**/Model\obj/** 
+**/Model/obj/** 
+**/Render/obj/** 
+
 
 
 Javascript/obj/Javascript.fsproj.nuget.dgspec.json
