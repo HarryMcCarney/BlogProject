@@ -7,4 +7,14 @@
 obj
 
 **/local/** 
+**/BlogProject/Dist/** 
+**/Render/bin/** 
+**/Javascript/obj/** 
+**/Model/bin/** 
+**/Model\obj/** 
 
+
+Javascript/obj/Javascript.fsproj.nuget.dgspec.json
+
+.fake
+Render/** */

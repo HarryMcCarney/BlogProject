@@ -1,10 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "nnj8rY3KVM+g/A764XXarlnsC2JPIKydfQtJxEg3gtDVvRnknGihUi+EXVM34vPkZbn8wNAKPXwITKpAh5NWRg==",
+  "dgSpecHash": "3LGjOBS5xR+4sVVaZCNRCtGgkHjCAAdGoicd3Hto1Of7rPuQ3yaaSSJOVf3Ty3fh9q+GfuQUZtbu80g12d+ggw==",
   "success": true,
-  "projectFilePath": "C:\\Projects\\BlogProject\\BlogProject\\Model\\Model.fsproj",
+  "projectFilePath": "C:\\Projects\\BlogProject\\Model\\Model.fsproj",
   "expectedPackageFiles": [
-    "C:\\Users\\harry\\.nuget\\packages\\fsharp.core\\7.0.300\\fsharp.core.7.0.300.nupkg.sha512"
+    "C:\\Users\\harry\\.nuget\\packages\\fsharp.core\\7.0.0\\fsharp.core.7.0.0.nupkg.sha512"
   ],
   "logs": []
 }

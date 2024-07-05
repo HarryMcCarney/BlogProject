@@ -6,7 +6,6 @@ C:\Projects\BlogProject\Model\obj\Debug\net7.0\Model.fsproj.AssemblyReference.ca
 C:\Projects\BlogProject\Model\obj\Debug\net7.0\Model.AssemblyInfoInputs.cache
 C:\Projects\BlogProject\Model\obj\Debug\net7.0\Model.AssemblyInfo.fs
 C:\Projects\BlogProject\Model\obj\Debug\net7.0\Model.fsproj.CoreCompileInputs.cache
-C:\Projects\BlogProject\Model\obj\Debug\net7.0\Model.sourcelink.json
 C:\Projects\BlogProject\Model\obj\Debug\net7.0\Model.dll
 C:\Projects\BlogProject\Model\obj\Debug\net7.0\refint\Model.dll
 C:\Projects\BlogProject\Model\obj\Debug\net7.0\Model.xml

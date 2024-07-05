@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "PDcQyDP/UkOFDo9O6Ok0SrYz+FEzLKmtSr9aqSTSpiNKfhosX5tPgDtQpAd89NxuF6foc+8zsAe2MdM6Zen7fg==",
+  "dgSpecHash": "Njq5NmNXR6rUxjCqv0XpCxmRadZsIYbc1NABXP59Qai3himebCwH7zxzurrAJu3ivNJC8D3hGYNDyPsotRATRA==",
   "success": true,
-  "projectFilePath": "C:\\Projects\\BlogProject\\BlogProject\\Render\\BlogProject.fsproj",
+  "projectFilePath": "C:\\Projects\\BlogProject\\Render\\BlogProject.fsproj",
   "expectedPackageFiles": [
     "C:\\Users\\harry\\.nuget\\packages\\fable.browser.blob\\1.4.0\\fable.browser.blob.1.4.0.nupkg.sha512",
     "C:\\Users\\harry\\.nuget\\packages\\fable.browser.dom\\2.17.0\\fable.browser.dom.2.17.0.nupkg.sha512",
@@ -12,7 +12,7 @@
     "C:\\Users\\harry\\.nuget\\packages\\fable.core\\4.3.0\\fable.core.4.3.0.nupkg.sha512",
     "C:\\Users\\harry\\.nuget\\packages\\feliz.viewengine\\0.24.0\\feliz.viewengine.0.24.0.nupkg.sha512",
     "C:\\Users\\harry\\.nuget\\packages\\fsharp.compiler.service\\43.7.200\\fsharp.compiler.service.43.7.200.nupkg.sha512",
-    "C:\\Users\\harry\\.nuget\\packages\\fsharp.core\\7.0.300\\fsharp.core.7.0.300.nupkg.sha512",
+    "C:\\Users\\harry\\.nuget\\packages\\fsharp.core\\7.0.0\\fsharp.core.7.0.0.nupkg.sha512",
     "C:\\Users\\harry\\.nuget\\packages\\fsharp.formatting\\18.1.0\\fsharp.formatting.18.1.0.nupkg.sha512",
     "C:\\Users\\harry\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512",
     "C:\\Users\\harry\\.nuget\\packages\\suave\\2.6.2\\suave.2.6.2.nupkg.sha512",
@@ -27,10 +27,10 @@
   ],
   "logs": [
     {
-      "code": "NU1608",
+      "code": "NU1605",
       "level": "Warning",
       "warningLevel": 1,
-      "message": "Detected package version outside of dependency constraint: FSharp.Compiler.Service 43.7.200 requires FSharp.Core (= 7.0.200) but version FSharp.Core 7.0.300 was resolved.",
+      "message": "Detected package downgrade: FSharp.Core from 7.0.200 to 7.0.0. Reference the package directly from the project to select a different version. \r\n BlogProject -> FSharp.Formatting 18.1.0 -> FSharp.Compiler.Service 43.7.200 -> FSharp.Core (= 7.0.200) \r\n BlogProject -> FSharp.Core (>= 7.0.0)",
       "libraryId": "FSharp.Core",
       "targetGraphs": [
         "net7.0"

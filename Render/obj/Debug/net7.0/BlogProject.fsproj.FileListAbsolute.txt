@@ -145,8 +145,6 @@ C:\Projects\BlogProject\Render\obj\Debug\net7.0\BlogProject.fsproj.AssemblyRefer
 C:\Projects\BlogProject\Render\obj\Debug\net7.0\BlogProject.AssemblyInfoInputs.cache
 C:\Projects\BlogProject\Render\obj\Debug\net7.0\BlogProject.AssemblyInfo.fs
 C:\Projects\BlogProject\Render\obj\Debug\net7.0\BlogProject.fsproj.CoreCompileInputs.cache
-C:\Projects\BlogProject\Render\obj\Debug\net7.0\BlogProject.sourcelink.json
-C:\Projects\BlogProject\Render\obj\Debug\net7.0\BlogProj.10EE4184.Up2Date
 C:\Projects\BlogProject\Render\obj\Debug\net7.0\BlogProject.dll
 C:\Projects\BlogProject\Render\obj\Debug\net7.0\refint\BlogProject.dll
 C:\Projects\BlogProject\Render\obj\Debug\net7.0\BlogProject.pdb
@@ -233,3 +231,4 @@ C:\Projects\BlogProject\BlogProject\Render\obj\Debug\net7.0\refint\BlogProject.d
 C:\Projects\BlogProject\BlogProject\Render\obj\Debug\net7.0\BlogProject.pdb
 C:\Projects\BlogProject\BlogProject\Render\obj\Debug\net7.0\BlogProject.genruntimeconfig.cache
 C:\Projects\BlogProject\BlogProject\Render\obj\Debug\net7.0\ref\BlogProject.dll
+C:\Projects\BlogProject\Render\obj\Debug\net7.0\BlogProject.fsproj.CopyComplete

@@ -7,7 +7,7 @@
     <NuGetPackageRoot Condition=" '$(NuGetPackageRoot)' == '' ">$(UserProfile)\.nuget\packages\</NuGetPackageRoot>
     <NuGetPackageFolders Condition=" '$(NuGetPackageFolders)' == '' ">C:\Users\harry\.nuget\packages\</NuGetPackageFolders>
     <NuGetProjectStyle Condition=" '$(NuGetProjectStyle)' == '' ">PackageReference</NuGetProjectStyle>
-    <NuGetToolVersion Condition=" '$(NuGetToolVersion)' == '' ">6.6.0</NuGetToolVersion>
+    <NuGetToolVersion Condition=" '$(NuGetToolVersion)' == '' ">6.4.0</NuGetToolVersion>
   </PropertyGroup>
   <ItemGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
     <SourceRoot Include="C:\Users\harry\.nuget\packages\" />
@@ -23,7 +23,7 @@
     </Content>
   </ItemGroup>
   <PropertyGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
-    <PkgFSharp_Core Condition=" '$(PkgFSharp_Core)' == '' ">C:\Users\harry\.nuget\packages\fsharp.core\7.0.300</PkgFSharp_Core>
+    <PkgFSharp_Core Condition=" '$(PkgFSharp_Core)' == '' ">C:\Users\harry\.nuget\packages\fsharp.core\7.0.0</PkgFSharp_Core>
     <PkgFable_Core Condition=" '$(PkgFable_Core)' == '' ">C:\Users\harry\.nuget\packages\fable.core\4.3.0</PkgFable_Core>
     <PkgThoth_Json Condition=" '$(PkgThoth_Json)' == '' ">C:\Users\harry\.nuget\packages\thoth.json\10.2.0</PkgThoth_Json>
     <PkgFable_Browser_Dom Condition=" '$(PkgFable_Browser_Dom)' == '' ">C:\Users\harry\.nuget\packages\fable.browser.dom\2.17.0</PkgFable_Browser_Dom>
