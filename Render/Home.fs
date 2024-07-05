@@ -23,7 +23,7 @@ module Home =
                         | _ -> failwith "unknown post category"
 
                         Html.a [
-                            prop.classes  ["is-family-secondary"; "is-size-4"; "ml-3"]
+                            prop.classes  ["is-family-secondary"; "is-size-4"; "ml-3"; "has-text-dark"]
                             prop.href (sprintf "/%s.html" post.FileName)
                             prop.text post.Title
                             prop.style [
@@ -33,10 +33,7 @@ module Home =
                     ]
                 ]
                 Html.footer [
-                    prop.className "card-footer"
-                    prop.style [
-                        style.color "Black"
-                    ]
+                    prop.classes [ "card-footer"; "has-text-dark"]
                     prop.children [
                         Html.p [
                             prop.classes ["p-1"; "card-footer-item"; "is-size-7"; "has-text-right"]
