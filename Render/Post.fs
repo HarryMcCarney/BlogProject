@@ -35,9 +35,9 @@ module Post =
                             prop.text 
                                 (
                                 match post.Category with 
-                                | Essay -> sprintf "Created %s" (summarizeDate post.Created)
-                                | Note -> sprintf "Created %s" (summarizeDate post.Created)
-                                | _ -> sprintf "Created %s" (summarizeDate post.Created)
+                                | Essay -> sprintf "CREATED %s" (summarizeDate post.Created)
+                                | Note -> sprintf "CREATED %s" (summarizeDate post.Created)
+                                | _ -> sprintf "CREATED %s" (summarizeDate post.Created)
                                 )
                             ]
                             if post.Created <> post.Updated then 
@@ -45,9 +45,9 @@ module Post =
                                     prop.text 
                                         (
                                         match post.Category with 
-                                        | Essay -> sprintf "Updated %s" (summarizeDate post.Updated)
-                                        | Note -> sprintf "Updated %s" (summarizeDate post.Updated)
-                                        | _ -> sprintf "Updated %s" (summarizeDate post.Updated)
+                                        | Essay -> sprintf "UPDATED %s" (summarizeDate post.Updated)
+                                        | Note -> sprintf "UPDATED %s" (summarizeDate post.Updated)
+                                        | _ -> sprintf "UPDATED %s" (summarizeDate post.Updated)
                                         )
                                 ]
                         ]
@@ -59,7 +59,7 @@ module Post =
         Html.section [
             prop.classes ["container"; "content"; "is-medium";]
             prop.style [
-                style.backgroundColor "#F6F5F1"
+                //style.backgroundColor "#F6F5F1"
                 style.maxWidth 800;
             ]
             prop.children [

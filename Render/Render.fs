@@ -36,6 +36,12 @@ module Render =
     let render content =
         [
             Html.header [
+                
+                Html.meta [
+                    prop.name "viewport"
+                    prop.content "width=device-width, initial-scale=1"
+                ]
+
                 Html.link [
                     prop.rel "stylesheet"
                     prop.href "https://cdn.jsdelivr.net/npm/bulma@1.0.0/css/bulma.min.css"
