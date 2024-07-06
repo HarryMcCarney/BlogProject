@@ -10,7 +10,7 @@ open System.Reflection
 [<assembly: System.Reflection.AssemblyCompanyAttribute("Javascript")>]
 [<assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")>]
 [<assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")>]
-[<assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")>]
+[<assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+9dd112e5551e5477828e54f5a63720c67ef9245b")>]
 [<assembly: System.Reflection.AssemblyProductAttribute("Javascript")>]
 [<assembly: System.Reflection.AssemblyTitleAttribute("Javascript")>]
 [<assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")>]

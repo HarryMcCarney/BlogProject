@@ -14,6 +14,8 @@ module Render =
     open About
     open SearchIndex
     open System.Text
+    open FSharp.Formatting.Literate.Evaluation
+
     
     let getMetaData (doc: LiterateDocument) = 
         doc.Paragraphs
@@ -34,7 +36,7 @@ module Render =
 
 
     let render content =
-        [
+        [   
             Html.html [
                 prop.custom("data-theme", "light")
 
@@ -117,9 +119,20 @@ module Render =
         Directory.EnumerateFiles "content"
         |> Seq.filter(fun f -> f <> "content\\About.md")
         |> Seq.map(fun f -> 
-            printfn "%s" f
+            
+            let erf = fun s -> failwith (sprintf "%s" s) 
 
-            let rawPost =  Literate.ParseMarkdownFile(f)
+            let fsi = FsiEvaluator(options = [|"--eval" ; "--strict"|], onError = erf)
+
+            let rawPost =  
+                match Path.GetExtension f with 
+                | ".md" -> Literate.ParseMarkdownFile(f)
+                | ".fsx" -> 
+                    let script = File.ReadAllText f 
+                    Literate.ParseScriptString(script, fsiEvaluator = fsi, onError = erf)
+                    
+                | _ -> failwith "Unoken file extension in content folder"
+
             let metaData = getMetaData rawPost
 
             let updated = 
@@ -173,7 +186,6 @@ module Render =
             |> ignore
         )
 
-        
         buildSearchIndex posts outDir
 
         renderAboutPage() 

@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "0dc192WBoGh4JVOPD5C4NCis98Tw+OwYFuBpcpYofalJWaaPuElB3QWiKragc2WPl1jlVCVCsMMk/n//nPGcyw==",
+  "dgSpecHash": "u5sqJ+ZeejQ=",
   "success": true,
   "projectFilePath": "C:\\Projects\\BlogProject\\Javascript\\Javascript.fsproj",
   "expectedPackageFiles": [
@@ -12,8 +12,12 @@
     "C:\\Users\\harry\\.nuget\\packages\\fable.browser.xmlhttprequest\\1.1.0\\fable.browser.xmlhttprequest.1.1.0.nupkg.sha512",
     "C:\\Users\\harry\\.nuget\\packages\\fable.core\\4.3.0\\fable.core.4.3.0.nupkg.sha512",
     "C:\\Users\\harry\\.nuget\\packages\\fable.simplehttp\\3.6.0\\fable.simplehttp.3.6.0.nupkg.sha512",
-    "C:\\Users\\harry\\.nuget\\packages\\fsharp.core\\7.0.0\\fsharp.core.7.0.0.nupkg.sha512",
-    "C:\\Users\\harry\\.nuget\\packages\\thoth.json\\10.2.0\\thoth.json.10.2.0.nupkg.sha512"
+    "C:\\Users\\harry\\.nuget\\packages\\fsharp.core\\8.0.300\\fsharp.core.8.0.300.nupkg.sha512",
+    "C:\\Users\\harry\\.nuget\\packages\\thoth.json\\10.2.0\\thoth.json.10.2.0.nupkg.sha512",
+    "C:\\Users\\harry\\.nuget\\packages\\microsoft.netcore.app.ref\\7.0.20\\microsoft.netcore.app.ref.7.0.20.nupkg.sha512",
+    "C:\\Users\\harry\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\7.0.20\\microsoft.windowsdesktop.app.ref.7.0.20.nupkg.sha512",
+    "C:\\Users\\harry\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\7.0.20\\microsoft.aspnetcore.app.ref.7.0.20.nupkg.sha512",
+    "C:\\Users\\harry\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\7.0.20\\microsoft.netcore.app.host.win-x64.7.0.20.nupkg.sha512"
   ],
   "logs": []
 }

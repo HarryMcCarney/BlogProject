@@ -1,7 +1,7 @@
 {
   "version": 3,
   "targets": {
-    "net7.0": {
+    "net8.0": {
       "Fable.Browser.Blob/1.4.0": {
         "type": "package",
         "dependencies": {
@@ -128,16 +128,16 @@
           }
         }
       },
-      "FSharp.Compiler.Service/43.7.200": {
+      "FSharp.Compiler.Service/43.8.100": {
         "type": "package",
         "dependencies": {
-          "FSharp.Core": "[7.0.200]",
+          "FSharp.Core": "[8.0.100]",
           "System.Buffers": "4.5.1",
-          "System.Collections.Immutable": "6.0.0",
-          "System.Diagnostics.DiagnosticSource": "6.0.0",
+          "System.Collections.Immutable": "7.0.0",
+          "System.Diagnostics.DiagnosticSource": "7.0.2",
           "System.Memory": "4.5.5",
           "System.Reflection.Emit": "4.7.0",
-          "System.Reflection.Metadata": "6.0.0",
+          "System.Reflection.Metadata": "7.0.0",
           "System.Runtime.CompilerServices.Unsafe": "6.0.0"
         },
         "compile": {
@@ -237,7 +237,7 @@
           }
         }
       },
-      "FSharp.Core/7.0.0": {
+      "FSharp.Core/8.0.300": {
         "type": "package",
         "compile": {
           "lib/netstandard2.1/FSharp.Core.dll": {
@@ -291,10 +291,11 @@
           }
         }
       },
-      "FSharp.Formatting/18.1.0": {
+      "FSharp.Formatting/20.0.1": {
         "type": "package",
         "dependencies": {
-          "FSharp.Compiler.Service": "[43.7.200]"
+          "FSharp.Compiler.Service": "[43.8.100]",
+          "FSharp.Core": "[8.0.100]"
         },
         "compile": {
           "lib/netstandard2.1/FSharp.Formatting.ApiDocs.dll": {
@@ -381,42 +382,36 @@
           "lib/netcoreapp2.0/_._": {}
         }
       },
-      "System.Collections.Immutable/6.0.0": {
+      "System.Collections.Immutable/7.0.0": {
         "type": "package",
-        "dependencies": {
-          "System.Runtime.CompilerServices.Unsafe": "6.0.0"
-        },
         "compile": {
-          "lib/net6.0/System.Collections.Immutable.dll": {
+          "lib/net7.0/System.Collections.Immutable.dll": {
             "related": ".xml"
           }
         },
         "runtime": {
-          "lib/net6.0/System.Collections.Immutable.dll": {
+          "lib/net7.0/System.Collections.Immutable.dll": {
             "related": ".xml"
           }
         },
         "build": {
-          "buildTransitive/netcoreapp3.1/_._": {}
+          "buildTransitive/net6.0/_._": {}
         }
       },
-      "System.Diagnostics.DiagnosticSource/6.0.0": {
+      "System.Diagnostics.DiagnosticSource/7.0.2": {
         "type": "package",
-        "dependencies": {
-          "System.Runtime.CompilerServices.Unsafe": "6.0.0"
-        },
         "compile": {
-          "lib/net6.0/System.Diagnostics.DiagnosticSource.dll": {
+          "lib/net7.0/System.Diagnostics.DiagnosticSource.dll": {
             "related": ".xml"
           }
         },
         "runtime": {
-          "lib/net6.0/System.Diagnostics.DiagnosticSource.dll": {
+          "lib/net7.0/System.Diagnostics.DiagnosticSource.dll": {
             "related": ".xml"
           }
         },
         "build": {
-          "buildTransitive/netcoreapp3.1/_._": {}
+          "buildTransitive/net6.0/_._": {}
         }
       },
       "System.Memory/4.5.5": {
@@ -437,23 +432,23 @@
           "lib/netcoreapp2.0/_._": {}
         }
       },
-      "System.Reflection.Metadata/6.0.0": {
+      "System.Reflection.Metadata/7.0.0": {
         "type": "package",
         "dependencies": {
-          "System.Collections.Immutable": "6.0.0"
+          "System.Collections.Immutable": "7.0.0"
         },
         "compile": {
-          "lib/net6.0/System.Reflection.Metadata.dll": {
+          "lib/net7.0/System.Reflection.Metadata.dll": {
             "related": ".xml"
           }
         },
         "runtime": {
-          "lib/net6.0/System.Reflection.Metadata.dll": {
+          "lib/net7.0/System.Reflection.Metadata.dll": {
             "related": ".xml"
           }
         },
         "build": {
-          "buildTransitive/netcoreapp3.1/_._": {}
+          "buildTransitive/net6.0/_._": {}
         }
       },
       "System.Runtime.CompilerServices.Unsafe/6.0.0": {
@@ -494,7 +489,7 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v7.0",
         "dependencies": {
-          "FSharp.Core": "7.0.0"
+          "FSharp.Core": "8.0.300"
         },
         "compile": {
           "bin/placeholder/Model.dll": {}
@@ -627,15 +622,15 @@
         "lib/netstandard2.0/Feliz.ViewEngine.xml"
       ]
     },
-    "FSharp.Compiler.Service/43.7.200": {
-      "sha512": "RpO8Ly7mTRGnZANzjKMDsxsrkpVyyPP3d211+95TBVrDh5XU8LS+F/tPsJ9y+10kphzOmplZ9xaEc44OtveWzw==",
+    "FSharp.Compiler.Service/43.8.100": {
+      "sha512": "R77aB3F01TmgekMQYbFMrQE6z+JEHGbInEuj8IOkXoLHm6YFndnXC0GkXKd1IkVMm6ZYEqxe525vf06G5pXx4g==",
       "type": "package",
-      "path": "fsharp.compiler.service/43.7.200",
+      "path": "fsharp.compiler.service/43.8.100",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "Icon.png",
-        "fsharp.compiler.service.43.7.200.nupkg.sha512",
+        "fsharp.compiler.service.43.8.100.nupkg.sha512",
         "fsharp.compiler.service.nuspec",
         "lib/netstandard2.0/FSharp.Compiler.Service.dll",
         "lib/netstandard2.0/FSharp.Compiler.Service.xml",
@@ -670,15 +665,15 @@
         "lib/netstandard2.0/zh-Hant/FSharp.DependencyManager.Nuget.resources.dll"
       ]
     },
-    "FSharp.Core/7.0.0": {
-      "sha512": "xPww0dhsH7o373ZNFY1Y08WRsJJUUzqGk0AIUxxUxSJkWqul0UwCBXg6UmqJX76VdiSvvEXn4SYwX8lYQaZzuQ==",
+    "FSharp.Core/8.0.300": {
+      "sha512": "Jv44fV7TNglyMku89lQcA4Q6mFKLyHb2bs1Yb72nvSVc+cHplEnoZ4XQUaaTLJGUTx/iMqcrkYGtaLzkkIhpaA==",
       "type": "package",
-      "path": "fsharp.core/7.0.0",
+      "path": "fsharp.core/8.0.300",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "Icon.png",
-        "fsharp.core.7.0.0.nupkg.sha512",
+        "fsharp.core.8.0.300.nupkg.sha512",
         "fsharp.core.nuspec",
         "lib/netstandard2.0/FSharp.Core.dll",
         "lib/netstandard2.0/FSharp.Core.xml",
@@ -712,15 +707,15 @@
         "lib/netstandard2.1/zh-Hant/FSharp.Core.resources.dll"
       ]
     },
-    "FSharp.Formatting/18.1.0": {
-      "sha512": "ojWEDxqqb6hCOlluLF5S9e1+CUpdcQXyh2efUBLHlSk1LZTZYFJZfHdsrjie0limW52zMw8qbgmjmZj6OPs7cg==",
+    "FSharp.Formatting/20.0.1": {
+      "sha512": "5giugNcfpGT6D87qdXAnSjc2eCYDfc7I5IlQi0qoyh1JOO4jfYb9LhbGAR7nW9Sv0saiO6pQiegY2x2rVJ1phA==",
       "type": "package",
-      "path": "fsharp.formatting/18.1.0",
+      "path": "fsharp.formatting/20.0.1",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "FSharp.Formatting.fsx",
-        "fsharp.formatting.18.1.0.nupkg.sha512",
+        "fsharp.formatting.20.0.1.nupkg.sha512",
         "fsharp.formatting.nuspec",
         "lib/netstandard2.1/FSharp.Formatting.ApiDocs.dll",
         "lib/netstandard2.1/FSharp.Formatting.ApiDocs.pdb",
@@ -742,7 +737,8 @@
         "lib/netstandard2.1/FSharp.Formatting.Markdown.xml",
         "lib/netstandard2.1/FSharp.Formatting.dll",
         "lib/netstandard2.1/FSharp.Formatting.pdb",
-        "lib/netstandard2.1/FSharp.Formatting.xml"
+        "lib/netstandard2.1/FSharp.Formatting.xml",
+        "logo.png"
       ]
     },
     "Newtonsoft.Json/13.0.1": {
@@ -817,50 +813,57 @@
         "version.txt"
       ]
     },
-    "System.Collections.Immutable/6.0.0": {
-      "sha512": "l4zZJ1WU2hqpQQHXz1rvC3etVZN+2DLmQMO79FhOTZHMn8tDRr+WU287sbomD0BETlmKDn0ygUgVy9k5xkkJdA==",
+    "System.Collections.Immutable/7.0.0": {
+      "sha512": "dQPcs0U1IKnBdRDBkrCTi1FoajSTBzLcVTpjO4MBCMC7f4pDOIPzgBoX8JjG7X6uZRJ8EBxsi8+DR1JuwjnzOQ==",
       "type": "package",
-      "path": "system.collections.immutable/6.0.0",
+      "path": "system.collections.immutable/7.0.0",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "Icon.png",
         "LICENSE.TXT",
+        "README.md",
         "THIRD-PARTY-NOTICES.TXT",
+        "buildTransitive/net461/System.Collections.Immutable.targets",
+        "buildTransitive/net462/_._",
+        "buildTransitive/net6.0/_._",
         "buildTransitive/netcoreapp2.0/System.Collections.Immutable.targets",
-        "buildTransitive/netcoreapp3.1/_._",
-        "lib/net461/System.Collections.Immutable.dll",
-        "lib/net461/System.Collections.Immutable.xml",
+        "lib/net462/System.Collections.Immutable.dll",
+        "lib/net462/System.Collections.Immutable.xml",
         "lib/net6.0/System.Collections.Immutable.dll",
         "lib/net6.0/System.Collections.Immutable.xml",
+        "lib/net7.0/System.Collections.Immutable.dll",
+        "lib/net7.0/System.Collections.Immutable.xml",
         "lib/netstandard2.0/System.Collections.Immutable.dll",
         "lib/netstandard2.0/System.Collections.Immutable.xml",
-        "system.collections.immutable.6.0.0.nupkg.sha512",
+        "system.collections.immutable.7.0.0.nupkg.sha512",
         "system.collections.immutable.nuspec",
         "useSharedDesignerContext.txt"
       ]
     },
-    "System.Diagnostics.DiagnosticSource/6.0.0": {
-      "sha512": "frQDfv0rl209cKm1lnwTgFPzNigy2EKk1BS3uAvHvlBVKe5cymGyHO+Sj+NLv5VF/AhHsqPIUUwya5oV4CHMUw==",
+    "System.Diagnostics.DiagnosticSource/7.0.2": {
+      "sha512": "hYr3I9N9811e0Bjf2WNwAGGyTuAFbbTgX1RPLt/3Wbm68x3IGcX5Cl75CMmgT6WlNwLQ2tCCWfqYPpypjaf2xA==",
       "type": "package",
-      "path": "system.diagnostics.diagnosticsource/6.0.0",
+      "path": "system.diagnostics.diagnosticsource/7.0.2",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "Icon.png",
         "LICENSE.TXT",
         "THIRD-PARTY-NOTICES.TXT",
+        "buildTransitive/net461/System.Diagnostics.DiagnosticSource.targets",
+        "buildTransitive/net462/_._",
+        "buildTransitive/net6.0/_._",
         "buildTransitive/netcoreapp2.0/System.Diagnostics.DiagnosticSource.targets",
-        "buildTransitive/netcoreapp3.1/_._",
-        "lib/net461/System.Diagnostics.DiagnosticSource.dll",
-        "lib/net461/System.Diagnostics.DiagnosticSource.xml",
-        "lib/net5.0/System.Diagnostics.DiagnosticSource.dll",
-        "lib/net5.0/System.Diagnostics.DiagnosticSource.xml",
+        "lib/net462/System.Diagnostics.DiagnosticSource.dll",
+        "lib/net462/System.Diagnostics.DiagnosticSource.xml",
         "lib/net6.0/System.Diagnostics.DiagnosticSource.dll",
         "lib/net6.0/System.Diagnostics.DiagnosticSource.xml",
+        "lib/net7.0/System.Diagnostics.DiagnosticSource.dll",
+        "lib/net7.0/System.Diagnostics.DiagnosticSource.xml",
         "lib/netstandard2.0/System.Diagnostics.DiagnosticSource.dll",
         "lib/netstandard2.0/System.Diagnostics.DiagnosticSource.xml",
-        "system.diagnostics.diagnosticsource.6.0.0.nupkg.sha512",
+        "system.diagnostics.diagnosticsource.7.0.2.nupkg.sha512",
         "system.diagnostics.diagnosticsource.nuspec",
         "useSharedDesignerContext.txt"
       ]
@@ -942,25 +945,30 @@
         "version.txt"
       ]
     },
-    "System.Reflection.Metadata/6.0.0": {
-      "sha512": "sffDOcex1C3HO5kDolOYcWXTwRpZY/LvJujM6SMjn63fWMJWchYAAmkoAJXlbpZ5yf4d+KMgxd+LeETa4gD9sQ==",
+    "System.Reflection.Metadata/7.0.0": {
+      "sha512": "MclTG61lsD9sYdpNz9xsKBzjsmsfCtcMZYXz/IUr2zlhaTaABonlr1ESeompTgM+Xk+IwtGYU7/voh3YWB/fWw==",
       "type": "package",
-      "path": "system.reflection.metadata/6.0.0",
+      "path": "system.reflection.metadata/7.0.0",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "Icon.png",
         "LICENSE.TXT",
+        "README.md",
         "THIRD-PARTY-NOTICES.TXT",
+        "buildTransitive/net461/System.Reflection.Metadata.targets",
+        "buildTransitive/net462/_._",
+        "buildTransitive/net6.0/_._",
         "buildTransitive/netcoreapp2.0/System.Reflection.Metadata.targets",
-        "buildTransitive/netcoreapp3.1/_._",
-        "lib/net461/System.Reflection.Metadata.dll",
-        "lib/net461/System.Reflection.Metadata.xml",
+        "lib/net462/System.Reflection.Metadata.dll",
+        "lib/net462/System.Reflection.Metadata.xml",
         "lib/net6.0/System.Reflection.Metadata.dll",
         "lib/net6.0/System.Reflection.Metadata.xml",
+        "lib/net7.0/System.Reflection.Metadata.dll",
+        "lib/net7.0/System.Reflection.Metadata.xml",
         "lib/netstandard2.0/System.Reflection.Metadata.dll",
         "lib/netstandard2.0/System.Reflection.Metadata.xml",
-        "system.reflection.metadata.6.0.0.nupkg.sha512",
+        "system.reflection.metadata.7.0.0.nupkg.sha512",
         "system.reflection.metadata.nuspec",
         "useSharedDesignerContext.txt"
       ]
@@ -1014,9 +1022,9 @@
     }
   },
   "projectFileDependencyGroups": {
-    "net7.0": [
-      "FSharp.Core >= 7.0.0",
-      "FSharp.Formatting >= 18.1.0",
+    "net8.0": [
+      "FSharp.Core >= 8.0.300",
+      "FSharp.Formatting >= 20.0.1",
       "Fable.Browser.Dom >= 2.17.0",
       "Fable.Core >= 4.3.0",
       "Model >= 1.0.0",
@@ -1041,36 +1049,41 @@
         "C:\\Users\\harry\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
-        "net7.0"
+        "net8.0"
       ],
       "sources": {
-        "C:\\Program Files\\dotnet\\sdk\\7.0.100\\FSharp\\library-packs": {},
+        "C:\\Program Files\\dotnet\\sdk\\8.0.302\\FSharp\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
-        "net7.0": {
-          "targetAlias": "net7.0",
+        "net8.0": {
+          "targetAlias": "net8.0",
           "projectReferences": {
             "C:\\Projects\\BlogProject\\Model\\Model.fsproj": {
               "projectPath": "C:\\Projects\\BlogProject\\Model\\Model.fsproj"
             }
           }
         }
+      },
+      "restoreAuditProperties": {
+        "enableAudit": "true",
+        "auditLevel": "low",
+        "auditMode": "direct"
       }
     },
     "frameworks": {
-      "net7.0": {
-        "targetAlias": "net7.0",
+      "net8.0": {
+        "targetAlias": "net8.0",
         "dependencies": {
           "FSharp.Core": {
             "include": "Runtime, Compile, Build, Native, Analyzers, BuildTransitive",
             "target": "Package",
-            "version": "[7.0.0, )",
+            "version": "[8.0.300, )",
             "generatePathProperty": true
           },
           "FSharp.Formatting": {
             "target": "Package",
-            "version": "[18.1.0, )",
+            "version": "[20.0.1, )",
             "generatePathProperty": true
           },
           "Fable.Browser.Dom": {
@@ -1115,19 +1128,29 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.100\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.302/PortableRuntimeIdentifierGraph.json"
       }
     }
   },
   "logs": [
     {
-      "code": "NU1605",
+      "code": "NU1608",
       "level": "Warning",
       "warningLevel": 1,
-      "message": "Detected package downgrade: FSharp.Core from 7.0.200 to 7.0.0. Reference the package directly from the project to select a different version. \r\n BlogProject -> FSharp.Formatting 18.1.0 -> FSharp.Compiler.Service 43.7.200 -> FSharp.Core (= 7.0.200) \r\n BlogProject -> FSharp.Core (>= 7.0.0)",
+      "message": "Detected package version outside of dependency constraint: FSharp.Formatting 20.0.1 requires FSharp.Core (= 8.0.100) but version FSharp.Core 8.0.300 was resolved.",
       "libraryId": "FSharp.Core",
       "targetGraphs": [
-        "net7.0"
+        "net8.0"
+      ]
+    },
+    {
+      "code": "NU1608",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Detected package version outside of dependency constraint: FSharp.Compiler.Service 43.8.100 requires FSharp.Core (= 8.0.100) but version FSharp.Core 8.0.300 was resolved.",
+      "libraryId": "FSharp.Core",
+      "targetGraphs": [
+        "net8.0"
       ]
     }
   ]

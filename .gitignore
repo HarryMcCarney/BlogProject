@@ -13,3 +13,5 @@ Javascript/obj/**
 Model/bin/** 
 Model/obj/** 
 Render/obj/** 
+
+.fake
