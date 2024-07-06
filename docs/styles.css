@@ -32,9 +32,6 @@
     opacity: 1; /* Show tooltip on hover */
 }
 
-.is-size-1 {
-    font-size: 4rem !important;
-}
 
 .fssnip {
     /* strings --- and styles for other string related formats */
@@ -186,7 +183,15 @@
 
 }
 
-.card-content a {
-    color: black; /* Custom link color */
+
+
+.is-size-1 {
+    font-size: 4rem !important;
 }
+
+.has-background-light {
+    background-color: #F6F5F1 !important;
+}
+
+
 
