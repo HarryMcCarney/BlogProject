@@ -11,6 +11,10 @@ let file =  File.ReadAllText "Render/content/aEssay.md"
 let doc = Literate.ParseMarkdownString(file)
 
 
+let add  x y = 
+    x + y 
+
+add 1 1 
 
 
 let tags = 

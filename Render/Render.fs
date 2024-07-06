@@ -35,6 +35,10 @@ module Render =
 
     let render content =
         [
+            Html.html [
+                prop.custom("data-theme", "light")
+
+            ]
             Html.header [
                 
                 Html.meta [
@@ -106,7 +110,6 @@ module Render =
 
                 ]
             ]
-
         ]
         |> Render.htmlView
   

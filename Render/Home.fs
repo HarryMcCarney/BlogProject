@@ -56,6 +56,7 @@ module Home =
 
 
 
+
     let buildTagList (posts : Post seq) = 
 
         let tagList = 
@@ -111,20 +112,13 @@ module Home =
             prop.classes [ "container";]
             prop.children [
                 Html.div [
-                    prop.classes ["title"; "is-size-1"; "mb-5"; "mt-6"; "has-text-dark"]
-                    prop.text "What is Lorem Ipsum?"
-                    prop.style [
-                        style.fontWeight 550
-                    ]
-                    
+                    prop.classes ["is-size-1"; "mb-5"; "mt-6"; "has-text-dark"; "has-text-weight-bold"]
+                    prop.text "What is Lorem Ipsum?"  
                 ]
                 
                 Html.div [
-                    prop.classes ["subtitle"; "is-size-2"; "is-family-secondary"; "mb-6"; "has-text-dark"]
+                    prop.classes ["is-size-2"; "is-family-secondary"; "mb-6"; "has-text-dark"; "has-text-weight-light"]
                     prop.text "Lorem Ipsum is simply dummy text of the printing and typesetting industry."
-                    prop.style [
-                        style.fontWeight 300
-                    ]
                 ]
             ]
         ]
