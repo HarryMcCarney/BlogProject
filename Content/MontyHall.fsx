@@ -1,3 +1,4 @@
+(**
 ---
 category: Note
 tags: Bayes, H&C, F#, Data Science
@@ -6,7 +7,8 @@ created: 20230929
 title: Bayesian F# Series - The Monty Hall Paradox.
 summary: This is the first in a series of posts exploring how Bayesian Techniques can be implemented in F#. It will also provide simple examples of how to started using Plotly.NET and FSharp.stats. 
 ---
-
+*)
+(**
 # Introduction
 The posts will closely follow Allen Downey's excellent book Think Bayes. Each post will cover one or two chapters from his book summarising the key ideas and porting the examples to F#. The first few posts will hopefully be quite accessible and the complexity will increase as we progress though the book.
 
@@ -45,11 +47,10 @@ The puzzle is as follows: Imagine a game show. The host is called Monty. There a
 Its hard to explain this with frequentist theory but a Bayesisn phrasing of the puzzle makes it intuitively clear that the contestant should switch.
 
 But first for anyone skeptical about why the contestant should switch, which I was, heres empirical proof. The code below simulates the game 10k times. 5k with a switch strategy and 5k with a non switching strategy. THe graph shows the switcher wins almost exactly 66.6% of the time, while the non-switcher's odds remain on 33.3%. Later we will show how we can derive the same results analytically using Bayes rule.
+*)
 
 #r "nuget: Plotly.NET.Interactive, 4.0.0"
-Installed Packages
-Plotly.NET.Interactive, 4.0.0
-Loading extensions from `C:\Users\harry\.nuget\packages\plotly.net.interactive\4.0.0\interactive-extensions\dotnet\Plotly.NET.Interactive.dll`
+
 open System
 open Plotly.NET
 
@@ -126,7 +127,6 @@ let decideToSwitch game : Game =
         { game with
             PlayersFinalChoice = game.PlayersFirstChoice }
 
-
 let isWinner (game: Game) =
     { game with
         Winner = Some(game.CarLocation = game.PlayersFinalChoice.Value) }
@@ -154,7 +154,10 @@ Chart.Column(
     values = [ float switchers / float (games / 2); float nonSwitchers / float (games / 2) ],
     Keys = [ "Switchers"; "Non Switchers" ]
 )
+|> GenericChart.toEmbeddedHTML
+(***include-it-raw***)
 
+(**
 So how can we explain this using a Bayesian approach. As we saw with the coin example, we think of the car being behind each door as distinct hypotheses. Hypothesis 1 is 'car is behind door 1', Hypothesis 2 is the 'car is behind door 2', Hypothesis 3 the 'car is behind door 3'. The probability of the car being behind each door at the start of the game is 0.33. And lets say we chose door 1 as our first choice.
 
 To summarise
@@ -174,7 +177,7 @@ H2	0.33		1
 H3	0.33		0
 First application of Bayes rule in F#
 Bayes rule tells us to simply multiply the initial probability known as the 'Prior' by the likelihood of the hypothesis given the new data. This gives a new probability known as the 'unormalised Posterior'. We then normalise the Posteriors to give their relative chance. A rough F# implementation would be look as follows.
-
+*)
 open System
 
 type Prior =
@@ -221,9 +224,13 @@ Chart.Table(
       headerValues = ["<b>Hypothesis</b>"; "<b>Probability</b>";"<b>Likelihood of opening door 3</b>"; "<b>Posterior</b>"],
       cellsValues = (montyPosteriors |> List.map( fun p -> [p.Hypothesis; rds p.Prior; rds p.Likelihood; rds p.Posterior]))
   )
+|> GenericChart.toEmbeddedHTML
+(***include-it-raw***)
+(**
 As you can see the posterior result matches the results from empirical simulation.
 
-Wrap up
+# Wrap up
 Bayesian thinking gives us intuitive and powerful ways to approach probability problems. This article has followed the first couple of chapters of the Think Bayes book which is an excellent resource well worth reading in full.
 
 The next post in this series will look at how Bayes rule can be applied to more complex examples. We will also show how the fsharp.stats library can help compose and solve these problems with remarkable efficiency.
+*)
