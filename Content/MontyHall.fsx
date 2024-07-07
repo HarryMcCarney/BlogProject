@@ -4,7 +4,7 @@ category: Note
 tags: Bayes, H&C, F#, Data Science
 updated: 20230929 
 created: 20230929
-title: Bayesian F# Series - The Monty Hall Paradox.
+title: Bayesian F# Series - 1. The Monty Hall Paradox.
 summary: This is the first in a series of posts exploring how Bayesian Techniques can be implemented in F#. It will also provide simple examples of how to started using Plotly.NET and FSharp.stats. 
 ---
 *)

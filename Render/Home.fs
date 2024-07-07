@@ -95,6 +95,7 @@ module Home =
 
     let getPostSummaries posts =
         posts 
+        |> Seq.sortBy(fun p -> p.Title)
         |> Seq.map(fun p -> 
             buildPostCard p
         )
