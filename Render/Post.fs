@@ -74,7 +74,8 @@ module Post =
                                     prop.children [   
                                         match post.Category with 
                                         | Note -> noteIcon
-                                        | Essay -> EssayIcon
+                                        | Essay -> essayIcon
+                                        | Talk -> talkIcon
                                         | _ -> failwith "unknown post category"           
                                         Html.p [
                                             prop.classes ["ml-2"; "has-text-dark"]

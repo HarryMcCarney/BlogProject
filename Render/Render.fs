@@ -148,6 +148,7 @@ module Render =
                 | "Essay" -> Essay
                 | "Draft" -> Draft 
                 | "Note" -> Note
+                | "Talk" -> Talk
                 | _ -> failwith "Unknown category in markdown file"
             
             let tags = 
@@ -179,6 +180,7 @@ module Render =
             | Essay ->  renderPost post
             | Note ->  renderPost post
             | Draft ->  renderPost post
+            | Talk ->  renderPost post
             |> render
             |> fun x -> 
                 let renderedFileName = sprintf "%s/%s.html" outDir post.FileName

@@ -8,12 +8,12 @@ export class Category extends Union {
         this.fields = fields;
     }
     cases() {
-        return ["Draft", "Note", "Essay"];
+        return ["Draft", "Note", "Essay", "Talk"];
     }
 }
 
 export function Category_$reflection() {
-    return union_type("blog.Model.Category", [], Category, () => [[], [], []]);
+    return union_type("blog.Model.Category", [], Category, () => [[], [], [], []]);
 }
 
 export class Post extends Record {

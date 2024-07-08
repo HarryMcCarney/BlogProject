@@ -7,6 +7,7 @@ module Model =
         | Draft
         | Note
         | Essay 
+        | Talk
         
 
     type Post = {

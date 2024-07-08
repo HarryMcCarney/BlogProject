@@ -17,7 +17,8 @@ module Home =
                     prop.children [
                         match post.Category with 
                         | Note -> noteIcon
-                        | Essay -> EssayIcon
+                        | Essay -> essayIcon
+                        | Talk -> talkIcon
                         | _ -> failwith "unknown post category"
 
                         Html.a [

@@ -35,7 +35,7 @@ module Layout =
                 ]
             ]
     
-    let EssayIcon = 
+    let essayIcon = 
         Html.span [
                 prop.classes ["icon"; "is-medium"]
                 prop.children [
@@ -47,6 +47,20 @@ module Layout =
                     ]
                 ]
             ]
+    
+    let talkIcon = 
+        Html.span [
+                prop.classes ["icon"; "is-medium"]
+                prop.children [
+                    Html.i [
+                        prop.classes ["fa-sharp"; "fa-solid"; "fa-square"; "is-primary"]
+                        prop.style [
+                            style.color "#00d1b2"
+                        ]
+                    ]
+                ]
+            ]
+     
 
     let navbar =
         Html.nav [

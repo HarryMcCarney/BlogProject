@@ -14,6 +14,7 @@ module SearchIndex =
         | Draft -> Encode.string "Draft"
         | Note -> Encode.string "Note"
         | Essay -> Encode.string "Essay"
+        | Talk -> Encode.string "Talk"
   
     let postEncoder (post: Post) =
         Encode.object [
