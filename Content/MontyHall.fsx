@@ -29,7 +29,7 @@ Frequentist techniques use ratios between the frequencies of possible cases of a
 
 So the probability of a coin landing on heads is established by looking at a sequence of flips. Such as T, H, T, T, T, T, H, T, T, H, H, T. In this sequence there are 4 Heads and 8 Tails. SO the probability of Heads is 4/12 or 0.33. This conclusion feels wrong as we know that coins are normally evenly weighted and our conclusion that this is an uneven coin is based on a short sequence of data.
 
-In the real world H&C's clients often have partial and noisy data. And they nearly alway have some preexisting beliefs which should guide our analysis.
+In the real world H&C's clients often have partial and noisy data. And they nearly alway have some pre-existing beliefs which should guide our analysis.
 
 This is where Bayesian techniques can help. Instead of trying to calculate the probability of heads from the data, the Bayesian asks, given this data what the probability that this is a 50/50 coin. They can also ask what the probability that this is 33$ coin or a 66% coin.
 
@@ -40,13 +40,18 @@ In this way our probability of having each coin can be updated using the observe
 The formula for calculating this is known as Bayes Theorem. Its a complex theorem but the core idea is quite intuitive. Data allows us to update the probabilities of our competing beliefs. These beliefs are held with varying levels of certainty before we make observations and afterwards we change those convictions. This series of article will explore a variety of increasingly and sometimes complex but always practical applications of this approach.
 
 # A Bayesian approach to the Monty Hall paradox
-The Monty Hall Paradox is a well known probability puzzle which many people find intuitively challenging. It has divided opinion even among experts. Bayesian thinking makes this puzzle much more tractable than traditional frequentist so its a an excellent place to start.
+The Monty Hall Paradox is a well known probability puzzle which many people find intuitively challenging. It has divided opinion even among experts. 
+Bayesian thinking makes this puzzle much more tractable than traditional frequentist so its a an excellent place to start.
 
-The puzzle is as follows: Imagine a game show. The host is called Monty. There are three doors. Behind one of the doors is a car which the contestant is trying to win. A contestant is asked to to choose a door. Then Monty opens one of the other two doors which doesn't have the car behind it. This leaves two doors left and the car is behind one of them. Monty then asks the contestant if they would like to stick with their original choice or switch to the other door. Most people will assume there is a 50/50 chance for both doors so there is nothing to be gain from switching. However, switching doors is a the better choice and raises the odds of winning to 2/3
+The puzzle is as follows: Imagine a game show. The host is called Monty. There are three doors. Behind one of the doors is a car which the contestant is trying to win. 
+A contestant is asked to to choose a door. Then Monty opens one of the other two doors which doesn't have the car behind it. 
+This leaves two doors left and the car is behind one of them. Monty then asks the contestant if they would like to stick with their original choice or switch to the other door. 
+Most people will assume there is a 50/50 chance for both doors so there is nothing to be gain from switching. However, switching doors is a the better choice and raises the odds of winning to 2/3
 
-Its hard to explain this with frequentist theory but a Bayesisn phrasing of the puzzle makes it intuitively clear that the contestant should switch.
+Its hard to explain this with frequentist theory but a Bayesian phrasing of the puzzle makes it intuitively clear that the contestant should switch.
 
-But first for anyone skeptical about why the contestant should switch, which I was, heres empirical proof. The code below simulates the game 10k times. 5k with a switch strategy and 5k with a non switching strategy. THe graph shows the switcher wins almost exactly 66.6% of the time, while the non-switcher's odds remain on 33.3%. Later we will show how we can derive the same results analytically using Bayes rule.
+But first for anyone sceptical about why the contestant should switch, which I was, here's empirical proof. The code below simulates the game 10k times. 
+5k with a switch strategy and 5k with a non switching strategy. THe graph shows the switcher wins almost exactly 66.6% of the time, while the non-switcher's odds remain on 33.3%. Later we will show how we can derive the same results analytically using Bayes rule.
 *)
 
 #r "nuget: Plotly.NET.Interactive, 4.0.0"
@@ -176,7 +181,7 @@ H1	0.33	X	0.5
 H2	0.33		1
 H3	0.33		0
 First application of Bayes rule in F#
-Bayes rule tells us to simply multiply the initial probability known as the 'Prior' by the likelihood of the hypothesis given the new data. This gives a new probability known as the 'unormalised Posterior'. We then normalise the Posteriors to give their relative chance. A rough F# implementation would be look as follows.
+Bayes rule tells us to simply multiply the initial probability known as the 'Prior' by the likelihood of the hypothesis given the new data. This gives a new probability known as the 'un-normalised Posterior'. We then normalise the Posteriors to give their relative chance. A rough F# implementation would be look as follows.
 *)
 open System
 

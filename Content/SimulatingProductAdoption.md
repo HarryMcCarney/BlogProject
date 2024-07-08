@@ -3,8 +3,8 @@ category: Note
 tags: Simulation, Data Science
 updated: 20230224
 created: 20230224
-title: Simulationg viral product adoption.
-summary: This basic model shows how adoption can spread virally with non linear tipping points. Much like disinformation in social media networks and infectious disease in popluations.
+title: Simulating viral product adoption.
+summary: This basic model shows how adoption can spread virally with non linear tipping points. Much like disinformation in social media networks and infectious disease in populations.
 ---
 
 # Product Adoption Simulation

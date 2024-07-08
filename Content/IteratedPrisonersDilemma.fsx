@@ -5,7 +5,7 @@ tags: F#, Data Science, Game Theory, Supply Chain
 updated: 20230310
 created: 20230310
 title: Recreating Robert Axelrod's Prisoner's dilemma tournament
-summary:This is a rough F# implementation of Robert Axelrod's classic Prisoner's dilemma tournament held in 1984. It sucessfully reporoduces the same results..
+summary:This is a rough F# implementation of Robert Axelrod's classic Prisoner's dilemma tournament held in 1984. It successfully reproduces the same results..
 ---
 *)
 (**

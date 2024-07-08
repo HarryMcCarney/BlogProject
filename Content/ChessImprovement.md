@@ -9,11 +9,12 @@ summary: A "work in progress" to try and discover if players of online chess imp
 
 Having played a lot of online chess myself, and found improving my rating to be pretty tricky, I wondered if most people are actually getting any better. 
 
-Chess improvement is a huge field and focuses on things like opening theory. memorising book moves and understanding posistional strategies.But theres little concensus on what works best - particularly for players of different standards. 
+Chess improvement is a huge field and focuses on things like opening theory. memorising book moves and understanding positional strategies.
+But there's little consensus on what works best - particularly for players of different standards. 
 
 However, Lichess has a fairly open API with game and rating histories for all players, so it's now possible to take a purely empirical approach to chess improvement. 
 
-Instead of asking, "How do I improve?", we can ask "What are improving playuers doing?".
+Instead of asking, "How do I improve?", we can ask "What are improving players doing?".
 
 This is a rough proof of concept and would need more work before any reliable conclusions could be drawn. Code can be found [here](https://github.com/HarryMcCarney/ChessAnalytics)
 
@@ -21,7 +22,7 @@ This is a rough proof of concept and would need more work before any reliable co
 First I downloaded a backup of all the games played in October 2015. This is available [here](https://database.lichess.org/)
 Then I extracted all the games from the Lichess_db_standard_rated_2015-02.pgn file in the backup using [ParsePGN.fsx.](https://github.com/HarryMcCarney/ChessAnalytics/blob/master/ImportGames/ParsePGN.fs) I am only analysing "Rapid" games, but the code could easily include other time controls. Results of parsing the pgn are saved to csv format. Only the game headers, including results and opening classification codes, are saved, the moves are not needed as I don't plan to analyse these. 
 
-The players' usernames are extracted from this csv and filtered to exclude players with less than 100 rapid games and who havn't played a game in the last 30 days. The resulting list is saved into the playercohort.csv.
+The players' usernames are extracted from this csv and filtered to exclude players with less than 100 rapid games and who haven't played a game in the last 30 days. The resulting list is saved into the playercohort.csv.
 
 Using the SavePlayerRatings.fsx we then query the Lichess API and get the rapid rating history for each player in the cohort file. 
 
@@ -34,9 +35,11 @@ That gives the following histogram.
 
 ![](chess.png)
 
-Viewing it as a probability distribution makes clear that most players have little chance of substantial improvement. Over 7 years of pretty active play, you have a 60 per cent chance of a 100-point improvement. A 350-point improvement is about half a per cent chance. So my meagre gains are not so bad after all. 
+Viewing it as a probability distribution makes clear that most players have little chance of substantial improvement. Over 7 years of pretty active play, you have a 60 per cent chance of a 100-point improvement. 
+A 350-point improvement is about half a per cent chance. So my meagre gains are not so bad after all. 
 
-The picture is muddied by the rating deflation/inflation happening with Lichess as a whole. The chart below shows how the average (median and mean) rating has fluctuated since 2018. This is likely due to a large influx of beginners during the covid lockdowns who provided fresh points for those higher up the food chain. 
+The picture is muddied by the rating deflation/inflation happening with Lichess as a whole. The chart below shows how the average (median and mean) rating has fluctuated since 2018. 
+This is likely due to a large influx of beginners during the covid lockdowns who provided fresh points for those higher up the food chain. 
 
 ![Alt text](chess1.png)
 

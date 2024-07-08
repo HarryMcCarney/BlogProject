@@ -3,15 +3,17 @@ category: Note
 tags: Remote Working, Management, Data Science
 updated: 20230622
 created: 20230622
-title: Undersating the structure of collaboration networks 
+title: Understanding the structure of collaboration networks 
 summary: Quick proof of concept revealing informal collaboration network in organisations by analysing Slack and Google Meets data.
 ---
 
-Companies have an official org chart but most of the collaboration is done through informal cooperation. This collaboration network is often hidden from senior management and as a result, many company-wide initiatives such as digital transformation, mergers, and reorgs fail.
+Companies have an official org chart but most of the collaboration is done through informal cooperation. 
+This collaboration network is often hidden from senior management and as a result, many company-wide initiatives such as digital transformation, mergers, and reorgs fail.
 
 Knowing how information flows and collaboration really happens is essential, especially at a time when more and more companies are worried about the creative impact of remote work.
 
-A field called Organisational Network Analysis (ONA) tries to solve this problem by visualising collaboration as a network of nodes and edges. This approach can reveal staff member nodes that are overloaded, disengaged, information brokers, bottlenecks, or are acting as bridges between distinct clusters of nodes.
+A field called Organisational Network Analysis (ONA) tries to solve this problem by visualising collaboration as a network of nodes and edges. 
+This approach can reveal staff member nodes that are overloaded, disengaged, information brokers, bottlenecks, or are acting as bridges between distinct clusters of nodes.
 
 There is an article about this [here](https://www2.deloitte.com/us/en/pages/human-capital/articles/organizational-network-analysis.html)
 

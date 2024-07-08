@@ -114,12 +114,12 @@ module Home =
             prop.children [
                 Html.div [
                     prop.classes ["is-size-1"; "mb-5"; "mt-6"; "has-text-dark"; "has-text-weight-bold"]
-                    prop.text "What is Lorem Ipsum?"  
+                    prop.text "Notes, Essays and Talks"  
                 ]
                 
                 Html.div [
                     prop.classes ["is-size-2"; "is-family-secondary"; "mb-6"; "has-text-dark"; "has-text-weight-light"]
-                    prop.text "Lorem Ipsum is simply dummy text of the printing and typesetting industry."
+                    prop.text "A collection of ideas in varying states of completion and coherence."
                 ]
             ]
         ]
