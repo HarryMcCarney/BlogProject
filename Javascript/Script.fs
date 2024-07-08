@@ -16,6 +16,7 @@ module Scripts =
             | "Draft" -> Decode.succeed Draft
             | "Note" -> Decode.succeed Note
             | "Essay" -> Decode.succeed Essay
+            | "Talk" -> Decode.succeed Talk
             | other -> Decode.fail $"Unknown category: {other}")
 
     let dateTimeDecoder : Decoder<DateTime> =

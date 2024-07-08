@@ -84,6 +84,7 @@ module Post =
                                                 match post.Category with 
                                                 | Essay -> "Essay"
                                                 | Note -> "Note"
+                                                | Talk -> "Talk"
                                                 | _ -> ""
                                                 )
                                         ]
