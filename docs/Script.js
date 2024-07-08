@@ -20,8 +20,10 @@ export const categoryDecoder = (path_2) => ((value_1) => andThen(uncurry3((_arg)
             return (arg10$0040_1) => ((arg20$0040_1) => succeed(new Category(1, []), arg10$0040_1, arg20$0040_1));
         case "Essay":
             return (arg10$0040_2) => ((arg20$0040_2) => succeed(new Category(2, []), arg10$0040_2, arg20$0040_2));
+        case "Talk":
+            return (arg10$0040_3) => ((arg20$0040_3) => succeed(new Category(3, []), arg10$0040_3, arg20$0040_3));
         default:
-            return (path_1) => ((arg20$0040_3) => fail(`Unknown category: ${_arg}`, path_1, arg20$0040_3));
+            return (path_1) => ((arg20$0040_4) => fail(`Unknown category: ${_arg}`, path_1, arg20$0040_4));
     }
 }), string, path_2, value_1));
 
