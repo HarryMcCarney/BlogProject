@@ -1,6 +1,6 @@
 (**
 ---
-category: Essay
+category: Note
 tags: Bayes, F#, Data Science
 updated: 20230930 
 created: 20230930
