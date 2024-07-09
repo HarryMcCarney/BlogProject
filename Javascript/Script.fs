@@ -32,6 +32,7 @@ module Scripts =
                 FileName = get.Required.Field "FileName" Decode.string
                 Title = get.Required.Field "Title" Decode.string
                 Summary = get.Required.Field "Summary" Decode.string
+                MainImage = get.Optional.Field "MainImage" Decode.string 
                 Content = get.Required.Field "Content" Decode.string
                 Tags = get.Required.Field "Tags" (Decode.array Decode.string)
                 Category = get.Required.Field "Category" categoryDecoder

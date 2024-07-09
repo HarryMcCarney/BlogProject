@@ -12,6 +12,23 @@ module Home =
             prop.classes ["card" ;  "post-card"; "my-card"; "is-clickable"; "has-background-light"]
   
             prop.children [
+                match post.Category, post.MainImage with 
+                | Essay, Some i -> 
+                    Html.div [
+                        prop.classes ["card-image"]
+                        prop.children [
+                            Html.figure [
+                                prop.classes ["image"; "is4by3"]
+                                prop.children [
+                                    Html.img [
+                                        prop.src i
+                                    ]
+                                ]
+                            ]
+                        ]
+                    ]
+                | _ -> ()
+                
                 Html.div [
                     prop.classes ["card-content"; "p-4"]
                     prop.children [

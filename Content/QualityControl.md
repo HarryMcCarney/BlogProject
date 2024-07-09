@@ -5,6 +5,7 @@ updated: 20200516
 created: 20200516
 title: How Quality Control processes can undermine quality
 summary: Software must now evolve faster than ever. Underlying technology such as cloud infrastructure, operating systems and programming languages now receive near continuous updates from Google, Microsoft, Amazon, and the open source community.
+image: /Sisyphus.jpg
 ---
 Competition between software providers has intensified. Increasing customer expectations require companies to rapidly ‘test and learn’ to find and maintain their markets. 
 Most critically, the security landscape is generating serious new threats almost weekly that previously would occur monthly or annually. 

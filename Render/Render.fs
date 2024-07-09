@@ -160,6 +160,7 @@ module Render =
                 Title = metaData["title"]
                 Summary = metaData["summary"]
                 Content = getEssayHtml rawPost
+                MainImage = if category = Essay then Some metaData["image"] else None
                 Category = category
                 Tags = tags
                 Updated = updated 

@@ -21,6 +21,7 @@ module SearchIndex =
             "FileName", Encode.string post.FileName
             "Title", Encode.string post.Title
             "Summary", Encode.string post.Summary
+            "MainImage", Encode.option Encode.string post.MainImage
             "Content", Encode.string post.Content
             "Tags", 
                 post.Tags 

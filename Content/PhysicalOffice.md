@@ -5,6 +5,7 @@ updated: 20200422
 created: 20200422
 title: Why you still need a physical office with a distributed work model
 summary: Distributed agile working is at the core of Hack and Craft. And now coronavirus has forced most companies into remote working, its benefits are becoming clear even to the most traditional businesses.
+image: /OfficeDesign.png
 ---
 
 ![H&C Sign](/HandCRed.png)

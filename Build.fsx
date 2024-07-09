@@ -45,7 +45,6 @@ Target.create "Render" (fun _ ->
         Shell.copyFile runDir "Render/styles.css" |> ignore
         let arguments = sprintf "--project ./Render/BlogProject.fsproj %s" runDir
         DotNet.exec id "run" arguments |> ignore 
-       
 )
 
 Target.create "CompileJS" (fun _ ->

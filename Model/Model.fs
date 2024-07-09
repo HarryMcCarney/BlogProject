@@ -14,6 +14,7 @@ module Model =
         FileName : string
         Title : string
         Summary : string
+        MainImage : string option
         Content : string 
         Tags : string array
         Category : Category

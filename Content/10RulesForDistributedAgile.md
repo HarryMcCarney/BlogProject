@@ -5,6 +5,7 @@ updated: 20200409
 created: 20200409
 title: 10 rules for Distributed Agile — How H&C gets stuff done.
 summary: H&C has been working from home since before it became synonymous with flattening the curve. Many companies have previously allowed employees to work from home but the need for complex systems to be built by teams of people who don’t ever physically meet is a new challenge. Hopefully this account of how H&C does this will demonstrate that Distributed Agile is not only possible, but actually more efficient than co-located teams.
+image: /berlin.png
 ---
 
 ## How we got here
