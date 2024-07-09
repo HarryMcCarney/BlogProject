@@ -41,10 +41,10 @@ export const dateTimeDecoder = (path_2) => ((value_1) => andThen(uncurry3((dateS
     }
 }), string, path_2, value_1));
 
-export const postDecoder = (path_6) => ((v) => object((get$) => {
-    let objectArg, objectArg_1, objectArg_2, objectArg_3, objectArg_4, objectArg_5, objectArg_6, objectArg_7;
-    return new Post((objectArg = get$.Required, objectArg.Field("FileName", string)), (objectArg_1 = get$.Required, objectArg_1.Field("Title", string)), (objectArg_2 = get$.Required, objectArg_2.Field("Summary", string)), (objectArg_3 = get$.Required, objectArg_3.Field("Content", string)), (objectArg_4 = get$.Required, objectArg_4.Field("Tags", (path_5, value_5) => array_1(string, path_5, value_5))), (objectArg_5 = get$.Required, objectArg_5.Field("Category", uncurry2(categoryDecoder))), (objectArg_6 = get$.Required, objectArg_6.Field("Updated", uncurry2(dateTimeDecoder))), (objectArg_7 = get$.Required, objectArg_7.Field("Created", uncurry2(dateTimeDecoder))));
-}, path_6, v));
+export const postDecoder = (path_7) => ((v) => object((get$) => {
+    let objectArg, objectArg_1, objectArg_2, objectArg_3, objectArg_4, objectArg_5, objectArg_6, objectArg_7, objectArg_8;
+    return new Post((objectArg = get$.Required, objectArg.Field("FileName", string)), (objectArg_1 = get$.Required, objectArg_1.Field("Title", string)), (objectArg_2 = get$.Required, objectArg_2.Field("Summary", string)), (objectArg_3 = get$.Optional, objectArg_3.Field("MainImage", string)), (objectArg_4 = get$.Required, objectArg_4.Field("Content", string)), (objectArg_5 = get$.Required, objectArg_5.Field("Tags", (path_6, value_6) => array_1(string, path_6, value_6))), (objectArg_6 = get$.Required, objectArg_6.Field("Category", uncurry2(categoryDecoder))), (objectArg_7 = get$.Required, objectArg_7.Field("Updated", uncurry2(dateTimeDecoder))), (objectArg_8 = get$.Required, objectArg_8.Field("Created", uncurry2(dateTimeDecoder))));
+}, path_7, v));
 
 export const jsonContainerDecoder = (path_1) => ((v) => object((get$) => {
     let objectArg;
