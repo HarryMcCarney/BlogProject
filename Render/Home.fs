@@ -10,29 +10,41 @@ module Home =
 
         let dropdownItems = 
             posts
-            |> Seq.map(fun p -> p.Category)
+            |> Seq.countBy(fun p -> p.Category)
             |> Seq.distinct
-            |> Seq.map(fun c -> 
+            |> Seq.map(fun (c, i) -> 
                 Html.a [
                     prop.classes ["dropdown-item"]
                     prop.id (sprintf "dropdown_%s" (c.ToString()))
-                    prop.text (c.ToString())
                     prop.href ""
+                    prop.children [
+                        match c with 
+                        | Essay -> essayIcon
+                        | Note -> noteIcon
+                        | Talk -> talkIcon
+                        | Draft -> failwith "published a draft"
+                        Html.span [
+                            prop.text (sprintf "%s (%i)" (c.ToString()) i)
+                        ]
+                    ]
                 ]
             )
 
         Html.div [
             prop.classes ["dropdown";]
+            prop.id "category_dropdown"
             prop.children [
                 Html.div [
                     prop.classes ["dropdown-trigger"]
                     prop.children [
                         Html.button [
+                            prop.id "dropdown_button"
                             prop.classes ["button"]
                             prop.ariaHasPopup true
                             prop.ariaControls "dropdown-menu"
                             prop.children [
                                 Html.span [
+                                    prop.id "dropdown_button_text"
                                     prop.text "Category"
                                 ]
                                 Html.span [
@@ -54,11 +66,10 @@ module Home =
                     prop.role "menu"
                     prop.children [
                         Html.div [
-                            prop.classes ["dropdown-content"]
+                            prop.classes ["dropdown-content"; "has-text-left"]
                             prop.children dropdownItems
                         ]
                     ]
-
                 ]
             ]
         ]
@@ -66,7 +77,7 @@ module Home =
     let buildPostCard post = 
         Html.div [
             prop.id post.FileName
-            prop.classes ["card" ;  "post-card"; "my-card"; "is-clickable"; "has-background-light"]
+            prop.classes ["card";  "post-card"; "my-card"; "is-clickable"; "has-background-light"]
   
             prop.children [
                 match post.Category, post.MainImage with 
@@ -128,9 +139,6 @@ module Home =
                 ]
             ]
         ]
-
-
-
 
     let buildTagList (posts : Post seq) = 
 
@@ -206,11 +214,18 @@ module Home =
             prop.classes [ "container";]
             prop.children [
                 Html.div [
-                    prop.children  
-                        (buildTagList posts)
-                        
+                    prop.classes ["columns"]
+                    prop.children [
+                        Html.div [
+                            prop.classes ["column"; "is-four-fifths"]
+                            prop.children (buildTagList posts)   
+                        ] 
+                        Html.div [
+                            prop.classes ["column"; "is-one-fifth" ;"has-text-right"]
+                            prop.children (getCategoryDropDown posts)  
+                        ] 
+                    ]                        
                 ]
-                (getCategoryDropDown posts)
                 Html.div [
                     prop.className "columns is-multiline"
                     prop.children [

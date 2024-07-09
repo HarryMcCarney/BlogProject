@@ -145,12 +145,35 @@ module Scripts =
             )
         )
 
+    let addCategoryDropDown() =
+        let dropdown = document.getElementById "category_dropdown"
+        dropdown.addEventListener("click", fun _ -> 
+            dropdown.classList.toggle("is-active") |> ignore
+            )
+        let items = document.getElementsByClassName "dropdown-item"
+        let itemElements = seq { for i in 0 .. items.length - 1 -> items.[i] }
+
+        let button = document.getElementById "dropdown_button_text"
+        
+        itemElements
+        |> Seq.iter(fun i -> 
+            i.addEventListener("click", fun _ -> 
+                button.setAttribute("text", i.id)
+
+            )
+
+            ) 
+
+
+
+
     let execScripts() =
         async{
             expandHamburger() |> ignore
             hideFsiOutput() |> ignore
             addTagFilters() |> ignore
             addCardClickEvents()  |> ignore
+            addCategoryDropDown() |> ignore
         } |> Async.StartImmediate
 
     [<Emit("window.execScripts = $0")>]
