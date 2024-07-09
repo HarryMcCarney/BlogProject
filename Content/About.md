@@ -4,7 +4,7 @@ tags:
 updated: 20240620
 created: 20240620
 title: About
-summary: The emerging golden age of home-cooked software, barefoot developers, and why the local-first community should help build it
+summary: lorem
 ---
 
 Harry is the founder and Managing Director of Hack and Craft.

@@ -130,7 +130,7 @@ module Layout =
                             Html.text " by "
                             Html.a [
                                 prop.style customLinkStyle
-                                prop.href "https://mastodon.sdf.org/@HarryMcCarnney"
+                                prop.href "https://defcon.social/@HarryMcCarney"
                                 prop.text "Harry McCarney"
                             ]
                             Html.text ". The source code is licensed "

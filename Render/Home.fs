@@ -6,6 +6,63 @@ module Home =
     open Model
     open Feliz.ViewEngine.style
 
+    let getCategoryDropDown (posts: Post seq) = 
+
+        let dropdownItems = 
+            posts
+            |> Seq.map(fun p -> p.Category)
+            |> Seq.distinct
+            |> Seq.map(fun c -> 
+                Html.a [
+                    prop.classes ["dropdown-item"]
+                    prop.id (sprintf "dropdown_%s" (c.ToString()))
+                    prop.text (c.ToString())
+                    prop.href ""
+                ]
+            )
+
+        Html.div [
+            prop.classes ["dropdown";]
+            prop.children [
+                Html.div [
+                    prop.classes ["dropdown-trigger"]
+                    prop.children [
+                        Html.button [
+                            prop.classes ["button"]
+                            prop.ariaHasPopup true
+                            prop.ariaControls "dropdown-menu"
+                            prop.children [
+                                Html.span [
+                                    prop.text "Category"
+                                ]
+                                Html.span [
+                                    prop.classes ["icon"; "is-small"]
+                                    prop.children [
+                                        Html.i [
+                                            prop.classes ["fas"; "fa-angle-down"]
+                                            prop.ariaHidden true
+                                        ]
+                                    ]
+                                ]
+                            ]
+                        ]
+                    ]
+                ]
+                Html.div [
+                    prop.classes ["dropdown-menu"]
+                    prop.id "dropdown-menu"
+                    prop.role "menu"
+                    prop.children [
+                        Html.div [
+                            prop.classes ["dropdown-content"]
+                            prop.children dropdownItems
+                        ]
+                    ]
+
+                ]
+            ]
+        ]
+
     let buildPostCard post = 
         Html.div [
             prop.id post.FileName
@@ -149,8 +206,11 @@ module Home =
             prop.classes [ "container";]
             prop.children [
                 Html.div [
-                    prop.children  (buildTagList posts)
+                    prop.children  
+                        (buildTagList posts)
+                        
                 ]
+                (getCategoryDropDown posts)
                 Html.div [
                     prop.className "columns is-multiline"
                     prop.children [
