@@ -6,7 +6,6 @@ module Post =
     open Layout
 
 
-
     let EssayTags (post: Post) =  
         post.Tags
         |> Seq.map(fun t ->

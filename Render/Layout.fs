@@ -74,7 +74,7 @@ module Layout =
                     prop.children [
                         Html.a [
                             prop.id "navbar-burger"
-                            prop.classes ["navbar-burger"; "is-text"]
+                            prop.classes ["navbar-burger"; "is-text"; "has-text-dark";]
 
                             prop.role "button"
                             prop.ariaLabel "menu"
