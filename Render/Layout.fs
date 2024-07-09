@@ -10,7 +10,7 @@ module Layout =
         let span = now - inputDate
         
         if span.TotalHours < 24.0 then
-            sprintf "%.0f HOURS AGP" span.TotalHours
+            sprintf "%.0f HOURS AGO" span.TotalHours
         elif span.TotalDays < 30.0 then
             sprintf "%.0f DAYS AGO" span.TotalDays
         elif span.TotalDays < 365.0 then

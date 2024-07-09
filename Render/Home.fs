@@ -28,7 +28,7 @@ module Home =
                         ]
                     ]
                 | _ -> ()
-                
+
                 Html.div [
                     prop.classes ["card-content"; "p-4"]
                     prop.children [
@@ -52,13 +52,13 @@ module Home =
                     prop.classes [ "card-footer"; "has-text-dark"]
                     prop.children [
                         Html.p [
-                            prop.classes ["p-1"; "card-footer-item"; "is-size-7"; "has-text-right"]
+                            prop.classes ["p-2"; "card-footer-item"; "is-size-7"; "has-text-right"]
 
                             prop.text ((post.Category |> string).ToUpper())
                         ]
                     
                         Html.p [
-                            prop.classes ["p-1"; "card-footer-item"; "is-size-7"; "has-text-left"]
+                            prop.classes ["p-2"; "card-footer-item"; "is-size-7"; "has-text-left"]
                             prop.text 
                                 (
                                 match post.Category with 

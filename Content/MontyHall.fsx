@@ -1,11 +1,12 @@
 (**
 ---
-category: Note
+category: Essay
 tags: Bayes, H&C, F#, Data Science
-updated: 20230929 
+updated: 20240709
 created: 20230929
 title: Bayesian F# Series - 1. The Monty Hall Paradox.
 summary: This is the first in a series of posts exploring how Bayesian Techniques can be implemented in F#. It will also provide simple examples of how to started using Plotly.NET and FSharp.stats. 
+image: monty.png
 ---
 *)
 (**
@@ -18,11 +19,6 @@ The goal is that any one with some knowledge of F# will be able to implement the
 F# is an excellent language for Data Science. The rich static type system guides your thinking while you structure solutions to problems. It avoids the 'guess/refresh' approach sometimes found with loosely typed languages. Moreover, the extra precision of types that won't let you multiply strings, concatenate a boolean, or add an int to a float ensures your code is correct.
 
 Lastly, functional immutable programming is simply a better conceptual fit for most data science work. Object oriented languages are primarily about managing state, not transforming data. F#’s functional first approach encourages us to write simple deterministic functions which are easy to understand and compose into larger and larger operations with no loss of readability.
-
-# Data Science at Hack and Craft
-At Hack and Craft we build simulations for logistics and manufacturing companies. Typically they are interested in measuring the effects of proposed chances to their processes. We model these initiatives and run simulations to produce synthetic data. This data is then analysed to measure impact of the proposed changes.
-
-We find Bayesian approaches very applicable to this work and have gradually moved away from a more traditional 'frequentist' approach.
 
 # Bayesian thinking
 Frequentist techniques use ratios between the frequencies of possible cases of an observed sequence of data to derive their probability.
