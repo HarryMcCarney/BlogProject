@@ -1,5 +1,5 @@
 import { fromString, seq, array as array_1, object, string, fail, succeed, andThen } from "./fable_modules/Thoth.Json.10.2.0/Decode.fs.js";
-import { stringHash, uncurry2, uncurry3 } from "./fable_modules/fable-library-js.4.19.3/Util.js";
+import { equals, stringHash, uncurry2, uncurry3 } from "./fable_modules/fable-library-js.4.19.3/Util.js";
 import { JsonContainer, Post, Category } from "./Model/Model.js";
 import { tryParse, minValue } from "./fable_modules/fable-library-js.4.19.3/Date.js";
 import { FSharpRef } from "./fable_modules/fable-library-js.4.19.3/Types.js";
@@ -59,9 +59,7 @@ export function fetchJson(url) {
             return singleton.Return(undefined);
         }
         else {
-            const data = matchValue.fields[0];
-            toConsole(printf("%A"))(data);
-            return singleton.Return(data);
+            return singleton.Return(matchValue.fields[0]);
         }
     }));
 }
@@ -139,12 +137,62 @@ export function addCardClickEvents() {
     }, delay(() => map((i) => (postNodes[i]), rangeDouble(0, 1, postNodes.length - 1))));
 }
 
+export function addCategoryDropDown() {
+    startImmediate(singleton.Delay(() => singleton.Bind(fetchJson("SearchIndex.json"), (_arg) => {
+        const searchIndex = _arg;
+        if (searchIndex == null) {
+            throw new Error("No search index found");
+            return singleton.Zero();
+        }
+        else {
+            const si = searchIndex;
+            const dropdown = document.getElementById("category_dropdown");
+            dropdown.addEventListener("click", (_arg_1) => {
+                dropdown.classList.toggle("is-active");
+            });
+            const items = document.getElementsByClassName("dropdown-item");
+            const itemElements = delay(() => map((i) => (items[i]), rangeDouble(0, 1, items.length - 1)));
+            const postNodes = document.getElementsByClassName("post-card");
+            const posts = delay(() => map((i_1) => (postNodes[i_1]), rangeDouble(0, 1, postNodes.length - 1)));
+            iterate((i_2) => {
+                i_2.addEventListener("click", (_arg_2) => {
+                    let matchValue;
+                    const button = document.getElementById("dropdown_button_text");
+                    button.innerText = ((matchValue = i_2.id, (matchValue === "dropdown_Essay") ? "Essays" : ((matchValue === "dropdown_Note") ? "Notes" : ((matchValue === "dropdown_Talk") ? "Talks" : "All Types"))));
+                    iterate((p) => {
+                        p.classList.remove("is-hidden");
+                    }, posts);
+                    const postsToHide = map((p_2) => p_2.FileName, filter((p_1) => {
+                        let str;
+                        if (i_2.id === "dropdown_all") {
+                            return false;
+                        }
+                        else {
+                            return !equals(p_1.Category, (str = i_2.id, (str === "dropdown_Essay") ? (new Category(2, [])) : ((str === "dropdown_Note") ? (new Category(1, [])) : ((str === "dropdown_Talk") ? (new Category(3, [])) : (() => {
+                                throw new Error("unknown category");
+                            })()))));
+                        }
+                    }, si.Posts));
+                    iterate((p_4) => {
+                        p_4.classList.toggle("is-hidden");
+                    }, filter((p_3) => contains_1(p_3.id, postsToHide, {
+                        Equals: (x, y) => (x === y),
+                        GetHashCode: stringHash,
+                    }), posts));
+                });
+            }, itemElements);
+            return singleton.Zero();
+        }
+    })));
+}
+
 export function execScripts() {
     startImmediate(singleton.Delay(() => {
         const value = expandHamburger();
         const value_1 = hideFsiOutput();
         const value_2 = addTagFilters();
         const value_3 = addCardClickEvents();
+        const value_4 = addCategoryDropDown();
         return singleton.Zero();
     }));
 }
