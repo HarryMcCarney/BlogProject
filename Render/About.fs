@@ -35,7 +35,7 @@ module About =
                     prop.children [
                         Html.div [
                             prop.classes ["title";"is-2"]
-                            prop.text "Some stuff about me"
+                            prop.text "About"
                         ]
                     ]
                 ]
