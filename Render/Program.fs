@@ -4,8 +4,8 @@ module builder =
     let main args =
 
         printfn "%A" args
-        let fastRender = 
-            if args[1] = "true" then true else false
-        Render.build (args[0]) fastRender
+        let singlePost = if args.Length > 1 then Some args[1] else None 
+            
+        Render.build (args[0]) singlePost
         0
 

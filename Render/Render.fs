@@ -169,24 +169,24 @@ module Render =
             }
         )
 
-    let build outDir (isFastRender: bool)= 
+    let build outDir (singlePost: string option)= 
         let posts = 
             let contentPath = sprintf "%s/Content" (Directory.GetCurrentDirectory())
-            
-            printfn "inside function %b" isFastRender
-            if isFastRender then 
+        
+            match singlePost with 
+            | Some p -> 
                 printfn "fast"
                 Directory.EnumerateFiles contentPath 
-                |> Seq.filter(fun f -> f <> "About.md" && not (f. Contains(".fsx")))
+                |> Seq.filter(fun f -> f <> "About.md" && (f. Contains(p)))
                 |> Seq.head
                 |> fun f -> [f]
                 |> List.toSeq
                 |> deserialisePosts
-                else 
-                    printfn "slow"
-                    Directory.EnumerateFiles contentPath 
-                    |> Seq.filter(fun f -> f <> "About.md")
-                    |> deserialisePosts
+            | None -> 
+                printfn "slow"
+                Directory.EnumerateFiles contentPath 
+                |> Seq.filter(fun f -> f <> "About.md")
+                |> deserialisePosts
 
         printfn "%i posts found" (posts |> Seq.length)
         posts

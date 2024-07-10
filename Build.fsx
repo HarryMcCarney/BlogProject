@@ -3,6 +3,7 @@
 #r "nuget: Fake.DotNet.Cli, 6.0.0"
 #r "nuget: Suave, 2.6.2"
 #r "nuget: Fake.BuildServer.GitHubActions, 6.0.0"
+#r "nuget: Argu, 6.2.4"
 
 open Fake.Core
 open Fake.IO
@@ -12,20 +13,38 @@ open Suave
 open Suave.Filters
 open Suave.Operators
 open System.IO
+open Argu
+open ArgumentParserUtils
 
 
-let args = fsi.CommandLineArgs
+type Arguments =
+    | Action of action: string
+    | Post of post: string
+    
+    interface IArgParserTemplate with
+        member s.Usage =
+            match s with
+            | Action _ -> "Run or Deploy."
+            | Post _ -> "file name of post to render"
 
-let isFastTest = 
-        if args |> Array.length > 2 then
-                true
-        else false
+let parser = ArgumentParser.Create<Arguments>()
+
+let args = parser.Parse (fsi.CommandLineArgs |> Array.skip 1)
 
 
-printfn "%b, there are %i args" isFastTest (args |> Array.length )
+let action = 
+    match args.TryGetResult Action with
+    | Some a -> a
+    | None -> failwith "non action passed in. Please pass --action Run or --action Deploy"
+
+
+let singlePostRender = 
+    match args.TryGetResult Post with
+    | Some p -> p
+    | None -> ""
 
 let runDir = 
-        match args.[1] with 
+        match action with 
         | "Deploy" -> "./docs"
         | "Run" -> "./local"
         | _ -> "./local"
@@ -51,7 +70,7 @@ Target.create "Render" (fun _ ->
        
         Shell.copyDir runDir "Render/images" (fun _ -> true) |> ignore
         Shell.copyFile runDir "Render/styles.css" |> ignore
-        let arguments = sprintf "--project ./Render/BlogProject.fsproj %s %b" runDir isFastTest
+        let arguments = sprintf "--project ./Render/BlogProject.fsproj %s %s" runDir singlePostRender
         DotNet.exec id "run" arguments |> ignore 
 )
 
@@ -97,4 +116,4 @@ Target.create "Deploy" (fun _ ->
 
 "Clean" ==> "BuildModel" ==> "Render" ==> "CompileJS" ==> "Commit" ==> "Deploy"
 
-Target.runOrDefaultWithArguments (args.[1])
+Target.runOrDefaultWithArguments action

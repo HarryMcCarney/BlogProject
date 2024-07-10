@@ -61,7 +61,7 @@ module Home =
                             prop.children [
                                 Html.span [
                                     prop.id "dropdown_button_text"
-                                    prop.text "Category"
+                                    prop.text "All Types"
                                 ]
                                 Html.span [
                                     prop.classes ["icon"; "is-small"]
