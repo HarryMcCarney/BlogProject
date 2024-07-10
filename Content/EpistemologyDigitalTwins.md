@@ -1,0 +1,173 @@
+---
+category: Essay
+tags: Digital Twin, Simulation, Philosphy
+updated: 20240417
+created: 20240417
+title: What we can learn from Digital Twins and Simulation — A pragmatic approach to the epistemic status of insights gained from digital models.
+summary: This is a guest lecture I gave at Sussex University’s AI centre on 17th April 2024.
+image: /Epistemology1.png
+---
+
+# Introduction
+Organisations today are facing increasingly complex challenges. By complex I mean non linear highly dynamic behaviours which are hard to model in equations. Classic examples of complex systems include the weather, the economy, and pandemics. Hack and Craft helps companies trying to understand and manage complex systems more effectively. Our Digital Twin of the world’s largest pallet network is used to ensure the availability of approximately 80% of the world’s consumer goods.
+
+We specialise in working with organisations within complex supply chains. They are located in a vast network of interconnected companies each responding to what the others do. These complex systems are not practically possible to model using equations due to the complexity of their dynamics and number of dimensions. Moreover, business leaders want to understand the dynamics of their business in an intuitive and ergonomic way which ‘fits in their head’. Simulations and Digital Twins meet this need.
+
+The ability to explore scenarios in digital replicas enables business and government leaders to de-risk initiatives by visualising potential impacts in a relatively low cost environment which does not disrupt real world operations. However, adoption of these techniques has been slow. This is partly because there is a lack of clarity and shared understanding about the nature of different kinds of digital models and the epistemic status of the insights they can offer. This uncertainty creates unease about their use and ultimately holds back the adoption of these potentially transformative tools.
+
+In this talk I will present a conceptual framework for classifying different types of digital models and the kinds of claims they make. This will require a pragmatic and accessible treatment of a range of issues in philosophy of science and epistemology, including differences between empirical and analytical claims, inductive versus deductive propositions, falsifiability, counterparts, the utility of thought experiments, and predictive versus explanatory models. The talk will bring these philosophical questions down to earth with real examples from Hack and Craft’s experience deploying simulation and digital twins to guide key decisions of global supply chain leaders.
+
+Hopefully the talk will provide a starting point for further work which could firmly establish digital models as a rigorous tool for managing supply chains and other complex business challenges. Lastly, this is very much a work in progress. My hope with sharing these ideas is to get your feedback and have further discussion.
+
+# The problem with representations
+In order to treat simulation fairly it’s worth reminding ourselves that all access to reality is via models. Plato in his allegory of the cave, depicts a situation in which those dwelling in the cave can only see shadows moving on the wall and take these shadows to be the real thing. These imperfect representations of what Plato calls ‘the forms’ are just a model. He encourages us to consider philosophy as a means to gain access to the real entities. Descartes, writing some 2 thousand years later in 1639, was aware that we have only access to sense data with which we build a mental model in our heads. He worried that there may be a demon trying to deceive us. He concluded that God would never allow that to happen, which may not be a satisfactory explanation. In 1748 David Hume convincingly argued that we never observe causation, only constant correlation. Finally, building on Hume, Kant argued that while we cannot directly access things in themselves, our mental apparatus can present us with representation of it. In all cases these Philosophers were interested in the relationship between the world and our representations, and to what extent we can trust these models.
+
+![Plato’s cave, Rene Descartes and his evil demon](/Epistemology1.png)<br />
+*Plato’s cave, Rene Descartes and his evil demon*
+
+This strain of thought eventually fed into the Philosophy of Science most relevantly in the falsification principle expounded by Karl Popper in the 1930s. He was trying to find a basis for science which takes these sceptical concerns seriously but still grants science greater trustworthiness than other fields such as Theology.
+
+His falsification principle states that a scientific theory cannot be proven in an objective sense. It can only be disproven or falsified. So for a theory to be considered scientific we must be able to state what observation, if it were made, would falsify it. Popper famously gave the example of black swans being found in Australia which falsified the previously accepted theory that all swans are white. Like Hume, Popper thought we don’t observe any necessary or deductive truths in nature, only correlations over which we can generalize. While this does appear to limit science, it also creates a pragmatic nonsense detector which can delimit claims which can be falsified from those which can not. And those which can not, in principle be falsified, are just dogmas. As a result Popper considered a number of fields including much of psychology and social science to be pseudoscience and not entitled to claim their theories were scientific.
+
+![Types of Hypothesis](/Epistemology2.png)
+
+Putting this together, a widely accepted view amongst scientists and philosophers is that our representations of reality are imperfect and scientific claims are just generalisations of observed events in those models. Nevertheless, so long as they can in principle be falsified they should be considered scientific and science is the best way we have found to manage our complex world.
+
+# What is a model
+All attempts to understand something are conducted through modelling. Whether it is architectural model, a mathematical model, a computer simulation, or a set of controlled conditions in a laboratory; we build our understanding using simplified representations of the real things.
+
+Importantly, models are only useful if they are simplified. A model which is as complex as the real thing would provide no advantage. The simplification is performed by removing what are considered inessential factors until what remains is the simplest representation capable of supporting the process we are interested in studying. The generalisability of claims derived from a model depends on whether this process of the simplification went too far or not.
+
+# What is an experiment
+An experiment uses a model to create a set of observations over which a generalized falsifiable statement can be made. The experiment often proceeds by seeing if a given hypothesis can be falsified in a controlled set of conditions. The set of controlled conditions is the model.
+
+The hypothesis, if not falsified, will then be generalised to the wider world. The robustness of the science depends on the experimental model ie the controlled conditions, including all the important factors and thereby constituting a ‘realistic’ replica.
+
+In short, a worthwhile experiment will necessarily include the following features:
+
+1. An experiment tests a hypothesis using a model
+2. The model is a valid simplification which doesn’t leave out any efficacious factors
+3. A falsifiable hypothesis is verified by the model and then generalised to the wider world.
+4. The experiment and its results must be reproducible by other scientists
+
+![Digital and Physical Models](/Epistemology3.png)<br />
+*H&C’s Supply Chain simulation, a digital model of Sussex Uni, and a Biology lab*
+
+# What exactly is a simulation
+A simulation is a representation of a real set of things and processes. For our purposes we are interested in simulations that are created digitally in which the entities ‘live’ and interact in a virtual digital world which has been created by human programmers.
+
+There are several different types of simulation which have important differences which need to be considered.
+
+# Agent Based Models
+Agent Based Models are simulations which contain a number of discrete entities often of the same type. The entities follow relatively simple rules which govern how they can interact with their environment and each other. This type of simulation is often used when trying to explain some effect as the emergent result of interaction between the entities. Examples include flocking behaviour of birds, contagion in a pandemic, inflation in economic models, and traffic simulations that give insights into the causes of congestion.
+
+In these examples a sufficient explanation is provided for the emergent effect being investigated. These explanations show that congestion and apparently coordinated flocking can be reproduced with only simple rules followed by each agent and without centralised control.
+
+Other famous examples of this approach include Schelling’s segregation model which showed how racial segregation in American cities could be explained by weakly held preferences rather than overt racism. And John Conway’s game of life, strictly speaking a cellular automation, also showed how complex behaviour can emerge from simple rules. One of the most interesting examples of an Agent based simulation is the Iterated Prisoner’s Dilemma. This simulates the repeated playing of the prisoners’ dilemma by a population of different strategies over many generations. After each round robin those strategies with the highest scores are given a proportional number of representatives in the next generation of the tournament. This simulation shows how different cooperation strategies can prosper and reach equilibrium in a population of other competing strategies. This type of simulation was widely used by researchers such as John Maynard Smith and others working on Evolutionary Stable Strategies and Nash equilibrium.
+
+![Game of Life](/Epistemology4.png)<br />
+*Game of Life, Schelling’s Segregation, Iterated Prisoners Dilemma, and mannequins used to test effects of Atomic explosions in US in 1950s. Clearly the digital models are more rigorous.*
+
+# Discrete Event Simulation
+The other main type of Simulation is Discrete Event simulation. These simulations are orchestrated by a central queue of the events which are played out in the simulation in a defined order. These are different from Agent based models in that the dynamics are centrally controlled and the interest is normally in the effect of changing the quantity, type, and order of the events, rather than looking at the effect of interacting agents.
+
+Examples of these include simulation of manufacturing plants and logistics networks. Hack and Craft have built a simulation of the global pallet network. It includes representations of 400 million pallets, 750 service centres and thousands of manufacturers and retailers. It operates using a queue of historical movement records which state a number of pallets were transferred between two locations on a given date. By replaying these records through a simulation which tracks individual pallets we can add a layer of detail which is not present in the existing records.
+
+For example, we are able to calculate the length of time it takes for a given pallet to return to the service centre it was initially issued from. This metric which is called Cycle Time is a crucial metric for commercial and sustainability purposes. As with the Agent based Models, the Pallet simulation generates synthetic data which can be statistically analysed. Arguably, the Cycle Time distributions which we observe in the synthetic data are another instance of emergence. However, it is sufficient for the current argument to say that both types of simulation are generative. That is they generate synthetic data from which new insights can be learned.
+
+# Simulations are analytic and generative
+Firstly they are simply using a computer as a calculation device. There is nothing magical about the computer, it’s just a pragmatic convenience. Given the number of calculations required to complete a round of Iterated prisoner’s dilemma or an interaction between all the cars in a simulation, a computer is essential for making the model viable. However, all these simulations could in principle be completed manually. In fact the Schelling segregation model was initially done manually with a large board. The fact that some of the simulations, such as the iterated prisoner’s dilemma or standard traffic simulation, have some randomness does not alter this fact. It just means some dice would need to be rolled if the simulation was to be conducted manually.
+
+This is because simulations are analytic. The results of the simulation are generated analytically by a machine following predefined rules. In principle all these models could be represented by equations. Simulation is used instead because in models with high complexity it is not humanly possible to create the equations, and they could not readily be understood.
+
+The important point is that analytic mathematical rules lie behind simulation but it is more pragmatic to take an empirical approach and observe the manifesting effects of the systems logic, rather than trying to grasp the underlying math directly. Moreover, what we are interested in is not the formal laws but rather the observable system behaviours that are generated by the simulation. In just the same way we don’t try to explain Biology in terms of Physics, or Psychology in terms of Chemistry, we don’t try and explain the evolution of cooperation in terms of Mathematics. Instead we use simulation and empirical observation to provide an ergonomic model that fits in our heads.
+
+In this sense while simulation itself is analytic we use it empirically in just the same way as a natural scientist uses an experiment. In natural sciences we cannot read the source code of nature so we formulate generalisable observations in hypotheses. In simulation we also formulate insights as empirical statements even though it is possible in principle to provide an analytic description of the inner workings of the simulation.
+
+![Natural and digital models](/Epistemology5.png)
+
+In summary simulation is the analytic generation of data which is understood through induction and empirical observation. In just the same way as hypotheses which are verified in controlled experiments and then generalized as falsifiable truths in the wider world, so too can hypotheses substantiated by observing simulation results be submitted for falsification in the real world.
+
+# Uses of simulation
+At Hack and Craft we use Digital models for three main purposes each of which can be understood in the terms described above. In different ways these use cases leverage a model to analytically generate data which can be empirically investigated.
+
+## Understand
+A simulation reveals the inner dynamics of a system. The process of modelling and verification tends to move in iterative steps to gradually provide a sufficient explanation for the phenomena we are trying to simulate. The Swarming of birds is understood when we can find a simple set of rules which, when defined at the micro level, produce the swarming macro effect. This is true in logistics simulations when we want to understand the drivers of lead time or network cascade effects. Once we can generate the same result with a simulation we have a sufficient explanation for that effect. This is no different to when lab based experiments reproduce a real world effect in controlled conditions and thereby consider the phenomena to be ‘understood’.
+
+![Starling murmuration](/Epistemology6.png)<br />
+*Starling murmuration, ‘boids’ simulating flocking, simple agent rules which create emergent effect, flocking drones programmed with same rules.*
+
+## Explore
+The understanding that digital models provide enables us to perform scenario explorations. The simulation will begin with a tight correspondence between the real world and the representation’s counterparts. Once validated we can explore scenarios by subtly altering the representation in ways which emulate possible scenarios. For example, we might add additional traffic to our traffic simulation, or add a roundabout at a junction. In logistics we often explore alternative network designs. These would include using a smaller number of centralized distribution centres versus a large number of localized ones. With this configuration we can then run the simulation and observe the effect on key metrics such as lead time, emissions, and resilience to disruptions.
+
+These divergences from the ‘real’ configuration of the model are representing possible or contingent conditions, while what is common to all the models could be considered the essential or necessary features of the model. Exploration tweaks the possibilities while fixing the necessary conditions. Hack and Craft’s clients use this capability to take a rigorous and data driven approach to strategic decisions and transformational initiatives.
+
+## Predict
+Closely aligned to Explore is the ability to Predict. For the predictions we fast forward the model and observe future effects. This is typically done in the configuration which represents the actual world. The predictions can be granular and provide a basis for tactical everyday changes in an organization’s operations. Typically predictive use cases are less focused on providing an accompanying intuitive understanding of why the prediction makes sense. The priority is the speed and specificity of the prediction so that action can be taken in the real world.
+
+Importantly these predictions are distinct from those made by machine learning algorithms in that they are the result of a generative analytic model. As such the predictions are a direct analytic consequence of the model whereas in standard machine learning predictions are generalized inductions over historical data. However, it is often possible to use a generative model to produce synthetic data over which a machine learning or other algorithm can be used to make predictions. This is often the case with Digital Twins.
+
+# Are Digital Twins a special case?
+These are often considered to be different from standard simulations but for epistemological purposes the difference is superficial. Essentially a Digital Twin like any simulation is a digital representation of a real world process. It is used for the same three purposes as the other simulations described above. It does however often have a specific place along a continuum. That continuum has three Axes.
+
+# Granularity
+Many simulations like the Iterated Prisoner’s Dilemma or a generic traffic simulation are abstracted models. They leave out a large number of real world features as they are interested in exploring the fundamental dynamics of the system. Digital twins will generally create the most complete representation possible using low level data from sensors and operational systems to feed the model. This granularity will enable more detailed and tactical insights and is often used for the predictive use cases described above.
+
+It is however still just a digital representation in the same way as other simulations. The additional granularity is just a matter of degree and does not constitute a change in the qualitative nature of the model. As such it does not alter the epistemic status of the insights it may reveal.
+
+# Latency
+Many simulations, particularly Agent Based Models don’t rely on real world data feeds. The rules the agents follow will often be based on quantitative analysis, and the simulations are normally validated against real world data. However, the actual running of the model does not require a low latency data feed. Discrete event simulation, like the one described above, does use a data feed for operation and efforts are made to secure the most recent data possible. Nevertheless, it is often loaded and refreshed in batches. This is usually sufficient for simulations which are built for understanding and exploration, but for prediction use cases lower latency is often essential.
+
+For this reason Digital Twins have near real time data feeds into the model to keep it updated with a very close representation of the current state of the real world. Again it should be stressed that this lower latency does not change the epistemic nature of the model. It is still an analytically defined model that uses assumptions and counterparts to generate inductive claims which are in principle falsifiable.
+
+# Automation
+Finally there is a third ingredient which makes Digital Twins different. The inbound flow of data is automated so that no manual intervention is needed to refresh the data. This is normally done through use of APIs which enable sensor and system data to be loaded into the model through an automated pipeline. However, it is the outbound flow of interventions back into the real world which is the distinctive characteristic of Digital Twins.
+
+For example, our traffic simulation could detect an accident by observing a pattern of car movements and send a red signal to the traffic lights before the accident site. The ability to trigger real world interventions is clearly a powerful capability but it is really just an alert or monitoring process that sits on top of the model. It does not affect the model itself. For example the model could also send an email to a traffic coordinator who would then intervene manually. The same model is used in both cases. Moreover, high latency simulations also drive interventions. Perhaps at quarterly board meetings on the basis of strategic insights generated by simulation.
+
+![Classification of Digital Models](/Epistemology7.png)<br />
+*Common use case patterns. Probably as many exceptions as there are examples.*
+
+In summary, the different levels of latency, automation, and granularity found in Digital Twins do not affect the epistemic status of the insights they reveal.
+
+# External Validity and objections to digital models
+The extent to which claims verified in an experiment will hold when applied to the broader context of the real world is known as external validity. Many objections to the use of simulation seem to come down to a sense that a digital model will have less external validity that a traditional experiment.
+
+While we may accept that typical wet lab science also uses simplified models and can only give falsifiable inductive claims on observed results, it could still be argued that simulations suffer from three limitations. Firstly that the digital model is using counterparts of the real entities whereas as wet lab science is using the real things. Secondly, that traditional experiments do not contain assumptions. That is a simulation explicitly constructs a model by making assumption about how the environment and the entities behave, where as the wet lab experiment simply strips away extraneous details and places the entities in a controlled environment. Thirdly that simulation depends on data which is often of poor quality. All three objections can be effectively challenged.
+
+## Counterparts
+Nearly all experiments in Biology, Psychology and even Chemistry could be said to use counterparts. Perhaps physics, if it is experimenting with something like electrons in a vacuum, can claim that the experiment is acting directly on the real world but this is the exception.
+
+In biology, which is a highly interconnected and complex domain, experiments seek to explore the interaction between some animal, plant or cell and its environment. In these cases the environment will nearly always be a counterpart. Electric lights rather than sunlight for example, dehumidifiers, or nutrient solutions rather than soil. In these cases an artificial environment is substituted for the real thing.
+
+So if the environment is an artificial counterpart can the same be said of the plants? Arguably a plant is so interwoven in its environment it isn't the same plant when its placed in a different environment. The fundamental characteristics of a plant in my garden will change if I unroot it and bring it into my office. Indeed many of the consequences of this may not be immediately obvious and are certainly hard to document. In practice I just have to assume the lab plant is a realistic counterpart of the plant in its natural habitat.
+
+In this way the controlled conditions are a model and the model is valid to the extent that it contains all the relevant properties of entities and their environment. The same is true of a digital model. If a digital model and controlled condition lab produce the same results from the same experiments it will be a matter of convenience which model is used and that will very likely be the digital model. This is a ‘functionalist’ approach in which we don’t need to use a particular material to understand the system. The system is defined by the logical behaviours and arrangements of its parts and this can be enacted on alternative materials including biological and silicon based ones. The epistemic status of the claims is unaffected by the material the model is made of.
+
+And there are important reasons why digital models could be a more reliable and replicable way of modelling the world than the controlled conditions approach of traditional experiments.
+
+## Assumptions
+The second key objection is that a digital model is built with assumptions, whereas traditional experiments just study the objects themselves without needing to make any assumptions to artificially construct them.
+
+Imagine a scenario in which a team has created a digital model that is an exact replica of the real world. It models every detail right down to each individual atom. It would be the ultimate model for experimentation. Unfortunately, cloud computing budgets are tight and this would require a lot of computing resources and be slow to run any experiments. So it would make sense to strip away any details that are clearly inessential to what we are studying.
+
+One could start with inessential things like what I had for breakfast and leave the laws of thermodynamics in place. A good model would be as simple as possible but no simpler. This is essentially what the programmer arrives at although they come from the opposite direction. Rather than deleting code they have to write it. What is left is still an explicit list of assumptions which is not dissimilar in epistemic terms to an exhaustive description of a controlled experiment.
+
+Documentation of these assumptions is the key factor in making any experiment replicable. Digital models, because they require explicit assumptions in the form of source code, are self-documenting and inherently more reproducible than traditional experiments. Moreover, simulation can now take advantage of advances in software engineering and cloud computing. With containerisation and infrastructure as code, with which all dependencies in the system are explicit, reproducibility by other researchers could be a one click process.
+
+The creation of controlled conditions in a lab requires a less precise and inherently hard to document process of removing stuff. It is easier to know what you’ve put in than what’s left after you’ve taken things out.
+
+For this reason, the fact that digital models require explicitly defined assumptions is one of its key strengths and one that might contribute to finding a solution to the current reproducibility crisis in many scientific fields including biology, medicine and psychology.
+
+## Data Dependence
+Many simulations rely on data for their operation. People sometimes object that a simulation is untrustworthy because the data is unreliable; as the saying goes ‘garbage in garbage out’. Which is a fair point but is only an argument for improving the data. If decisions are to be made with or without simulation we are going to need good data. So reliance on data is not a special defect of simulation.
+
+In summary, simulation has no less external validity than traditional experiments and that the use of counterparts, assumptions and data is not unique to digital models. Moreover, in the digital medium the construction of the model is explicitly defined in an inherently reproducible way which could help address the reproducibility crisis in which many traditional experiments have been challenged.
+
+![Counterparts and assumptions](/Epistemology8.png)<br />
+*Biology experiment with artificial counterpart environment and a crash dummy, Garbage, Nature [quote](https://www.nature.com/articles/533452a) on reproducibility, and some code from my own [successful reproduction](/IteratedPrisonersDilemma.html) of Iterated Prisoners Dilemma experiment.*
+
+# Conclusion
+The biggest challenges we face are around managing complex systems. The Climate Change, Pandemics and Supply Chains all require tools that can help us understand, explore scenarios and make predictions. Simulation is not a perfect tool and we need to strive for better model standardisation and awareness amongst policy makers and business leaders. It is the only tool we have to make complex systems intelligible to these human decision makers. Moreover, simulation has the virtue of being inherently reproducible which is an essential feature of all rigorous science.
+
+In conclusion, simulation stands as a reliable method of inquiry, essential for comprehending and navigating complex systems in supply chain, logistics, and other critical domains.
