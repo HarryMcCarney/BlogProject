@@ -43,8 +43,6 @@ module Home =
             )
             |> Seq.append  (seq {all})
                
-                
-            
 
         Html.div [
             prop.classes ["dropdown";]
@@ -69,6 +67,9 @@ module Home =
                                         Html.i [
                                             prop.classes ["fas"; "fa-angle-down"]
                                             prop.ariaHidden true
+                                            prop.style [
+                                                style.color "#00d1b2"
+                                            ]
                                         ]
                                     ]
                                 ]

@@ -50,6 +50,7 @@ But first for anyone sceptical about why the contestant should switch, which I w
 5k with a switch strategy and 5k with a non switching strategy. THe graph shows the switcher wins almost exactly 66.6% of the time, while the non-switcher's odds remain on 33.3%. Later we will show how we can derive the same results analytically using Bayes rule.
 *)
 
+#r "nuget: Plotly.NET"
 #r "nuget: Plotly.NET.Interactive, 4.0.0"
 
 open System

@@ -20,7 +20,8 @@ An interesting adaptation of the game could include variable payoffs depending o
 Perhaps this could explore optimal strategies in non zero sum games that must react to changing payoffs while anticipating the strategies of others. 
 The maximum score achievable for a sustainable strategy, given a tournament with specific other strategies, may not be the leading strategy overall.
 *)
-#r "nuget: Plotly.NET, 4.2.0"
+#r "nuget: Plotly.NET"
+#r "nuget: Plotly.NET.Interactive, 4.0.0"
 open System
 open Plotly.NET
 
@@ -302,10 +303,12 @@ open Strategies
 let players = 
     [|titForTat(); titForTwoTats();random(); alwaaysDefect(); alwaaysCooperate(); grudger(); tester()|] 
 
-runExperiment players 100
+runExperiment players 40
 |> fun results -> 
     players
     |> Array.map(fun p -> getLine results p.Name)
 |> Chart.combine
+|> Chart.withXAxisStyle ("Generations")
+|> Chart.withYAxisStyle ("% of Population")
 |> GenericChart.toEmbeddedHTML
 (***include-it-raw***)

@@ -119,7 +119,8 @@ module Render =
         printfn "%A" files
         files
         |> Seq.filter(fun (f: string) -> not (f.Contains("About.md")))
-        |> Seq.map(fun f -> 
+        |> Seq.toArray
+        |> Array.map(fun f -> 
             
             let erf = fun s -> failwith (sprintf "%s" s) 
 
