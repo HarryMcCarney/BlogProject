@@ -25,7 +25,7 @@ type Arguments =
         member s.Usage =
             match s with
             | Action _ -> "Run or Deploy."
-            | Post _ -> "file name of post to render"
+            | Post _ -> "file name of single post to render"
 
 let parser = ArgumentParser.Create<Arguments>()
 
