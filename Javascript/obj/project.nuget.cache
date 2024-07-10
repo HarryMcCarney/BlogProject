@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "u5sqJ+ZeejQ=",
+  "dgSpecHash": "m/dV0GInSz4=",
   "success": true,
-  "projectFilePath": "C:\\Projects\\BlogProject\\Javascript\\Javascript.fsproj",
+  "projectFilePath": "C:\\Projects\\BlogProject\\JavaScript\\Javascript.fsproj",
   "expectedPackageFiles": [
     "C:\\Users\\harry\\.nuget\\packages\\fable.browser.blob\\1.4.0\\fable.browser.blob.1.4.0.nupkg.sha512",
     "C:\\Users\\harry\\.nuget\\packages\\fable.browser.dom\\2.17.0\\fable.browser.dom.2.17.0.nupkg.sha512",

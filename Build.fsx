@@ -16,6 +16,14 @@ open System.IO
 
 let args = fsi.CommandLineArgs
 
+let isFastTest = 
+        if args |> Array.length > 2 then
+                true
+        else false
+
+
+printfn "%b, there are %i args" isFastTest (args |> Array.length )
+
 let runDir = 
         match args.[1] with 
         | "Deploy" -> "./docs"
@@ -43,7 +51,7 @@ Target.create "Render" (fun _ ->
        
         Shell.copyDir runDir "Render/images" (fun _ -> true) |> ignore
         Shell.copyFile runDir "Render/styles.css" |> ignore
-        let arguments = sprintf "--project ./Render/BlogProject.fsproj %s" runDir
+        let arguments = sprintf "--project ./Render/BlogProject.fsproj %s %b" runDir isFastTest
         DotNet.exec id "run" arguments |> ignore 
 )
 

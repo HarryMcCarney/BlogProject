@@ -58,7 +58,6 @@ module Scripts =
             
             match Decode.fromString jsonContainerDecoder response.responseText with
             | Ok data ->
-                printfn "%A" data
                 return Some data
             | Error error ->
                 printfn "Failed to decode JSON: %s" error
@@ -146,26 +145,64 @@ module Scripts =
         )
 
     let addCategoryDropDown() =
-        let dropdown = document.getElementById "category_dropdown"
-        dropdown.addEventListener("click", fun _ -> 
-            dropdown.classList.toggle("is-active") |> ignore
-            )
-        let items = document.getElementsByClassName "dropdown-item"
-        let itemElements = seq { for i in 0 .. items.length - 1 -> items.[i] }
+        async{
 
-        let button = document.getElementById "dropdown_button_text"
+            let! searchIndex = (fetchJson "SearchIndex.json")
+            match searchIndex with 
+            | Some si -> 
+
+                let dropdown = document.getElementById "category_dropdown"
+                
+                dropdown.addEventListener("click", fun _ -> 
+                    dropdown.classList.toggle("is-active") |> ignore
+                    )
+                let items = document.getElementsByClassName "dropdown-item"
+                let itemElements = seq { for i in 0 .. items.length - 1 -> items.[i] }
+
+                let postNodes = document.getElementsByClassName("post-card")
+                let posts = seq { for i in 0 .. postNodes.length - 1 -> postNodes.[i] }
+
+                let getCategory str = 
+                    match str with 
+                    |"dropdown_Essay" -> Essay
+                    |"dropdown_Note" -> Note
+                    |"dropdown_Talk" -> Talk
+                    | _ -> failwith "unknown category"
+
+                itemElements
+                |> Seq.iter(fun i -> 
+                    i.addEventListener("click", fun _ -> 
+                    
+                        let button = document.getElementById "dropdown_button_text"
+
+                        button.innerText <-
+                            match i.id with 
+                            |"dropdown_Essay" -> "Essays"
+                            |"dropdown_Note" -> "Notes"
+                            |"dropdown_Talk" -> "Talks"
+                            | _ -> "All Types"
+
+
+                        posts
+                        |> Seq.iter(fun p ->   p.classList.remove("is-hidden") )
+
+                        let postsToHide = 
+                            si.Posts
+                            |> Seq.filter(fun p -> if i.id = "dropdown_all" then false else p.Category <> (getCategory i.id))
+                            |> Seq.map(fun p -> p.FileName)
+
+                        posts
+                        |> Seq.filter(fun p -> postsToHide |> Seq.contains p.id)
+                        |> Seq.iter(fun p -> 
+                            p.classList.toggle("is-hidden") 
+                            |> ignore
+                        )
+                    )
+                )
+            | None ->  failwith "No search index found"
+        }|> Async.StartImmediate
+    
         
-        itemElements
-        |> Seq.iter(fun i -> 
-            i.addEventListener("click", fun _ -> 
-                button.setAttribute("text", i.id)
-
-            )
-
-            ) 
-
-
-
 
     let execScripts() =
         async{

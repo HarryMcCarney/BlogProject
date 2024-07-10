@@ -116,8 +116,9 @@ module Render =
         |> Render.htmlView
   
     let deserialisePosts files =
-        Directory.EnumerateFiles "content"
-        |> Seq.filter(fun f -> f <> "content\\About.md")
+        printfn "%A" files
+        files
+        |> Seq.filter(fun (f: string) -> not (f.Contains("About.md")))
         |> Seq.map(fun f -> 
             
             let erf = fun s -> failwith (sprintf "%s" s) 
@@ -149,7 +150,7 @@ module Render =
                 | "Draft" -> Draft 
                 | "Note" -> Note
                 | "Talk" -> Talk
-                | _ -> failwith "Unknown category in markdown file"
+                | _ -> failwith (sprintf "Unknown category in markdown file: %s" (metaData["category"]))
             
             let tags = 
                 ((metaData["tags"]).Split ",")
@@ -168,13 +169,26 @@ module Render =
             }
         )
 
-    let build outDir = 
+    let build outDir (isFastRender: bool)= 
         let posts = 
             let contentPath = sprintf "%s/Content" (Directory.GetCurrentDirectory())
-            Directory.EnumerateFiles contentPath 
-            |> Seq.filter(fun f -> f <> "About.md")
-            |> deserialisePosts
-        
+            
+            printfn "inside function %b" isFastRender
+            if isFastRender then 
+                printfn "fast"
+                Directory.EnumerateFiles contentPath 
+                |> Seq.filter(fun f -> f <> "About.md" && not (f. Contains(".fsx")))
+                |> Seq.head
+                |> fun f -> [f]
+                |> List.toSeq
+                |> deserialisePosts
+                else 
+                    printfn "slow"
+                    Directory.EnumerateFiles contentPath 
+                    |> Seq.filter(fun f -> f <> "About.md")
+                    |> deserialisePosts
+
+        printfn "%i posts found" (posts |> Seq.length)
         posts
         |> Seq.iter(fun post -> 
             match post.Category with

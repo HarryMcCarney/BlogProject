@@ -9,6 +9,18 @@ module Home =
     let getCategoryDropDown (posts: Post seq) = 
 
         let dropdownItems = 
+
+            let all =  
+                Html.a [
+                    prop.classes ["dropdown-item"]
+                    prop.id (sprintf "dropdown_all")
+                    prop.children [
+                        Html.span [
+                            prop.text "All Types"
+                        ]
+                    ]
+                ]
+
             posts
             |> Seq.countBy(fun p -> p.Category)
             |> Seq.distinct
@@ -16,7 +28,6 @@ module Home =
                 Html.a [
                     prop.classes ["dropdown-item"]
                     prop.id (sprintf "dropdown_%s" (c.ToString()))
-                    prop.href ""
                     prop.children [
                         match c with 
                         | Essay -> essayIcon
@@ -26,9 +37,14 @@ module Home =
                         Html.span [
                             prop.text (sprintf "%s (%i)" (c.ToString()) i)
                         ]
+
                     ]
                 ]
             )
+            |> Seq.append  (seq {all})
+               
+                
+            
 
         Html.div [
             prop.classes ["dropdown";]
@@ -202,7 +218,7 @@ module Home =
                 
                 Html.div [
                     prop.classes ["is-size-2"; "is-family-secondary"; "mb-6"; "has-text-dark"; "has-text-weight-light"]
-                    prop.text "A collection of ideas in varying states of completion and coherence."
+                    prop.text "A collection of ideas in varying stages of bakedness."
                 ]
             ]
         ]

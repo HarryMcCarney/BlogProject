@@ -2,6 +2,10 @@
 module builder = 
     [<EntryPoint>]
     let main args =
-        Render.build (args[0])
+
+        printfn "%A" args
+        let fastRender = 
+            if args[1] = "true" then true else false
+        Render.build (args[0]) fastRender
         0
 

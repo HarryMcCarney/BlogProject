@@ -1,25 +1,27 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Projects\\BlogProject\\Javascript\\Javascript.fsproj": {}
+    "C:\\Projects\\BlogProject\\JavaScript\\Javascript.fsproj": {}
   },
   "projects": {
-    "C:\\Projects\\BlogProject\\Javascript\\Javascript.fsproj": {
+    "C:\\Projects\\BlogProject\\JavaScript\\Javascript.fsproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Projects\\BlogProject\\Javascript\\Javascript.fsproj",
+        "projectUniqueName": "C:\\Projects\\BlogProject\\JavaScript\\Javascript.fsproj",
         "projectName": "Javascript",
-        "projectPath": "C:\\Projects\\BlogProject\\Javascript\\Javascript.fsproj",
+        "projectPath": "C:\\Projects\\BlogProject\\JavaScript\\Javascript.fsproj",
         "packagesPath": "C:\\Users\\harry\\.nuget\\packages\\",
-        "outputPath": "C:\\Projects\\BlogProject\\Javascript\\obj\\",
+        "outputPath": "C:\\Projects\\BlogProject\\JavaScript\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\harry\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\harry\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net7.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "C:\\Program Files\\dotnet\\sdk\\8.0.302\\FSharp\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
@@ -118,12 +120,14 @@
         "outputPath": "C:\\Projects\\BlogProject\\Model\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\harry\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\harry\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net7.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "C:\\Program Files\\dotnet\\sdk\\8.0.302\\FSharp\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
