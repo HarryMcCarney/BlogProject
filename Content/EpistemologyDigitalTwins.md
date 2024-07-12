@@ -1,5 +1,5 @@
 ---
-category: Essay
+category: Talk
 tags: Digital Twin, Simulation, Philosphy
 updated: 20240417
 created: 20240417
