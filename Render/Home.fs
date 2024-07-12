@@ -97,8 +97,8 @@ module Home =
             prop.classes ["card";  "post-card"; "my-card"; "is-clickable"; "has-background-light"]
   
             prop.children [
-                match post.Category, post.MainImage with 
-                | Essay, Some i -> 
+                match post.MainImage with 
+                | Some i -> 
                     Html.div [
                         prop.classes ["card-image"]
                         prop.children [
