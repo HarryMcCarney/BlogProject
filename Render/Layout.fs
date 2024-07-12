@@ -20,7 +20,6 @@ module Layout =
             let years = Math.Round(span.TotalDays / 365.0)
             sprintf "ABOUT %.0f YEARS AGO" years
 
-    
     let noteIcon = 
         Html.span [
                 prop.classes ["icon"; "is-medium";"is-primary"]
@@ -31,7 +30,6 @@ module Layout =
                             style.color "#00d1b2"
                         ]
                     ]
-                
                 ]
             ]
     

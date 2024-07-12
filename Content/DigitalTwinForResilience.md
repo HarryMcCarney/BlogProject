@@ -12,4 +12,6 @@ I explain how supply chains can be represented and analysed mathematically as ne
 
 I also introduce a tool that allows for the visualization and analysis of a supply chain network, aiding in identifying and addressing potential vulnerabilities.
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/uwK-5mBRcSA?si=5Gu3CsZGTXfYiA6x" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+<figure class="image is-16by9">
+<iframe class="has-ratio" width="960" height="569" src="https://www.youtube.com/embed/uwK-5mBRcSA?si=5Gu3CsZGTXfYiA6x" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+</figure>
