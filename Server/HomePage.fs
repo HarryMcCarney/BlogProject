@@ -200,24 +200,25 @@ module Home =
                 Html.div [
                     Attr.classes ["column"; "is-one-fifth" ;"has-text-right"]
                     (getCategoryDropDown posts)  
-                ] 
-                Html.div [
-                    Attr.className "columns is-multiline"
-                    Html.div [
-                        Attr.className "column is-one-third"
-                        Fragment (getColumnPosts renderedPosts 1 3 |> Seq.toList)
-                    ]
-                    Html.div [
-                        Attr.className "column is-one-third"
-                        Fragment (getColumnPosts renderedPosts 2 3 |> Seq.toList)
-                    ]
-                    Html.div [
-                        Attr.className "column is-one-third"
-                        Fragment (getColumnPosts renderedPosts 3 3 |> Seq.toList)
-                    ]       
                 ]
-            ]     // Add more card columns here based on the structure
-        ]
+            ] 
+            Html.div [
+                Attr.className "columns is-multiline"
+                Html.div [
+                    Attr.className "column is-one-third"
+                    Fragment (getColumnPosts renderedPosts 1 3 |> Seq.toList)
+                ]
+                Html.div [
+                    Attr.className "column is-one-third"
+                    Fragment (getColumnPosts renderedPosts 2 3 |> Seq.toList)
+                ]
+                Html.div [
+                    Attr.className "column is-one-third"
+                    Fragment (getColumnPosts renderedPosts 3 3 |> Seq.toList)
+                ]       
+            ]
+        ]    
+        
         
                
     let renderHomePage posts = 

@@ -92,26 +92,32 @@ module Layout =
         Html.footer [
             Attr.classes [ "footer"; "has-text-dark"; "has-background-light"]
             Html.div [
-                Attr.className "content has-text-centered"
+                Attr.classes ["content"; "has-text-centered"]
                 Html.p [
-                    Html.strong "Content"
-                    Html.text " by "
-                    Html.a [
-                        customLinkStyle
-                        Attr.href "https://defcon.social/@HarryMcCarney"
-                        Html.text "Harry McCarney"
+                    Fragment [
+                        Html.strong "Content"
+                        Html.ins " by "
+                        Html.a [
+                            customLinkStyle
+                            Attr.href "https://defcon.social/@HarryMcCarney"
+                            Html.text "Harry McCarney"
+                        ]
+                        Html.ins [
+                            Html.text ". The source code is licensed "
+                            Attr.style "text-decoration: none"]
+                        Html.a [
+                            Attr.href "http://opensource.org/licenses/mit-license.php"
+                            Html.text "MIT"
+                        ]
+                        Html.ins [
+                            Html.text ". The website content is licensed "
+                            Attr.style "text-decoration: none"]
+                        Html.a [
+                            Attr.href "http://creativecommons.org/licenses/by-nc-sa/4.0/"
+                            Html.text "CC BY NC SA 4.0."
+                        ]
+                        
                     ]
-                    Html.text ". The source code is licensed "
-                    Html.a [
-                        Attr.href "http://opensource.org/licenses/mit-license.php"
-                        Html.text "MIT"
-                    ]
-                    Html.text ". The website content is licensed "
-                    Html.a [
-                        Attr.href "http://creativecommons.org/licenses/by-nc-sa/4.0/"
-                        Html.text "CC BY NC SA 4.0"
-                    ]
-                    Html.text "."
                 ]
             ]
         ]

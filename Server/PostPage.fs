@@ -89,7 +89,7 @@ module Post =
             ]
             tagsAndDate post
             Html.div [
-                Html.ins post.Content
+                Html.text post.Content
             ]
         ]
 

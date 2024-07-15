@@ -8,7 +8,6 @@ module MasterLayout =
         [   
             Html.html [
                 Attr.custom("data-theme", "light")
-
             ]
             Html.header [
                 
@@ -17,38 +16,43 @@ module MasterLayout =
                     Attr.content "width=device-width, initial-scale=1"
                 ]
 
-                Html.anchor [ // should be link not anchor
+                Html.custom("link",
+                    [
                     Attr.rel "stylesheet"
                     Attr.href "https://cdn.jsdelivr.net/npm/bulma@1.0.0/css/bulma.min.css"
-                ]
-                Html.anchor [
+                    ]
+                )
+                
+                Html.script [
                     Attr.src "https://kit.fontawesome.com/fd17b6d7c8.js"
                     Attr.custom("crossOrigin", "anonymous")
                 ]
-                Html.anchor [
+                
+                Html.custom("link", [
                     Attr.rel "stylesheet"
                     Attr.href "styles.css"
-                ]
+                ])
 
-                Html.anchor [
+                Html.custom("link", [
                     Attr.rel "preconnect"
                     Attr.href "https://fonts.googleapis.com"
-                ]
+                ])
 
-                Html.anchor [
+                Html.custom("link", [
                     Attr.rel "preconnect"
                     Attr.href "https://fonts.gstatic.com"
-                ]
+                ])
 
-                Html.anchor [
+                Html.custom("link", [
                     Attr.rel "stylesheet"
                     Attr.href "https://fonts.googleapis.com/css2?family=Yrsa:ital,wght@0,300..700;1,300..700&display=swap"
                 ]
+                )
 
-                Html.anchor [
+                Html.custom("link", [
                     Attr.rel "stylesheet"
                     Attr.href "https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap"
-                ]
+                ])
 
                 Html.script [
                     Attr.src "Script.js"
@@ -65,8 +69,8 @@ module MasterLayout =
                     --family-secondary-serif: 'Merriweather', serif;
                     --family-primary: var(--family-serif);
                     --family-secondary: var(--family-secondary-serif);
-                    var(--family-primary);
-                    var(--family-secondary)
+                    font-family: var(--family-primary);
+                    font-family: var(--family-secondary)
                     """
 
                 Html.section [
