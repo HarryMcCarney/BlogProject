@@ -13,6 +13,7 @@
     <Compile Include="PostPage.fs" />
     <Compile Include="Render.fs" />
     <Compile Include="Program.fs" />
+    
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Fable.Browser.Dom" Version="2.17.0" />
@@ -24,6 +25,5 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Model\Model.fsproj" />
-    <ProjectReference Include="..\Feliz.Engine\src\Feliz.Engine\Feliz.Engine.fsproj" />
   </ItemGroup>
 </Project>
