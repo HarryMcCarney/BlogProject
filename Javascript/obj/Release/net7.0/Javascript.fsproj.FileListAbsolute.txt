@@ -1,4 +1,0 @@
-C:\Projects\BlogProject\Javascript\obj\Release\net7.0\Javascript.AssemblyInfoInputs.cache
-C:\Projects\BlogProject\Javascript\obj\Release\net7.0\Javascript.AssemblyInfo.fs
-C:\Projects\BlogProject\BlogProject\Javascript\obj\Release\net7.0\Javascript.AssemblyInfoInputs.cache
-C:\Projects\BlogProject\BlogProject\Javascript\obj\Release\net7.0\Javascript.AssemblyInfo.fs

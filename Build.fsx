@@ -68,15 +68,15 @@ Target.create "BuildModel" (fun _ ->
 
 Target.create "Render" (fun _ ->
        
-        Shell.copyDir runDir "Render/images" (fun _ -> true) |> ignore
-        Shell.copyFile runDir "Render/styles.css" |> ignore
-        let arguments = sprintf "--project ./Render/BlogProject.fsproj %s %s" runDir singlePostRender
+        Shell.copyDir runDir "Server/images" (fun _ -> true) |> ignore
+        Shell.copyFile runDir "Server/styles.css" |> ignore
+        let arguments = sprintf "--project ./Server/Server.fsproj %s %s" runDir singlePostRender
         DotNet.exec id "run" arguments |> ignore 
 )
 
 Target.create "CompileJS" (fun _ ->
         let outDir = sprintf "--outDir .%s" runDir
-        Shell.cd "Javascript"
+        Shell.cd "Client"
         DotNet.exec id "fable" outDir |> ignore
         let gitIgnore = sprintf ".%s/.gitignore" outDir
         Shell.rm gitIgnore
