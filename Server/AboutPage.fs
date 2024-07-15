@@ -2,7 +2,7 @@ namespace blog
 
 module About = 
 
-    open Feliz.ViewEngine
+    open Feliz.StaticHtml
     open System.IO
     open FSharp.Formatting.Markdown
     open FSharp.Formatting.Literate
@@ -28,20 +28,17 @@ module About =
             |> getAboutHtml
 
         Html.div [ 
-            prop.classes ["container"; "content"; "is-medium"; "has-text-dark"; "has-background-light"]
-            prop.children [
-                Html.section [
-                    prop.className "section"
-                    prop.children [
-                        Html.div [
-                            prop.classes ["title";"is-2"]
-                            prop.text "About"
-                        ]
-                    ]
-                ]
+            Attr.classes ["container"; "content"; "is-medium"; "has-text-dark"; "has-background-light"]
+            Html.section [
+                Attr.className "section"
                 Html.div [
-                    prop.dangerouslySetInnerHTML content
+                    Attr.classes ["title";"is-2"]
+                    Html.text "About"
                 ]
+            ]
+            
+            Html.div [
+                Html.text content
             ]
         ]
     

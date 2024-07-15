@@ -1,6 +1,6 @@
 namespace blog
 
-open Feliz.ViewEngine 
+open Feliz.StaticHtml
 open System
 
 module Layout = 
@@ -22,132 +22,99 @@ module Layout =
 
     let noteIcon = 
         Html.span [
-                prop.classes ["icon"; "is-medium";"is-primary"]
-                prop.children [
-                    Html.i [
-                        prop.classes ["fa-regular"; "fa-circle"; "is-primary"]
-                        prop.style [
-                            style.color "#00d1b2"
-                        ]
-                    ]
+            Attr.classes ["icon"; "is-medium";"is-primary"]
+            Html.i [
+                Attr.classes ["fa-regular"; "fa-circle"; "is-primary"]
+                Attr.style "color:#00d1b2"
                 ]
-            ]
-    
+        ]
+            
     let essayIcon = 
         Html.span [
-                prop.classes ["icon"; "is-medium"]
-                prop.children [
-                    Html.i [
-                        prop.classes ["fa-solid"; "fa-circle"; "is-primary"]
-                        prop.style [
-                            style.color "#00d1b2"
-                        ]
-                    ]
+            Attr.classes ["icon"; "is-medium";"is-primary"]
+            Html.i [
+                Attr.classes ["fa-solid"; "fa-circle"; "is-primary"]
+                Attr.style "color:#00d1b2"
                 ]
-            ]
+        ]    
     
     let talkIcon = 
         Html.span [
-                prop.classes ["icon"; "is-medium"]
-                prop.children [
-                    Html.i [
-                        prop.classes ["fa-sharp"; "fa-solid"; "fa-square"; "is-primary"]
-                        prop.style [
-                            style.color "#00d1b2"
-                        ]
-                    ]
+            Attr.classes ["icon"; "is-medium";"is-primary"]
+            Html.i [
+                Attr.classes ["fa-sharp"; "fa-solid"; "fa-square";  "is-primary"]
+                Attr.style "color:#00d1b2"
                 ]
-            ]
-     
+        ]    
 
     let navbar =
         Html.nav [
-            prop.classes ["navbar";"is-fluid"; "has-text-dark"; "has-background-light"]
-            prop.role "navigation"
-            prop.ariaLabel "main navigation"
+            Attr.classes ["navbar";"is-fluid"; "has-text-dark"; "has-background-light"]
+            Attr.role "navigation"
+            Attr.ariaLabel "main navigation"
 
-            prop.children [
-                Html.div [
-                    prop.className "navbar-brand"
-                    prop.children [
-                        Html.a [
-                            prop.id "navbar-burger"
-                            prop.classes ["navbar-burger"; "is-text"; "has-text-dark";]
-
-                            prop.role "button"
-                            prop.ariaLabel "menu"
-                            prop.ariaExpanded false
-                            prop.custom ("data-target", "navbarBasicExample")
-                            prop.children [
-                                Html.span [ prop.ariaHidden true ]
-                                Html.span [ prop.ariaHidden true ]
-                                Html.span [ prop.ariaHidden true ]
-                                Html.span [ prop.ariaHidden true ]
-                            ]
-                        ]
-                    ]
-                ]
-                Html.div [
-                    prop.id "navbarBasicExample"
-                    prop.classes ["navbar-menu"; "navbar-end"]
-                    prop.children [
-                        Html.a [
-                            prop.classes ["navbar-item";]
-                            prop.text "About"
-                            prop.href "about.html"
-                        ]
-
-                    ]
+            Html.div [
+                Attr.className "navbar-brand"
+                Html.a [
+                    Attr.id "navbar-burger"
+                    Attr.classes ["navbar-burger"; "is-text"; "has-text-dark";]
+                    Attr.role "button"
+                    Attr.ariaLabel "menu"
+                    Attr.ariaExpanded false
+                    Attr.custom ("data-target", "navbarBasicExample")
+                    
+                    Html.span [ Attr.ariaHidden true ]
+                    Html.span [ Attr.ariaHidden true ]
+                    Html.span [ Attr.ariaHidden true ]
+                    Html.span [ Attr.ariaHidden true ]
                 ]
             ]
-        ]
+                
+            Html.div [
+                Attr.id "navbarBasicExample"
+                Attr.classes ["navbar-menu"; "navbar-end"]
+                Html.a [
+                    Attr.classes ["navbar-item";]
+                    Html.text "About"
+                    Attr.href "about.html"
+                ]
 
-    let customLinkStyle = [
-        style.color "#363636"
-        style.textDecoration.underline
-        style.fontWeight.bold
-        style.transitionDuration (TimeSpan.FromSeconds(0.3))
-        style.transitionProperty "color"
-        style.transitionTimingFunction.ease
-        
-    ]
-
-    let customLinkHoverStyle = [
-            style.color "#363636"
+            ]
         ]
-        
+            
+    let customLinkStyle = 
+        Attr.style "color:#363636; text-decoration:underline; font-weight:bold; transition-duration:0.3s; transition-property:color; transition-timing-function:ease"
+    
+    let customLinkHoverStyle = 
+        Attr.style "color:#363636"
+
     let footer = 
         Html.footer [
-            prop.classes [ "footer"; "has-text-dark"; "has-background-light"]
-            prop.children [
-                Html.div [
-                    prop.className "content has-text-centered"
-                    prop.children [
-                        Html.p [
-                            Html.strong "Content"
-                            Html.text " by "
-                            Html.a [
-                                prop.style customLinkStyle
-                                prop.href "https://defcon.social/@HarryMcCarney"
-                                prop.text "Harry McCarney"
-                            ]
-                            Html.text ". The source code is licensed "
-                            Html.a [
-                                prop.href "http://opensource.org/licenses/mit-license.php"
-                                prop.text "MIT"
-                            ]
-                            Html.text ". The website content is licensed "
-                            Html.a [
-                                prop.href "http://creativecommons.org/licenses/by-nc-sa/4.0/"
-                                prop.text "CC BY NC SA 4.0"
-                            ]
-                            Html.text "."
-                        ]
+            Attr.classes [ "footer"; "has-text-dark"; "has-background-light"]
+            Html.div [
+                Attr.className "content has-text-centered"
+                Html.p [
+                    Html.strong "Content"
+                    Html.text " by "
+                    Html.a [
+                        customLinkStyle
+                        Attr.href "https://defcon.social/@HarryMcCarney"
+                        Html.text "Harry McCarney"
                     ]
+                    Html.text ". The source code is licensed "
+                    Html.a [
+                        Attr.href "http://opensource.org/licenses/mit-license.php"
+                        Html.text "MIT"
+                    ]
+                    Html.text ". The website content is licensed "
+                    Html.a [
+                        Attr.href "http://creativecommons.org/licenses/by-nc-sa/4.0/"
+                        Html.text "CC BY NC SA 4.0"
+                    ]
+                    Html.text "."
                 ]
             ]
         ]
-    
-
+      
 
     
