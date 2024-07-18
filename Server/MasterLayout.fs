@@ -16,6 +16,8 @@ module MasterLayout =
                     Attr.content "width=device-width, initial-scale=1"
                 ]
 
+
+
                 Html.custom("link",
                     [
                     Attr.rel "stylesheet"
@@ -57,6 +59,14 @@ module MasterLayout =
                 Html.script [
                     Attr.src "Script.js"
                     Attr.type' "module"
+                ]
+
+                Html.script [
+                    Attr.src "https://liteanalytics.com/lite.js"
+                    Attr.custom("data-host", "harrymccarney.com")
+                    Attr.defer true
+                    Attr.async true
+
                 ]
             ]  
 

@@ -101,6 +101,7 @@ module Layout =
                             customLinkStyle
                             Attr.href "https://defcon.social/@HarryMcCarney"
                             Html.text "Harry McCarney"
+                            Attr.rel "me"
                         ]
                         Html.ins [
                             Html.text ". The source code is licensed "
