@@ -9,14 +9,12 @@ module MasterLayout =
             Html.html [
                 Attr.custom("data-theme", "light")
             ]
-            Html.header [
+            Html.head [
                 
-                Html.metadata [
+                Html.custom( "meta", [
                     Attr.name "viewport"
                     Attr.content "width=device-width, initial-scale=1"
-                ]
-
-
+                ])
 
                 Html.custom("link",
                     [
