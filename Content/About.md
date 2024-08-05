@@ -13,4 +13,4 @@ Content reflects my interest in combining ideas from different fields, including
 
 I chose to publish the site on my own domain using an open source blog engine which I wrote myself. It is important to own our own content and to retain the ability to publish directly. Algorithm-driven content platforms and social media, combined with Gen AI, undermine the internet. It won't be long before the majority of the content and profiles on sites like Twitter/X, Facebook, LinkedIn and Medium are bot-generated, including the likes and comments. People need to regroup at the corners of the web where they can think aloud together without manipulation by algorithms and bots.
 
-You can find me on [TMastodon](https://defcon.social/@HarryMcCarney) and [LinkedIn](https://www.linkedin.com/in/harry-mccarney-12003512/) and Harry[at]hackandcraft.com
+You can find me on [Mastodon](https://defcon.social/@HarryMcCarney) and [LinkedIn](https://www.linkedin.com/in/harry-mccarney-12003512/) and Harry[at]hackandcraft.com
