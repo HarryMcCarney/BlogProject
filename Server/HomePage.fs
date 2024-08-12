@@ -181,7 +181,7 @@ module Home =
                 ]  
             Html.div [
                 Attr.classes ["is-size-2"; "is-family-secondary"; "mb-6"; "has-text-dark"; "has-text-weight-light"]
-                Html.text "A collection of ideas in varying stages of bakedness."
+                Html.text "A collection of ideas in varying stages of development."
             ]
         ]
         
