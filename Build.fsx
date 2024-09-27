@@ -4,6 +4,7 @@
 #r "nuget: Suave, 2.6.2"
 #r "nuget: Fake.BuildServer.GitHubActions, 6.0.0"
 #r "nuget: Argu, 6.2.4"
+#r "nuget: FsHttp, 14.5.1"
 
 open Fake.Core
 open Fake.IO
@@ -14,7 +15,8 @@ open Suave.Filters
 open Suave.Operators
 open System.IO
 open Argu
-open ArgumentParserUtils
+open FsHttp
+open System.IO
 
 
 type Arguments =
@@ -48,6 +50,22 @@ let runDir =
         | "Deploy" -> "./docs"
         | "Run" -> "./local"
         | _ -> "./local"
+
+
+
+let downloadFile url outputPath =
+    async {
+        let! response = 
+            http {
+                GET url
+            }
+            |> Request.sendAsync
+
+        let content = response.content.ReadAsStringAsync().Result
+        File.WriteAllText(outputPath, content)
+        printfn "File downloaded and saved to %s" outputPath
+    }
+
 
 System.Environment.GetCommandLineArgs()
 |> Array.skip 2 // 3 if run in interactive window.
@@ -108,12 +126,21 @@ Target.create "Commit" (fun _ ->
         Shell.Exec("git",  "commit -a -m \"deploying to github pages\"") |> ignore
 )
 
+Target.create "CreateRobots" (fun _ ->
+        
+        // Usage
+        let url = "https://raw.githubusercontent.com/ai-robots-txt/ai.robots.txt/main/robots.txt"
+        let outputPath = "./docs/robots.txt"
+
+        downloadFile url outputPath |> Async.RunSynchronously
+)
+
 Target.create "Deploy" (fun _ ->
         Shell.Exec("git", "push") |> ignore
 )
 
 "Clean" ==> "BuildModel" ==> "Render" ==> "CompileJS" ==> "Run" 
 
-"Clean" ==> "BuildModel" ==> "Render" ==> "CompileJS" ==> "Commit" ==> "Deploy"
+"Clean" ==> "BuildModel" ==> "Render" ==> "CompileJS" ==> "CreateRobots" ==>"Commit" ==> "Deploy"
 
 Target.runOrDefaultWithArguments action
