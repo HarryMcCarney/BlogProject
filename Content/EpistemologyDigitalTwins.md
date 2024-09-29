@@ -1,7 +1,7 @@
 ---
 category: Talk
 tags: Digital Twin, Simulation, Philosphy
-updated: 20240417
+updated: 20240929
 created: 20240417
 title: What we can learn from Digital Twins and Simulation — A pragmatic approach to the epistemic status of insights gained from digital models.
 summary: This is a guest lecture I gave at Sussex University’s AI centre on 17th April 2024.
@@ -9,15 +9,9 @@ image: /Epistemology1.png
 ---
 
 # Introduction
-Organisations today are facing increasingly complex challenges. By complex I mean non linear highly dynamic behaviours which are hard to model in equations. Classic examples of complex systems include the weather, the economy, and pandemics. Hack and Craft helps companies trying to understand and manage complex systems more effectively. Our Digital Twin of the world’s largest pallet network is used to ensure the availability of approximately 80% of the world’s consumer goods.
+Organisations are facing increasingly complex challenges. By complex I mean non-linear highly dynamic behaviours which are hard to model in equations. Classic examples of complex systems include the weather, the economy, and pandemics. Hack and Craft helps companies to understand and manage complex systems through the use of digital models. Our Digital Twin of the world’s largest pallet network is used to ensure the availability of approximately 80% of the world’s consumer goods.
 
-We specialise in working with organisations within complex supply chains. They are located in a vast network of interconnected companies each responding to what the others do. These complex systems are not practically possible to model using equations due to the complexity of their dynamics and number of dimensions. Moreover, business leaders want to understand the dynamics of their business in an intuitive and ergonomic way which ‘fits in their head’. Simulations and Digital Twins meet this need.
-
-The ability to explore scenarios in digital replicas enables business and government leaders to de-risk initiatives by visualising potential impacts in a relatively low cost environment which does not disrupt real world operations. However, adoption of these techniques has been slow. This is partly because there is a lack of clarity and shared understanding about the nature of different kinds of digital models and the epistemic status of the insights they can offer. This uncertainty creates unease about their use and ultimately holds back the adoption of these potentially transformative tools.
-
-In this talk I will present a conceptual framework for classifying different types of digital models and the kinds of claims they make. This will require a pragmatic and accessible treatment of a range of issues in philosophy of science and epistemology, including differences between empirical and analytical claims, inductive versus deductive propositions, falsifiability, counterparts, the utility of thought experiments, and predictive versus explanatory models. The talk will bring these philosophical questions down to earth with real examples from Hack and Craft’s experience deploying simulation and digital twins to guide key decisions of global supply chain leaders.
-
-Hopefully the talk will provide a starting point for further work which could firmly establish digital models as a rigorous tool for managing supply chains and other complex business challenges. Lastly, this is very much a work in progress. My hope with sharing these ideas is to get your feedback and have further discussion.
+In this talk I will present a conceptual framework for classifying different types of digital models and the kinds of claims they make. This will require a pragmatic and accessible treatment of a range of issues in philosophy of science and epistemology, including differences between empirical and analytical claims, inductive versus deductive propositions, falsifiability, counterparts, the utility of thought experiments, and predictive versus explanatory models. The talk aims to bring these philosophical questions down to earth with real examples from Hack and Craft’s experience deploying simulation and digital twins.
 
 # The problem with representations
 In order to treat simulation fairly it’s worth reminding ourselves that all access to reality is via models. Plato in his allegory of the cave, depicts a situation in which those dwelling in the cave can only see shadows moving on the wall and take these shadows to be the real thing. These imperfect representations of what Plato calls ‘the forms’ are just a model. He encourages us to consider philosophy as a means to gain access to the real entities. Descartes, writing some 2 thousand years later in 1639, was aware that we have only access to sense data with which we build a mental model in our heads. He worried that there may be a demon trying to deceive us. He concluded that God would never allow that to happen, which may not be a satisfactory explanation. In 1748 David Hume convincingly argued that we never observe causation, only constant correlation. Finally, building on Hume, Kant argued that while we cannot directly access things in themselves, our mental apparatus can present us with representation of it. In all cases these Philosophers were interested in the relationship between the world and our representations, and to what extent we can trust these models.
