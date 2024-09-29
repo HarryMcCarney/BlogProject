@@ -41,7 +41,7 @@ type Posterior =
     { Hypothesis: string
       Prior: float
       Likelihood: float
-      Posterior: float }
+      Posterior: float } //
 
 let calcPosteriors (priors: Prior list) : Posterior list =
     let totalProbability = priors |> List.sumBy (fun r -> r.Prior * r.Likelihood)

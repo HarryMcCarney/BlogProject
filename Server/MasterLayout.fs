@@ -14,6 +14,7 @@ module MasterLayout =
                 Html.custom( "meta", [
                     Attr.name "viewport"
                     Attr.content "width=device-width, initial-scale=1"
+                   
                 ])
 
                 Html.custom("link",

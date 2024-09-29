@@ -79,11 +79,11 @@ module Post =
                 ]
             ]
             Html.div [
-                Attr.classes ["title"; "is-size-1"; "mb-5"; "has-text-dark"]
+                Attr.classes ["title"; "is-size-1"; "is-size-2-mobile"; "mb-5"; "has-text-dark"]
                 Html.text post.Title
             ]
             Html.div [
-                Attr.classes ["subtitle"; "is-size-3"; "is-family-secondary"; "mb-6"; "has-text-dark"]
+                Attr.classes ["subtitle"; "is-size-3"; "is-size-4-mobile";"is-family-secondary"; "mb-6"; "has-text-dark"]
                 Attr.style "font-weight: 350"
                 Html.text post.Summary
             ]
