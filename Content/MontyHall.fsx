@@ -5,7 +5,7 @@ tags: Bayes, H&C, F#, Data Science
 updated: 20240709
 created: 20230929
 title: Bayesian F# Series - 1. The Monty Hall Paradox.
-summary: This is the first in a series of posts exploring how Bayesian Techniques can be implemented in F#. It will also provide simple examples of how to started using Plotly.NET and FSharp.stats. 
+summary: This is the first in a series of posts exploring how Bayesian Techniques can be implemented in F#. It will also provide simple examples of how to start using Plotly.NET and FSharp.stats. 
 image: monty.png
 ---
 *)
@@ -27,7 +27,7 @@ So the probability of a coin landing on heads is established by looking at a seq
 
 In the real world H&C's clients often have partial and noisy data. And they nearly alway have some pre-existing beliefs which should guide our analysis.
 
-This is where Bayesian techniques can help. Instead of trying to calculate the probability of heads from the data, the Bayesian asks, given this data what the probability that this is a 50/50 coin. They can also ask what the probability that this is 33$ coin or a 66% coin.
+This is where Bayesian techniques can help. Instead of trying to calculate the probability of heads from the data, the Bayesian asks, given this data what the probability that this is a 50/50 coin. They can also ask what the probability that this is 33% coin or a 66% coin.
 
 These three coins represent three different hypotheses which are equally likely before we see the sequence of flips but not equally likely afterwards. Given that only 4/12 flips return heads we can infer that its now more likely that we have 33% coins than a 66% coin.
 
