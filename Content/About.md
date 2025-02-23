@@ -8,7 +8,7 @@ Our work in simulation and data science optimises the resilience and efficiency 
 supply chain.
 My current focus is on [SimPath](https://simpath.io/) which utilises Network Science and Genetic Algorithms to make
 global supply chains more sustainable.
-I am also privileged to be a Guest Lecturer on Sussex University's postgraduate Network Science course and at their AI
+I am also privileged to be a guest lecturer on Sussex University's postgraduate Network Science course and at their AI
 Centre.
 
 Content here reflects my interest in combining ideas from different fields - including Network Science, Statistics, Programming, Simulation and Philosophy.
