@@ -1,16 +1,24 @@
----
-category: About
-tags:
-updated: 20240805
-created: 20240620
-title: About
-summary: lorem
----
+Welcome to my blog. It's something between a blog, scrapbook and notepad and most of the entries are works in progress.
+I created it to store and share
+various bits of content I have produced which don't fit well elsewhere.
 
-I created this blog as I needed somewhere to store and share various bits of content I have produced. Some of them are more polished than others so the site follows more of a ‘public notes’ ethos, rather than a formal blog.  Publication of notes imposes some discipline but avoids the perfectionism that thwarted my previous attempts to maintain a blog. Everything here is a work in progress, posts are frequently updated and aren't sorted chronologically.
+I am the founder and chair of [Hack and Craft](https://hackandcraft.com/) which delivers technology for some of the
+largest and most complex companies in the world.
+Our work in simulation and data science optimises the resilience and efficiency of 80% of the world's consumer goods
+supply chain.
+My current focus is on [SimPath](https://simpath.io/) which utilises Network Science and Genetic algorithms to make
+global supply chains more sustainable.
+I am also privileged to be a Guest Lecturer on Sussex University's postgraduate Network Science course and at their AI
+Centre.
 
-Content reflects my interest in combining ideas from different fields, including, Network Science, Statistics, Logistics, Programming, Simulation and Philosophy. Any modest success I have had has largely been due to my averageness in a range of disciplines and occasional fortuitous connections I have made between these fields.  I am also fortunate to have a team of people smarter than myself at [Hack and Craft](https://hackandcraft.com/) who do their best to find the sense and/or utility in my ideas. Currently our work in simulation and data science optimises the resilience and efficiency of 80% of the world's consumer goods supply chain.
+Content here reflects my interest in combining ideas from different fields - including Network Science, Statistics,
+Logistics, Programming, Simulation and Philosophy.
+Any modest success I have had is largely due to my averageness in a number of disciplines and occasional fortuitous
+connections I have made between them.
+I am also fortunate to work with people smarter than myself who do their best to find the sense and/or utility in my
+ideas.
+The blog runs on [this](https://github.com/HarryMcCarney/BlogProject) engine which I built. It's open source and, with
+the usual disclaimers, free to use and contribute to.
 
-I chose to publish the site on my own domain using an open source [blog engine](https://github.com/HarryMcCarney/BlogProject) which I wrote myself. In an age of corporate content platforms, algorithm bias and  GenAi  - it is important to own our own content and to retain the ability to publish to the web independently. 
-
-You can find me on [Mastodon](https://defcon.social/@HarryMcCarney) and [LinkedIn](https://www.linkedin.com/in/harry-mccarney-12003512/) and mail@harrymccarney.com
+You can find me on [Mastodon](https://defcon.social/@HarryMcCarney)
+and [LinkedIn](https://www.linkedin.com/in/harry-mccarney-12003512/) and mail[at]harrymccarney.com. 
