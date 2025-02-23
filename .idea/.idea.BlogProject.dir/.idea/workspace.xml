@@ -10,36 +10,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d98f74b1-bf53-4783-b77a-1688205a428e" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/Client/Script.fs" beforeDir="false" afterPath="$PROJECT_DIR$/Client/Script.fs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/About.md" beforeDir="false" afterPath="$PROJECT_DIR$/Content/About.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/bin/Debug/net7.0/Model.deps.json" beforeDir="false" afterPath="$PROJECT_DIR$/Model/bin/Debug/net7.0/Model.deps.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/bin/Debug/net7.0/Model.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Model/bin/Debug/net7.0/Model.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/bin/Debug/net7.0/Model.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/Model/bin/Debug/net7.0/Model.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/bin/Release/net7.0/Model.fable-temp.deps.json" beforeDir="false" afterPath="$PROJECT_DIR$/Model/bin/Release/net7.0/Model.fable-temp.deps.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/obj/Debug/net7.0/.NETCoreApp,Version=v7.0.AssemblyAttributes.fs" beforeDir="false" afterPath="$PROJECT_DIR$/Model/obj/Debug/net7.0/.NETCoreApp,Version=v7.0.AssemblyAttributes.fs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/obj/Debug/net7.0/Model.AssemblyInfo.fs" beforeDir="false" afterPath="$PROJECT_DIR$/Model/obj/Debug/net7.0/Model.AssemblyInfo.fs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/obj/Debug/net7.0/Model.AssemblyInfoInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/Model/obj/Debug/net7.0/Model.AssemblyInfoInputs.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/obj/Debug/net7.0/Model.assets.cache" beforeDir="false" afterPath="$PROJECT_DIR$/Model/obj/Debug/net7.0/Model.assets.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/obj/Debug/net7.0/Model.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Model/obj/Debug/net7.0/Model.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/obj/Debug/net7.0/Model.fsproj.AssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/Model/obj/Debug/net7.0/Model.fsproj.AssemblyReference.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/obj/Debug/net7.0/Model.fsproj.CoreCompileInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/Model/obj/Debug/net7.0/Model.fsproj.CoreCompileInputs.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/obj/Debug/net7.0/Model.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/Model/obj/Debug/net7.0/Model.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/obj/Debug/net7.0/ref/Model.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Model/obj/Debug/net7.0/ref/Model.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/obj/Debug/net7.0/refint/Model.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Model/obj/Debug/net7.0/refint/Model.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/obj/Model.fsproj.nuget.dgspec.json" beforeDir="false" afterPath="$PROJECT_DIR$/Model/obj/Model.fsproj.nuget.dgspec.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/obj/Release/net7.0/.NETCoreApp,Version=v7.0.AssemblyAttributes.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Model/obj/Release/net7.0/.NETCoreApp,Version=v7.0.AssemblyAttributes.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/obj/Release/net7.0/Model.fable-temp.AssemblyInfo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Model/obj/Release/net7.0/Model.fable-temp.AssemblyInfo.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/obj/Release/net7.0/Model.fable-temp.AssemblyInfoInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/Model/obj/Release/net7.0/Model.fable-temp.AssemblyInfoInputs.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/obj/Release/net7.0/Model.fable-temp.assets.cache" beforeDir="false" afterPath="$PROJECT_DIR$/Model/obj/Release/net7.0/Model.fable-temp.assets.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/obj/model.fsproj.nuget.g.props" beforeDir="false" afterPath="$PROJECT_DIR$/Model/obj/model.fsproj.nuget.g.props" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/obj/project.assets.json" beforeDir="false" afterPath="$PROJECT_DIR$/Model/obj/project.assets.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/obj/project.nuget.cache" beforeDir="false" afterPath="$PROJECT_DIR$/Model/obj/project.nuget.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/HomePage.fs" beforeDir="false" afterPath="$PROJECT_DIR$/Server/HomePage.fs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/Server.fsproj" beforeDir="false" afterPath="$PROJECT_DIR$/Server/Server.fsproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/testing.fsx" beforeDir="false" />
-    </list>
+    <list default="true" id="5ee483cf-ef67-471d-a123-915d7a790a2f" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
