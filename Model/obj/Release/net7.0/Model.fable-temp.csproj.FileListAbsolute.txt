@@ -6,3 +6,7 @@ C:\Projects\BlogProject\BlogProject\Model\bin\Release\net7.0\Model.fable-temp.de
 C:\Projects\BlogProject\BlogProject\Model\obj\Release\net7.0\Model.fable-temp.GeneratedMSBuildEditorConfig.editorconfig
 C:\Projects\BlogProject\BlogProject\Model\obj\Release\net7.0\Model.fable-temp.AssemblyInfoInputs.cache
 C:\Projects\BlogProject\BlogProject\Model\obj\Release\net7.0\Model.fable-temp.AssemblyInfo.cs
+C:\Projects\BlogProject2\Model\bin\Release\net7.0\Model.fable-temp.deps.json
+C:\Projects\BlogProject2\Model\obj\Release\net7.0\Model.fable-temp.GeneratedMSBuildEditorConfig.editorconfig
+C:\Projects\BlogProject2\Model\obj\Release\net7.0\Model.fable-temp.AssemblyInfoInputs.cache
+C:\Projects\BlogProject2\Model\obj\Release\net7.0\Model.fable-temp.AssemblyInfo.cs

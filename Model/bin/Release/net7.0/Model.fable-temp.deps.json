@@ -8,17 +8,17 @@
     ".NETCoreApp,Version=v7.0": {
       "Model.fable-temp/1.0.0": {
         "dependencies": {
-          "FSharp.Core": "8.0.401"
+          "FSharp.Core": "9.0.101"
         },
         "runtime": {
           "Model.fable-temp.dll": {}
         }
       },
-      "FSharp.Core/8.0.401": {
+      "FSharp.Core/9.0.101": {
         "runtime": {
           "lib/netstandard2.1/FSharp.Core.dll": {
-            "assemblyVersion": "8.0.0.0",
-            "fileVersion": "8.4.124.42107"
+            "assemblyVersion": "9.0.0.0",
+            "fileVersion": "9.1.124.60203"
           }
         },
         "resources": {
@@ -71,12 +71,12 @@
       "serviceable": false,
       "sha512": ""
     },
-    "FSharp.Core/8.0.401": {
+    "FSharp.Core/9.0.101": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-pvmquLrs82m8WqWB49Gj+hsmnWURkUbc++pJ0P2NdrEv1ZVVrhDNjSiFNP4wW4HiTowwaRhjiBc5IKNV35Vf/A==",
-      "path": "fsharp.core/8.0.401",
-      "hashPath": "fsharp.core.8.0.401.nupkg.sha512"
+      "sha512": "sha512-3/YR1SDWFA+Ojx9HiBwND+0UR8ZWoeZfkhD0DWAPCDdr/YI+CyFkArmMGzGSyPXeYtjG0sy0emzfyNwjt7zhig==",
+      "path": "fsharp.core/9.0.101",
+      "hashPath": "fsharp.core.9.0.101.nupkg.sha512"
     }
   }
 }
