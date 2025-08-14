@@ -1,7 +1,8 @@
 #r "nuget: FSharp.Formatting, 20.0.1"
-open FSharp.Formatting.Literate 
+open FSharp.Formatting.Literate
 
-let codeSnippet = """
+let codeSnippet =
+    """
 let square x = x * x
 square 5
 """

@@ -204,28 +204,30 @@ let calcPosteriors (priors: Prior list) : Posterior list =
           Posterior = ((h.Prior * h.Likelihood) / totalProbability) })
 
 let montyPriors =
-    [ 
-      { Hypothesis = "H1"
+    [ { Hypothesis = "H1"
         Prior = 0.3333333333
-        Likelihood = 0.5 
-      }
+        Likelihood = 0.5 }
       { Hypothesis = "H2"
         Prior = 0.3333333333
         Likelihood = 1 }
       { Hypothesis = "H3"
         Prior = 0.3333333333
-        Likelihood = 0 
-      } ]
+        Likelihood = 0 } ]
 
-let montyPosteriors =  montyPriors |> calcPosteriors
-  
-let rds (n: float)=
-  Math.Round (n,3) |> string
+let montyPosteriors = montyPriors |> calcPosteriors
+
+let rds (n: float) = Math.Round(n, 3) |> string
 
 Chart.Table(
-      headerValues = ["<b>Hypothesis</b>"; "<b>Probability</b>";"<b>Likelihood of opening door 3</b>"; "<b>Posterior</b>"],
-      cellsValues = (montyPosteriors |> List.map( fun p -> [p.Hypothesis; rds p.Prior; rds p.Likelihood; rds p.Posterior]))
-  )
+    headerValues =
+        [ "<b>Hypothesis</b>"
+          "<b>Probability</b>"
+          "<b>Likelihood of opening door 3</b>"
+          "<b>Posterior</b>" ],
+    cellsValues =
+        (montyPosteriors
+         |> List.map (fun p -> [ p.Hypothesis; rds p.Prior; rds p.Likelihood; rds p.Posterior ]))
+)
 |> GenericChart.toEmbeddedHTML
 (***include-it-raw***)
 (**

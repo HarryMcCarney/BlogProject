@@ -1,16 +1,15 @@
-﻿
-namespace blog
+﻿namespace blog
 
-module Scripts = 
+module Scripts =
 
     open Browser.Dom
     open Fable.Core
-    open Model 
+    open Model
     open Thoth.Json
     open System
     open Fable.SimpleHttp
 
-    let categoryDecoder : Decoder<Category> =
+    let categoryDecoder: Decoder<Category> =
         Decode.string
         |> Decode.andThen (function
             | "Draft" -> Decode.succeed Draft
@@ -19,34 +18,27 @@ module Scripts =
             | "Talk" -> Decode.succeed Talk
             | other -> Decode.fail $"Unknown category: {other}")
 
-    let dateTimeDecoder : Decoder<DateTime> =
+    let dateTimeDecoder: Decoder<DateTime> =
         Decode.string
         |> Decode.andThen (fun dateString ->
             match DateTime.TryParse(dateString) with
             | (true, date) -> Decode.succeed date
             | _ -> Decode.fail $"Invalid date: {dateString}")
 
-    let postDecoder : Decoder<Post> =
+    let postDecoder: Decoder<Post> =
         Decode.object (fun get ->
-            {
-                FileName = get.Required.Field "FileName" Decode.string
-                Title = get.Required.Field "Title" Decode.string
-                Summary = get.Required.Field "Summary" Decode.string
-                MainImage = get.Optional.Field "MainImage" Decode.string 
-                Content = get.Required.Field "Content" Decode.string
-                Tags = get.Required.Field "Tags" (Decode.array Decode.string)
-                Category = get.Required.Field "Category" categoryDecoder
-                Updated = get.Required.Field "Updated" dateTimeDecoder
-                Created = get.Required.Field "Created" dateTimeDecoder
-            }
-        )
+            { FileName = get.Required.Field "FileName" Decode.string
+              Title = get.Required.Field "Title" Decode.string
+              Summary = get.Required.Field "Summary" Decode.string
+              MainImage = get.Optional.Field "MainImage" Decode.string
+              Content = get.Required.Field "Content" Decode.string
+              Tags = get.Required.Field "Tags" (Decode.array Decode.string)
+              Category = get.Required.Field "Category" categoryDecoder
+              Updated = get.Required.Field "Updated" dateTimeDecoder
+              Created = get.Required.Field "Created" dateTimeDecoder })
 
-    let jsonContainerDecoder : Decoder<JsonContainer> =
-        Decode.object (fun get ->
-            {
-                Posts = get.Required.Field "Posts" (Decode.seq postDecoder)
-            }
-        )
+    let jsonContainerDecoder: Decoder<JsonContainer> =
+        Decode.object (fun get -> { Posts = get.Required.Field "Posts" (Decode.seq postDecoder) })
 
     let fetchJson (url: string) =
         async {
@@ -55,169 +47,162 @@ module Scripts =
                 |> Http.method GET
                 |> Http.overrideMimeType "application/json"
                 |> Http.send
-            
+
             match Decode.fromString jsonContainerDecoder response.responseText with
-            | Ok data ->
-                return Some data
+            | Ok data -> return Some data
             | Error error ->
                 printfn "Failed to decode JSON: %s" error
                 return None
         }
 
-    let addTagFilters() =
-        async{
-            
+    let addTagFilters () =
+        async {
+
             let! searchIndex = (fetchJson "SearchIndex.json")
 
-            match searchIndex with 
-            | Some si -> 
-                let nodes = document.getElementsByClassName("tag")
+            match searchIndex with
+            | Some si ->
+                let nodes = document.getElementsByClassName ("tag")
                 let tags = seq { for i in 0 .. nodes.length - 1 -> nodes.[i] }
-                let postNodes = document.getElementsByClassName("post-card")
+                let postNodes = document.getElementsByClassName ("post-card")
                 let posts = seq { for i in 0 .. postNodes.length - 1 -> postNodes.[i] }
 
                 tags
-                |> Seq.iter(fun t -> 
-                    t.addEventListener("click", fun _ ->
+                |> Seq.iter (fun t ->
+                    t.addEventListener (
+                        "click",
+                        fun _ ->
 
-                        //same tag already selected 
-                        if t.classList.contains "is-primary" then 
-                            t.classList.remove("is-primary") |> ignore
-                            posts
-                            |> Seq.iter(fun p ->   p.classList.remove("is-hidden") )
+                            //same tag already selected
+                            if t.classList.contains "is-primary" then
+                                t.classList.remove ("is-primary") |> ignore
+                                posts |> Seq.iter (fun p -> p.classList.remove ("is-hidden"))
 
-                           
-                        else  // new tag selected
-                            tags
-                            |> Seq.iter(fun x -> 
-                                x.classList.remove("is-primary") |> ignore)
-                            
-                            posts
-                            |> Seq.iter(fun p ->   p.classList.remove("is-hidden") )
 
-                            t.classList.add("is-primary") |> ignore
+                            else // new tag selected
+                                tags |> Seq.iter (fun x -> x.classList.remove ("is-primary") |> ignore)
 
-                            let postsToHide = 
-                                si.Posts
-                                |> Seq.filter(fun p -> not (p.Tags |> Array.contains t.id))
-                                |> Seq.map(fun p -> p.FileName)
+                                posts |> Seq.iter (fun p -> p.classList.remove ("is-hidden"))
 
-                            posts
-                            |> Seq.filter(fun p -> postsToHide |> Seq.contains p.id)
-                            |> Seq.iter(fun p -> 
-                                p.classList.toggle("is-hidden") 
-                                |> ignore
+                                t.classList.add ("is-primary") |> ignore
 
-                        )
-                    )
-                )
+                                let postsToHide =
+                                    si.Posts
+                                    |> Seq.filter (fun p -> not (p.Tags |> Array.contains t.id))
+                                    |> Seq.map (fun p -> p.FileName)
+
+                                posts
+                                |> Seq.filter (fun p -> postsToHide |> Seq.contains p.id)
+                                |> Seq.iter (fun p -> p.classList.toggle ("is-hidden") |> ignore
+
+                                )
+                    ))
             | None -> failwith "cannot access search index"
-        } |> Async.StartImmediate
-    
-    let expandHamburger() =
-        
-            let burger = document.getElementById("navbar-burger")
-            let menu = document.getElementById("navbarBasicExample")
+        }
+        |> Async.StartImmediate
 
-            burger.addEventListener("click", fun _ ->
-                burger.classList.toggle("is-active") 
-                |> ignore
-                menu.classList.toggle("is-active") 
-                |> ignore 
-            )
+    let expandHamburger () =
 
-    let hideFsiOutput() = 
-        let outputs = document.getElementsByClassName("fsdocs-tip")
-        let elements = seq { for i in 0 .. outputs.length - 1 -> outputs.[i] }
-        elements
-        |> Seq.iter(fun e -> e.classList.add("is-hidden"))
+        let burger = document.getElementById ("navbar-burger")
+        let menu = document.getElementById ("navbarBasicExample")
 
-
-    let addCardClickEvents() = 
-        let postNodes = document.getElementsByClassName("post-card")
-        let posts = seq { for i in 0 .. postNodes.length - 1 -> postNodes.[i] }
-        posts
-        |> Seq.iter(fun p -> 
-            p.addEventListener("click", fun _ ->
-                Browser.Dom.window.location.href <- (sprintf "%s.html" p.id)
-
-            )
+        burger.addEventListener (
+            "click",
+            fun _ ->
+                burger.classList.toggle ("is-active") |> ignore
+                menu.classList.toggle ("is-active") |> ignore
         )
 
-    let addCategoryDropDown() =
-        async{
+    let hideFsiOutput () =
+        let outputs = document.getElementsByClassName ("fsdocs-tip")
+        let elements = seq { for i in 0 .. outputs.length - 1 -> outputs.[i] }
+        elements |> Seq.iter (fun e -> e.classList.add ("is-hidden"))
+
+
+    let addCardClickEvents () =
+        let postNodes = document.getElementsByClassName ("post-card")
+        let posts = seq { for i in 0 .. postNodes.length - 1 -> postNodes.[i] }
+
+        posts
+        |> Seq.iter (fun p ->
+            p.addEventListener (
+                "click",
+                fun _ -> Browser.Dom.window.location.href <- (sprintf "%s.html" p.id)
+
+            ))
+
+    let addCategoryDropDown () =
+        async {
 
             let! searchIndex = (fetchJson "SearchIndex.json")
-            match searchIndex with 
-            | Some si -> 
+
+            match searchIndex with
+            | Some si ->
 
                 let dropdown = document.getElementById "category_dropdown"
-                
-                dropdown.addEventListener("click", fun _ -> 
-                    dropdown.classList.toggle("is-active") |> ignore
-                    )
+
+                dropdown.addEventListener ("click", fun _ -> dropdown.classList.toggle ("is-active") |> ignore)
                 let items = document.getElementsByClassName "dropdown-item"
                 let itemElements = seq { for i in 0 .. items.length - 1 -> items.[i] }
 
-                let postNodes = document.getElementsByClassName("post-card")
+                let postNodes = document.getElementsByClassName ("post-card")
                 let posts = seq { for i in 0 .. postNodes.length - 1 -> postNodes.[i] }
 
-                let getCategory str = 
-                    match str with 
-                    |"dropdown_Essay" -> Essay
-                    |"dropdown_Note" -> Note
-                    |"dropdown_Talk" -> Talk
+                let getCategory str =
+                    match str with
+                    | "dropdown_Essay" -> Essay
+                    | "dropdown_Note" -> Note
+                    | "dropdown_Talk" -> Talk
                     | _ -> failwith "unknown category"
 
                 itemElements
-                |> Seq.iter(fun i -> 
-                    i.addEventListener("click", fun _ -> 
-                    
-                        let button = document.getElementById "dropdown_button_text"
+                |> Seq.iter (fun i ->
+                    i.addEventListener (
+                        "click",
+                        fun _ ->
 
-                        button.innerText <-
-                            match i.id with 
-                            |"dropdown_Essay" -> "Essays"
-                            |"dropdown_Note" -> "Notes"
-                            |"dropdown_Talk" -> "Talks"
-                            | _ -> "All Types"
+                            let button = document.getElementById "dropdown_button_text"
+
+                            button.innerText <-
+                                match i.id with
+                                | "dropdown_Essay" -> "Essays"
+                                | "dropdown_Note" -> "Notes"
+                                | "dropdown_Talk" -> "Talks"
+                                | _ -> "All Types"
 
 
-                        posts
-                        |> Seq.iter(fun p ->   p.classList.remove("is-hidden") )
+                            posts |> Seq.iter (fun p -> p.classList.remove ("is-hidden"))
 
-                        let postsToHide = 
-                            si.Posts
-                            |> Seq.filter(fun p -> if i.id = "dropdown_all" then false else p.Category <> (getCategory i.id))
-                            |> Seq.map(fun p -> p.FileName)
+                            let postsToHide =
+                                si.Posts
+                                |> Seq.filter (fun p ->
+                                    if i.id = "dropdown_all" then
+                                        false
+                                    else
+                                        p.Category <> (getCategory i.id))
+                                |> Seq.map (fun p -> p.FileName)
 
-                        posts
-                        |> Seq.filter(fun p -> postsToHide |> Seq.contains p.id)
-                        |> Seq.iter(fun p -> 
-                            p.classList.toggle("is-hidden") 
-                            |> ignore
-                        )
-                    )
-                )
-            | None ->  failwith "No search index found"
-        }|> Async.StartImmediate
-    
-        
+                            posts
+                            |> Seq.filter (fun p -> postsToHide |> Seq.contains p.id)
+                            |> Seq.iter (fun p -> p.classList.toggle ("is-hidden") |> ignore)
+                    ))
+            | None -> failwith "No search index found"
+        }
+        |> Async.StartImmediate
 
-    let execScripts() =
-        async{
-            expandHamburger() |> ignore
-            hideFsiOutput() |> ignore
-            addTagFilters() |> ignore
-            addCardClickEvents()  |> ignore
-            addCategoryDropDown() |> ignore
-        } |> Async.StartImmediate
+
+
+    let execScripts () =
+        async {
+            expandHamburger () |> ignore
+            hideFsiOutput () |> ignore
+            addTagFilters () |> ignore
+            addCardClickEvents () |> ignore
+            addCategoryDropDown () |> ignore
+        }
+        |> Async.StartImmediate
 
     [<Emit("window.execScripts = $0")>]
     let exportexecScripts (greet: obj) = jsNative
-  
+
     exportexecScripts execScripts
-
-
-
-

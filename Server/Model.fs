@@ -1,26 +1,21 @@
 namespace blog
 
-module Model = 
-    
+module Model =
+
 
     open System
 
-    type Category = 
+    type Category =
         | Draft
         | Note
-        | Essay 
-        
-
-    type Post = {
-        FileName : string
-        Title : string
-        Content : string 
-        Tags : string array
-        Category : Category
-        Updated : DateTime
-        Created : DateTime
-    }
+        | Essay
 
 
-
-
+    type Post =
+        { FileName: string
+          Title: string
+          Content: string
+          Tags: string array
+          Category: Category
+          Updated: DateTime
+          Created: DateTime }

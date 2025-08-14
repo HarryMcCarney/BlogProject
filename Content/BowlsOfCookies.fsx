@@ -41,7 +41,7 @@ type Posterior =
     { Hypothesis: string
       Prior: float
       Likelihood: float
-      Posterior: float } 
+      Posterior: float }
 
 let calcPosteriors (priors: Prior list) : Posterior list =
     let totalProbability = priors |> List.sumBy (fun r -> r.Prior * r.Likelihood)
@@ -61,10 +61,10 @@ let priors =
         Prior = 0.5
         Likelihood = 0.50 } ]
 
-priors 
-|> calcPosteriors 
+priors
+|> calcPosteriors
 |> Printer
-|> Printer.withColumns [ "Hypothesis"; "Prior"; "Likelihood" ; "Posterior"  ]
+|> Printer.withColumns [ "Hypothesis"; "Prior"; "Likelihood"; "Posterior" ]
 |> Printer.print
 (***include-it ***)
 (**   
@@ -77,16 +77,19 @@ In order to model these scenarios we need to start representing our hypotheses a
 For illustration we can rewrite the simple example above with the support of the fsharp.stats library.
 *)
 #r "nuget: FSharp.Stats, 0.4.12-preview.1"
+
 open FSharp.Stats
 open FSharp.Stats.Distributions
 
-let die = EmpiricalDistribution.createNominal() [ 1; 2; 3; 4; 5; 6 ]
+let die = EmpiricalDistribution.createNominal () [ 1; 2; 3; 4; 5; 6 ]
 die
 (***include-it ***)
 
 #r "nuget: FSharp.Stats, 0.4.12-preview.1"
+
 open FSharp.Stats
 open FSharp.Stats.Distributions
+
 let priorDist = EmpiricalDistribution.createNominal () [ "Bowl 1"; "Bowl 2" ]
 
 let likelihoodVanilla = [ "Bowl 1", 0.75; "Bowl 2", 0.5 ] |> Map.ofSeq
@@ -111,8 +114,8 @@ updatePosteriorDist likelihoodVanilla priorDist
 (**
 Interestingly we can easily see what the probability would look like if we had drawn 10 vanilla cookies in a row.
 *)
-[1..10]
-|> List.fold(fun dist _ -> updatePosteriorDist likelihoodVanilla dist) priorDist
+[ 1..10 ]
+|> List.fold (fun dist _ -> updatePosteriorDist likelihoodVanilla dist) priorDist
 (***include-it ***)
 (**
 The key difference in the example above is the use of the EmpiricalDistribution module to create a Probability mass function (PMF). 
@@ -130,7 +133,7 @@ bowl 1 has 1 % and bowl 2 has 2% etc right up to bowl 100 which has 100% vanilla
 
 This can be modelled with PMF as follows
 *)
-let prior101Dist = EmpiricalDistribution.createNominal () {0..100}
+let prior101Dist = EmpiricalDistribution.createNominal () { 0..100 }
 prior101Dist
 (***include-it ***)
 (**
@@ -147,6 +150,7 @@ We can then calculate the probability of each bowl given a vanilla cookie using 
 *)
 let hundredBowlsPosterior =
     updatePosteriorDist likelihoodVanillaDistribution prior101Dist
+
 hundredBowlsPosterior
 (***include-it ***)
 (**
@@ -163,16 +167,17 @@ let drawChart priorDist posteriorDist vanillas chocolates =
 
     let prior101DistLine = Chart.Line((priorDist |> Map.toSeq), Name = "Prior")
 
-    let title = (sprintf "Posterior after %i vanilla cookies and %i chocolate cookies" vanillas chocolates)
-            
+    let title =
+        (sprintf "Posterior after %i vanilla cookies and %i chocolate cookies" vanillas chocolates)
+
 
     [ posteriorAfterOneVanillaLine; prior101DistLine ]
     |> Chart.combine
     |> Chart.withXAxisStyle ("Bowl")
     |> Chart.withYAxisStyle ("PMF")
-    |> Chart.withTitle(title)
+    |> Chart.withTitle (title)
     |> GenericChart.toEmbeddedHTML
-    
+
 
 drawChart prior101Dist hundredBowlsPosterior 1 0
 (***include-it-raw***)

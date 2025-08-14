@@ -25,3 +25,17 @@ C:\Projects\BlogProject\Model\obj\Debug\net7.0\refint\Model.dll
 C:\Projects\BlogProject\Model\obj\Debug\net7.0\Model.xml
 C:\Projects\BlogProject\Model\obj\Debug\net7.0\Model.pdb
 C:\Projects\BlogProject\Model\obj\Debug\net7.0\ref\Model.dll
+C:\Projects\BlogProject2\Model\bin\Debug\net7.0\Model.deps.json
+C:\Projects\BlogProject2\Model\bin\Debug\net7.0\Model.dll
+C:\Projects\BlogProject2\Model\bin\Debug\net7.0\Model.pdb
+C:\Projects\BlogProject2\Model\bin\Debug\net7.0\Model.xml
+C:\Projects\BlogProject2\Model\obj\Debug\net7.0\Model.fsproj.AssemblyReference.cache
+C:\Projects\BlogProject2\Model\obj\Debug\net7.0\Model.AssemblyInfoInputs.cache
+C:\Projects\BlogProject2\Model\obj\Debug\net7.0\Model.AssemblyInfo.fs
+C:\Projects\BlogProject2\Model\obj\Debug\net7.0\Model.fsproj.CoreCompileInputs.cache
+C:\Projects\BlogProject2\Model\obj\Debug\net7.0\Model.sourcelink.json
+C:\Projects\BlogProject2\Model\obj\Debug\net7.0\Model.dll
+C:\Projects\BlogProject2\Model\obj\Debug\net7.0\refint\Model.dll
+C:\Projects\BlogProject2\Model\obj\Debug\net7.0\Model.xml
+C:\Projects\BlogProject2\Model\obj\Debug\net7.0\Model.pdb
+C:\Projects\BlogProject2\Model\obj\Debug\net7.0\ref\Model.dll
